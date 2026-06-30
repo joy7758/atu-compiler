@@ -1,12 +1,15 @@
 # ATU Compiler
 
-ATU Compiler is a local v0.2-alpha implementation of the **ATU Trace-to-Dataset
+ATU Compiler is a v0.2 implementation of the **ATU Trace-to-Dataset
 Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: local alpha implementation. There is no public DOI, no Hugging
-Face publication, no JOSS submission, and no upstream PR in this repository yet.
+Current status: release-prep implementation. There is no confirmed Zenodo DOI,
+Hugging Face publication, JOSS submission, or upstream PR until those external
+actions are performed and recorded.
+
+License: Apache-2.0.
 
 ## Agent-Readable Entry Points
 
@@ -59,10 +62,10 @@ atu replay-manifest --input out/atu.jsonl --output replay/manifests
 atu project-langsmith --input out/atu.jsonl --output out/langsmith_projection.json
 ```
 
-Run tests:
+Run release checks:
 
 ```bash
-python -m pytest
+make release-check
 ```
 
 ## Compiler Contract

@@ -1,5 +1,5 @@
 ---
-license: mit
+license: apache-2.0
 task_categories:
   - text-generation
 tags:
@@ -14,9 +14,10 @@ size_categories:
 
 # ATU Trace 1000
 
-This is a local dataset-card scaffold generated from ATU-IR episodes. The
-current package contains 3 synthetic or local episodes and is not
-published to Hugging Face by this repository.
+This is a dataset-card scaffold generated from ATU-IR episodes. The current
+package contains 3 synthetic or local episodes. It is ready for
+manual Hugging Face repository upload after review, but this repository does
+not claim upload until that external action is performed.
 
 ## Dataset Summary
 
@@ -52,5 +53,5 @@ deterministic labels.
 ## Privacy and Licensing
 
 Public exports must use synthetic or explicitly licensed traces after redaction.
-This local scaffold does not claim external publication, DOI assignment, or
-third-party validation.
+This scaffold does not claim external publication, DOI assignment, or
+third-party validation until those actions are recorded.

@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "atu-compiler"
-version = "0.2.0a1"
+version = "0.2.0"
 description = "ATU v0.2 trace-to-dataset compiler profile"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "MIT"
-authors = [{ name = "ATU contributors" }]
+license = "Apache-2.0"
+authors = [{ name = "Zhang Bin" }]
 keywords = [
   "agent-traces",
   "opentelemetry",
@@ -19,10 +19,10 @@ keywords = [
   "promptfoo",
 ]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
+  "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",

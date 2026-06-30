@@ -3,8 +3,9 @@
 Purpose: compile heterogeneous agent traces into deterministic ATU-IR episodes
 for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
 
-Status: local alpha, version 0.2.0-alpha1. No DOI, no public dataset publish,
-no JOSS submission, and no upstream PR are claimed by this repository.
+Status: release-prep, version 0.2.0. No Zenodo DOI, public dataset upload,
+JOSS submission, GitHub release, or upstream PR is claimed until that external
+action is performed and recorded.
 
 Canonical commands:
 
@@ -16,7 +17,7 @@ Canonical commands:
 - Export HF dataset: `atu export-hf --input out/atu.jsonl --output datasets/atu-trace-1000`
 - Export Promptfoo suite: `atu export-promptfoo --input out/atu.jsonl --output evals/promptfoo`
 - Build replay manifests: `atu replay-manifest --input out/atu.jsonl --output replay/manifests`
-- Test: `python -m pytest`
+- Release check: `make release-check`
 
 Important files:
 
@@ -34,4 +35,5 @@ Protocol boundaries:
 - ATU-IR JSONL is the normalized compiler output.
 - Replay manifests and receipts describe replay/audit, not external validation.
 - Dataset and Promptfoo exports are generated views, not separate source truth.
-- Citation files are local readiness until a release or DOI exists.
+- Citation and Zenodo files are release readiness surfaces until external
+  publication and DOI actions happen.

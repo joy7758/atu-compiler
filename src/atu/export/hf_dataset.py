@@ -39,7 +39,7 @@ def split_episodes(episodes: list[dict[str, Any]]) -> dict[str, list[dict[str, A
 
 def dataset_card(episodes: list[dict[str, Any]]) -> str:
     return f"""---
-license: mit
+license: apache-2.0
 task_categories:
   - text-generation
 tags:
@@ -54,9 +54,10 @@ size_categories:
 
 # ATU Trace 1000
 
-This is a local dataset-card scaffold generated from ATU-IR episodes. The
-current package contains {len(episodes)} synthetic or local episodes and is not
-published to Hugging Face by this repository.
+This is a dataset-card scaffold generated from ATU-IR episodes. The current
+package contains {len(episodes)} synthetic or local episodes. It is ready for
+manual Hugging Face repository upload after review, but this repository does
+not claim upload until that external action is performed.
 
 ## Dataset Summary
 
@@ -92,8 +93,8 @@ deterministic labels.
 ## Privacy and Licensing
 
 Public exports must use synthetic or explicitly licensed traces after redaction.
-This local scaffold does not claim external publication, DOI assignment, or
-third-party validation.
+This scaffold does not claim external publication, DOI assignment, or
+third-party validation until those actions are recorded.
 """
 
 
@@ -103,7 +104,7 @@ def dataset_infos(splits: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
             "description": "ATU trace-to-dataset compiler output scaffold.",
             "citation": "See CITATION.cff in the software repository.",
             "homepage": "local-only",
-            "license": "mit",
+            "license": "apache-2.0",
             "features": {
                 "episode_id": {"dtype": "string", "_type": "Value"},
                 "source_schema": {"dtype": "string", "_type": "Value"},

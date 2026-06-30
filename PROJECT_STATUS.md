@@ -4,8 +4,8 @@ Status date: 2026-06-30
 
 ## Local Completion State
 
-The repository is a local v0.2-alpha implementation of the ATU
-Trace-to-Dataset Compiler Profile.
+The repository is a v0.2.0 release-prep implementation of the ATU
+Trace-to-Dataset Compiler Profile on local branch `release/v0.2.0`.
 
 Completed locally:
 
@@ -62,8 +62,8 @@ Observed local corpus stats:
 
 ## Explicit Boundaries
 
-- No public release has been created.
-- No git tag has been created.
+- No GitHub release has been created.
+- A local git tag may exist only after the release-prep commit is verified.
 - No Zenodo DOI has been minted.
 - No Hugging Face dataset has been uploaded.
 - No Promptfoo package has been published.
@@ -71,14 +71,30 @@ Observed local corpus stats:
 - No upstream issue or pull request has been opened.
 - `out/` and `replay/manifests/` are generated local verification artifacts.
 
+## External Commands Not Run
+
+The following publication commands are intentionally not run in this local
+release-prep pass:
+
+```bash
+git push origin release/v0.2.0
+git push origin v0.2.0
+gh release create v0.2.0 --title "ATU v0.2 Compiler Release" --notes-file RELEASE_NOTES_v0.2.0.md
+huggingface-cli login
+```
+
+Reason: the repository has no configured remote in this local checkout, and
+external visibility actions require explicit human confirmation.
+
 ## Next External Gates
 
 These require explicit human confirmation before action:
 
-1. choose a real repository URL and update repository metadata;
-2. create an initial git commit and optional tag;
-3. push to a public repository;
-4. connect Zenodo and mint a software DOI;
-5. upload or create a Hugging Face dataset repo;
-6. open upstream issues or pull requests;
-7. submit the JOSS package.
+1. confirm external publication;
+2. add or verify GitHub remote `https://github.com/joy7758/atu-compiler`;
+3. push branch `release/v0.2.0` and tag `v0.2.0`;
+4. create the GitHub release from `RELEASE_NOTES_v0.2.0.md`;
+5. connect Zenodo and mint a software DOI;
+6. upload or create a Hugging Face dataset repo;
+7. open upstream issues or pull requests;
+8. submit the JOSS package.

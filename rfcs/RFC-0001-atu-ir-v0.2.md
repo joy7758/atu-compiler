@@ -1,6 +1,6 @@
 # RFC-0001: ATU-IR v0.2 Trace-to-Dataset Compiler Profile
 
-Status: draft local alpha
+Status: v0.2.0 release-prep
 
 ## Summary
 

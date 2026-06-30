@@ -35,19 +35,19 @@ The compiler pipeline is:
 ## Research Impact Statement
 
 ATU episodes make trace-derived evidence easier to inspect, cite, replay, and
-reuse in agent evaluation research. The current alpha uses synthetic examples
-and local validation only.
+reuse in agent evaluation research. The v0.2.0 release-prep package uses
+synthetic examples and local validation only.
 
 ## AI Usage Disclosure
 
-This local alpha repository was prepared with AI coding assistance. Human review
-is required before any public release, DOI deposit, upstream contribution, or
-JOSS submission.
+This release-prep repository was prepared with AI coding assistance. Human
+review is required before any public release, DOI deposit, upstream
+contribution, or JOSS submission.
 
 ## Acknowledgements
 
-No external funding or public institutional endorsement is claimed by this local
-alpha repository.
+No external funding or public institutional endorsement is claimed by this
+release-prep repository.
 
 ## References
 
