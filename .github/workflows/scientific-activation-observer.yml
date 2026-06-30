@@ -1,0 +1,44 @@
+name: Scientific Activation Observer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run read-only observer
+        run: |
+          python scripts/activation/observe_scientific_activation.py | tee scientific-activation-observer.json
+
+      - name: Validate observer JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("scientific-activation-observer.json").read_text())
+          assert payload["mode"] == "read_only_observer"
+          print("checked_at", payload["checked_at"])
+          print("zenodo_repo_total", payload["zenodo"]["repo_query"].get("total"))
+          print("huggingface_status", payload["huggingface"].get("status"))
+          PY
+
+      - name: Upload observer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scientific-activation-observer
+          path: scientific-activation-observer.json

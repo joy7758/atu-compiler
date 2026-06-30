@@ -117,7 +117,8 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T14:53:23Z`; Zenodo query total remained `0`.
+Latest observer run: `2026-06-30T15:02:03Z`; Zenodo query total remained `0`.
+Manual GitHub workflow: `Scientific Activation Observer`.
 
 Completion evidence:
 

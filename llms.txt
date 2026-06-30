@@ -3,9 +3,11 @@
 Purpose: compile heterogeneous agent traces into deterministic ATU-IR episodes
 for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
 
-Status: release-prep, version 0.2.0. No Zenodo DOI, public dataset upload,
-JOSS submission, GitHub release, or upstream PR is claimed until that external
-action is performed and recorded.
+Status: version 0.2.0. GitHub Release is complete. Zenodo GitHub integration
+and GitHub release webhook delivery are complete. Zenodo DOI is pending
+materialization until Zenodo returns a DOI-bearing record. No public Hugging
+Face dataset upload, Promptfoo runtime artifact, JOSS submission, or upstream PR
+is claimed until that external action is performed and recorded.
 
 Canonical commands:
 
@@ -18,6 +20,8 @@ Canonical commands:
 - Export Promptfoo suite: `atu export-promptfoo --input out/atu.jsonl --output evals/promptfoo`
 - Build replay manifests: `atu replay-manifest --input out/atu.jsonl --output replay/manifests`
 - Release check: `make release-check`
+- Observe external activation: `make scientific-activation-observe`
+- Manual GitHub observer: Actions -> `Scientific Activation Observer`
 
 Important files:
 
@@ -28,6 +32,9 @@ Important files:
 - `src/atu/ingest/*.py`: source adapters.
 - `src/atu/export/*.py`: downstream exporters.
 - `tests/test_compiler.py`: deterministic compile and schema checks.
+- `ACTIVATION_MANIFEST.json`: machine-readable publication/activation state.
+- `docs/scientific-citation-observer.md`: read-only DOI/dataset/eval monitor.
+- `scripts/activation/observe_scientific_activation.py`: JSON observer command.
 
 Protocol boundaries:
 
@@ -35,5 +42,8 @@ Protocol boundaries:
 - ATU-IR JSONL is the normalized compiler output.
 - Replay manifests and receipts describe replay/audit, not external validation.
 - Dataset and Promptfoo exports are generated views, not separate source truth.
-- Citation and Zenodo files are release readiness surfaces until external
-  publication and DOI actions happen.
+- GitHub Release existence, Zenodo webhook delivery, DOI materialization, HF
+  dataset publication, Promptfoo runtime evidence, and JOSS submission are
+  separate truth surfaces.
+- A Zenodo webhook delivery is not a DOI. DOI completion requires a
+  DOI-bearing Zenodo API record.

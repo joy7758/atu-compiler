@@ -5,9 +5,10 @@ Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: release-prep implementation. There is no confirmed Zenodo DOI,
-Hugging Face publication, JOSS submission, or upstream PR until those external
-actions are performed and recorded.
+Current status: GitHub release complete; Zenodo GitHub integration and release
+webhook delivery complete; Zenodo DOI pending materialization. There is no
+confirmed Zenodo DOI, Hugging Face publication, JOSS submission, or upstream PR
+until those external actions are performed and recorded.
 
 License: Apache-2.0.
 
@@ -23,6 +24,10 @@ License: Apache-2.0.
 - `src/atu/`: Python reference compiler and CLI implementation.
 - `examples/`: synthetic source traces.
 - `tests/`: deterministic compile, schema, exporter, and CLI regression tests.
+- `docs/scientific-citation-observer.md`: read-only external activation
+  observer for DOI, dataset, and eval publication gates.
+- `ACTIVATION_MANIFEST.json`: machine-readable current publication and
+  scientific activation state.
 
 ## Install
 
@@ -67,6 +72,16 @@ Run release checks:
 ```bash
 make release-check
 ```
+
+Observe external scientific activation state without mutating GitHub release,
+tags, assets, Hugging Face, Zenodo, or JOSS:
+
+```bash
+make scientific-activation-observe
+```
+
+The same read-only observer is available as a manual GitHub Action:
+`Scientific Activation Observer`.
 
 ## Compiler Contract
 
@@ -119,6 +134,13 @@ ATU is positioned above existing trace systems:
 
 ## Release Boundary
 
-This repository may contain release-prep files such as `CITATION.cff`,
-`paper/paper.md`, dataset cards, and export packages. Those files are local
-readiness surfaces until an explicit external publication action happens.
+This repository contains release-prep and publication-observer files such as
+`CITATION.cff`, `paper/paper.md`, dataset cards, export packages, and
+`ACTIVATION_MANIFEST.json`. Treat each external surface separately:
+
+- GitHub Release `v0.2.0`: complete.
+- Zenodo GitHub integration and webhook delivery: complete.
+- Zenodo DOI: pending materialization until Zenodo returns a DOI-bearing record.
+- Hugging Face dataset: not published until a live dataset URL is recorded.
+- Promptfoo runtime artifact: not complete until an eval result is generated.
+- JOSS submission: not submitted until a JOSS submission URL is recorded.

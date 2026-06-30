@@ -36,7 +36,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T14:53:23Z`.
+Latest observer run: `2026-06-30T15:02:03Z`.
 
 ## HF Dataset Gate
 
@@ -90,6 +90,8 @@ Observer command:
 make scientific-activation-observe
 ```
 
+Manual GitHub workflow: `Scientific Activation Observer`.
+
 Prepared guarded command:
 
 ```bash
@@ -106,6 +108,7 @@ guarded --execute -> GitHub release edited event delivered to Zenodo with OK
 Zenodo API after edited event -> total: 0
 scientific activation observer -> prepared for read-only polling
 make scientific-activation-observe -> Zenodo total 0, HF dataset not found, Promptfoo runtime absent
+observer network behavior -> endpoint failures return JSON `ok: false` sections
 ```
 
 ## Promptfoo Benchmark Gate

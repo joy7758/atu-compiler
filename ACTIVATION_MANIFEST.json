@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_pending_activation",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T14:53:23Z",
+  "last_checked_at": "2026-06-30T15:02:03Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -24,7 +24,7 @@
     "target_dataset_repo": "joy7758/atu-trace-1000",
     "auth_status": "not_logged_in",
     "public_dataset_status": "not_found",
-    "last_checked_at": "2026-06-30T14:53:23Z",
+    "last_checked_at": "2026-06-30T15:02:03Z",
     "local_package": "hf_dataset/atu_trace_1000",
     "loader_check": {
       "status": "pass",
@@ -41,12 +41,14 @@
     "github_hook_delivery_status": "release_edited_delivery_ok",
     "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_retrigger",
     "doi_status": "pending_materialization_after_release_edited_retrigger",
-    "last_checked_at": "2026-06-30T14:53:23Z",
+    "last_checked_at": "2026-06-30T15:02:03Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
     "observer_script": "scripts/activation/observe_scientific_activation.py",
     "observer_command": "make scientific-activation-observe",
+    "observer_github_workflow": ".github/workflows/scientific-activation-observer.yml",
+    "observer_github_workflow_trigger": "workflow_dispatch_only",
     "prepared_retrigger_script": "scripts/activation/zenodo_retrigger_v0_2_0.sh",
     "prepared_retrigger_dry_run": "make zenodo-retrigger-dry-run",
     "prepared_retrigger_execute": "ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute",
@@ -77,7 +79,7 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T14:53:23Z",
+      "last_observed_at": "2026-06-30T15:02:03Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",
@@ -89,7 +91,8 @@
       "github_release_mutation": "hold",
       "tag_mutation": "forbidden_without_explicit_new_confirmation",
       "release_asset_mutation": "hold",
-      "doi_completion_requires": "zenodo_api_record_with_doi"
+      "doi_completion_requires": "zenodo_api_record_with_doi",
+      "network_failure_behavior": "return_ok_false_json_without_failing_whole_observer"
     }
   },
   "promptfoo": {

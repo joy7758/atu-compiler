@@ -24,6 +24,12 @@ submitting packages.
 make scientific-activation-observe
 ```
 
+GitHub manual workflow:
+
+```text
+Actions -> Scientific Activation Observer -> Run workflow
+```
+
 The command emits JSON with these read-only checks:
 
 - GitHub Release state.
@@ -31,6 +37,12 @@ The command emits JSON with these read-only checks:
 - Zenodo public API search for the repository and release title.
 - Hugging Face dataset visibility.
 - Promptfoo local runtime package presence.
+
+Network behavior: one flaky external endpoint should not fail the whole
+observer. Zenodo API checks retry before returning an `ok: false` JSON section.
+
+The GitHub workflow is `workflow_dispatch` only. It is not scheduled, and it
+does not mutate tags, releases, assets, Zenodo, Hugging Face, Promptfoo, or JOSS.
 
 ## Policy
 

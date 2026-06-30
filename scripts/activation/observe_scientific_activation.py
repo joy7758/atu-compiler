@@ -7,6 +7,7 @@ import json
 import shutil
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -59,11 +60,24 @@ def run(args: list[str], timeout: int = 30) -> dict[str, object]:
 def zenodo_search(query: str) -> dict[str, object]:
     params = urllib.parse.urlencode({"q": query, "sort": "mostrecent", "size": "5"})
     url = f"https://zenodo.org/api/records?{params}"
-    try:
-        with urllib.request.urlopen(url, timeout=30) as response:
-            data = json.load(response)
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-        return {"ok": False, "query": query, "error": str(exc), "records": []}
+    last_error = ""
+    for attempt in range(1, 4):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as response:
+                data = json.load(response)
+            break
+        except Exception as exc:  # noqa: BLE001 - observer must not fail on one flaky endpoint.
+            last_error = f"{type(exc).__name__}: {exc}"
+            if attempt < 3:
+                time.sleep(2 * attempt)
+    else:
+        return {
+            "ok": False,
+            "query": query,
+            "error": last_error,
+            "total": None,
+            "records": [],
+        }
 
     hits = data.get("hits", {})
     records = [

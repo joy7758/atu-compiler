@@ -42,4 +42,4 @@ zenodo-retrigger-dry-run:
 	scripts/activation/zenodo_retrigger_v0_2_0.sh --dry-run
 
 scientific-activation-observe:
-	.venv/bin/python scripts/activation/observe_scientific_activation.py
+	$(PYTHON) scripts/activation/observe_scientific_activation.py
