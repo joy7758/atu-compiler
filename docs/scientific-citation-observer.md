@@ -61,6 +61,10 @@ does not mutate tags, releases, assets, Zenodo, Hugging Face, Promptfoo, or JOSS
 The workflow intentionally skips the repository webhook-delivery API because
 GitHub Actions `GITHUB_TOKEN` does not have the repository-hook permission needed
 for that endpoint. Local authenticated runs still check webhook deliveries.
+When hook delivery inspection is skipped, the Zenodo ingestion diagnosis is
+`indeterminate_without_repo_hook_delivery_permission`, not a DOI or closure
+signal. The Hugging Face dataset check falls back to the public Hub API when the
+`hf` CLI is unavailable in CI.
 
 ## Policy
 

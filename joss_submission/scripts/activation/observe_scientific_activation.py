@@ -177,6 +177,23 @@ def zenodo_ingestion_diagnosis(
 ) -> dict[str, object]:
     release_published_at = release.get("publishedAt")
     hook_created_at = hook.get("created_at")
+    if hook.get("status") == "skipped" or deliveries.get("status") == "skipped":
+        return {
+            "release_published_at": release_published_at,
+            "hook_created_at": hook_created_at,
+            "release_predates_zenodo_hook": None,
+            "release_delivery_actions_seen": [],
+            "has_release_published_delivery": None,
+            "has_release_edited_delivery": None,
+            "edited_delivery_ingested_release": False,
+            "new_release_published_event_required": None,
+            "status": "indeterminate_without_repo_hook_delivery_permission",
+            "reason": (
+                "Repository hook delivery inspection was skipped. Run the local "
+                "authenticated observer to determine whether a new release/"
+                "published event is required."
+            ),
+        }
     release_time = parse_github_time(release_published_at)
     hook_time = parse_github_time(hook_created_at)
     delivery_rows = deliveries.get("deliveries")
@@ -224,14 +241,41 @@ def hf_dataset_status() -> dict[str, object]:
         "json",
     ]
     result = run(cmd)
-    if not result["ok"]:
+    if result["ok"]:
+        return {"ok": True, "dataset": DATASET_ID, "status": "visible", "source": "hf_cli"}
+
+    api_url = f"https://huggingface.co/api/datasets/{urllib.parse.quote(DATASET_ID, safe='')}"
+    try:
+        with urllib.request.urlopen(api_url, timeout=30) as response:
+            data = json.load(response)
+    except urllib.error.HTTPError as exc:
         return {
             "ok": False,
             "dataset": DATASET_ID,
             "status": "not_found_or_not_accessible",
-            "stderr": result["stderr"],
+            "source": "public_api",
+            "http_status": exc.code,
+            "cli_stderr": result["stderr"],
         }
-    return {"ok": True, "dataset": DATASET_ID, "status": "visible"}
+    except Exception as exc:  # noqa: BLE001 - observer must not fail on one flaky endpoint.
+        return {
+            "ok": False,
+            "dataset": DATASET_ID,
+            "status": "unknown_api_error",
+            "source": "public_api",
+            "error": f"{type(exc).__name__}: {exc}",
+            "cli_stderr": result["stderr"],
+        }
+    return {
+        "ok": True,
+        "dataset": DATASET_ID,
+        "status": "visible",
+        "source": "public_api",
+        "sha": data.get("sha"),
+        "private": data.get("private"),
+        "gated": data.get("gated"),
+        "disabled": data.get("disabled"),
+    }
 
 
 def promptfoo_status() -> dict[str, object]:

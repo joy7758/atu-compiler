@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_partial_activation_hf_live_promptfoo_live_doi_pending",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T18:13:27Z",
+  "last_checked_at": "2026-06-30T18:18:30Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -71,7 +71,7 @@
     "github_hook_delivery_status": "release_edited_delivery_ok",
     "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_manual_zenodo_sync",
     "doi_status": "not_verified_new_release_published_event_required",
-    "last_checked_at": "2026-06-30T18:13:27Z",
+    "last_checked_at": "2026-06-30T18:18:30Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "explicit_maintainer_decision_for_new_release_published_event",
@@ -81,7 +81,8 @@
     "observer_github_workflow_trigger": "workflow_dispatch_only",
     "observer_github_workflow_remote_state": "active",
     "observer_github_workflow_id": 304775898,
-    "observer_github_workflow_hook_delivery_behavior": "skips_repo_hook_delivery_api_due_to_github_token_permission_boundary",
+    "observer_github_workflow_hook_delivery_behavior": "skips_repo_hook_delivery_api_due_to_github_token_permission_boundary_and_reports_indeterminate_hook_diagnosis",
+    "observer_github_workflow_huggingface_behavior": "uses_public_huggingface_api_when_hf_cli_is_unavailable",
     "latest_observer_workflow_run": {
       "run_id": 28454815985,
       "status": "completed",
@@ -144,7 +145,7 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T18:13:27Z",
+      "last_observed_at": "2026-06-30T18:18:30Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",

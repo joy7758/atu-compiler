@@ -40,7 +40,7 @@ Canonical commands:
 - Check HF canonical identity: `make hf-canonical-identity-check`
 - Manual GitHub observer: Actions -> `Scientific Activation Observer`
   (workflow skips repo hook-delivery inspection; local authenticated observer
-  includes it)
+  includes it; CI-side HF checks fall back to the public Hub API)
 
 Important files:
 

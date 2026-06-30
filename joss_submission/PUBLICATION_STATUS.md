@@ -27,7 +27,7 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T18:13:27Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T18:18:30Z`; Zenodo query total remained
   `0`, Hugging Face dataset was visible, and Promptfoo runtime artifact passed.
   The observer now reports that `v0.2.0` was published before the Zenodo hook
   existed and that no `release` / `published` delivery has been seen.
@@ -56,7 +56,9 @@ Status date: 2026-06-30
 - Manual GitHub observer workflow active: `Scientific Activation Observer`
   (`workflow_dispatch` only). The workflow skips repository webhook-delivery
   inspection because that API is not available to the default `GITHUB_TOKEN`;
-  local authenticated observer runs include it.
+  local authenticated observer runs include it. CI-side hook diagnosis is
+  therefore `indeterminate_without_repo_hook_delivery_permission`; CI-side HF
+  checks use the public Hugging Face API when the `hf` CLI is unavailable.
 - Latest GitHub observer workflow run: `28454815985`, conclusion `success`,
   artifact `scientific-activation-observer` / `7984877361`.
 - Manual Zenodo browser check at `2026-06-30T15:23:16Z`: repository remains
@@ -95,7 +97,7 @@ Status date: 2026-06-30
   delivered a `release` / `edited` webhook event to Zenodo, but no
   `release` / `published` delivery exists because `v0.2.0` was published before
   the Zenodo hook was created. Exact Zenodo API searches still returned
-  `total: 0` through `2026-06-30T18:13:27Z`. A guarded `v0.2.1` release path is
+  `total: 0` through `2026-06-30T18:18:30Z`. A guarded `v0.2.1` release path is
   prepared but has not been executed; no `v0.2.1` tag or GitHub Release is
   claimed here.
 - Promptfoo share has not been completed. Local runtime evidence exists, but no

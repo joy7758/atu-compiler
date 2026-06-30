@@ -47,7 +47,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T18:13:27Z`.
+Latest observer run: `2026-06-30T18:18:30Z`.
 Latest browser/manual-use check: `2026-06-30T17:47:29Z`.
 Guarded `v0.2.1` safe-path preparation: release notes and dry-run-first script
 prepared; software release metadata is set to `0.2.1`; ATU-IR/profile metadata
@@ -105,7 +105,9 @@ make scientific-activation-observe
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection
 because that API requires permissions not available to the default
-`GITHUB_TOKEN`.
+`GITHUB_TOKEN`. CI-side hook diagnosis is therefore indeterminate; local
+authenticated observer runs remain authoritative for Zenodo webhook-delivery
+diagnosis.
 Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
 `scientific-activation-observer` / `7984877361`.
 

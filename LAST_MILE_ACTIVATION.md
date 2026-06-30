@@ -99,12 +99,13 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T18:13:27Z`; Zenodo query total remained `0`,
+Latest observer run: `2026-06-30T18:18:30Z`; Zenodo query total remained `0`,
 Hugging Face dataset status was `visible`, and Promptfoo runtime artifact
 passed.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
-local authenticated observer runs include that check.
+local authenticated observer runs include that check. CI-side hook diagnosis is
+indeterminate by design when repository-hook permissions are unavailable.
 Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
 `scientific-activation-observer` / `7984877361`.
 Manual browser check at `2026-06-30T15:23:16Z`: Zenodo repo-list sync completed,
