@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_pending_activation",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T14:29:06Z",
+  "last_checked_at": "2026-06-30T14:34:37Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -44,7 +44,19 @@
     "last_checked_at": "2026-06-30T14:29:06Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
-    "next_gate": "trigger_github_release_event_or_create_follow_up_release"
+    "next_gate": "trigger_github_release_event_or_create_follow_up_release",
+    "prepared_retrigger_script": "scripts/activation/zenodo_retrigger_v0_2_0.sh",
+    "prepared_retrigger_dry_run": "make zenodo-retrigger-dry-run",
+    "prepared_retrigger_execute": "ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute",
+    "execution_guard": "requires_explicit_user_confirmation_before_execute",
+    "prepared_retrigger_status": {
+      "checked_at": "2026-06-30T14:34:37Z",
+      "dry_run": "pass",
+      "dry_run_result": "no_external_release_edit_performed",
+      "execute_without_guard": "blocked_exit_78",
+      "tag_mutation": false,
+      "asset_mutation": false
+    }
   },
   "promptfoo": {
     "local_package": "evals/promptfoo",

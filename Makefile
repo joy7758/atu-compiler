@@ -1,4 +1,4 @@
-.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles
+.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles zenodo-retrigger-dry-run
 
 PYTHON ?= .venv/bin/python
 ATU ?= .venv/bin/atu
@@ -37,3 +37,6 @@ publication-bundles: release-check
 	find joss_submission -name __pycache__ -type d -prune -exec rm -rf {} +
 	find joss_submission -name '*.pyc' -delete
 	zip -qr atu_v0.2_joss_submission.zip joss_submission
+
+zenodo-retrigger-dry-run:
+	scripts/activation/zenodo_retrigger_v0_2_0.sh --dry-run

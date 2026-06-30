@@ -19,6 +19,8 @@ Status date: 2026-06-30
 - Zenodo GitHub integration enabled for `joy7758/atu-compiler`.
 - GitHub webhook for Zenodo release events is active.
 - Latest activation recheck: `2026-06-30T14:29:06Z`.
+- Zenodo re-trigger dry-run command prepared and verified:
+  `make zenodo-retrigger-dry-run`.
 
 ## Verified Local/Package Actions
 
@@ -58,6 +60,8 @@ Status date: 2026-06-30
 
 1. Re-trigger Zenodo ingestion for `v0.2.0` or create a follow-up release after
    deciding whether the existing `v0.2.0` release should remain immutable.
+   Prepared guarded command:
+   `ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute`.
 2. Authenticate with Hugging Face and upload `hf_dataset/atu_trace_1000` to
    `joy7758/atu-trace-1000`.
 3. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts

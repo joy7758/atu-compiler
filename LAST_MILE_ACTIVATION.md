@@ -74,6 +74,31 @@ If a re-trigger is required, prefer editing/publishing release metadata in the
 GitHub UI or creating a follow-up release after deciding whether `v0.2.0` should
 remain immutable. Do not move the existing `v0.2.0` tag casually.
 
+Prepared dry run:
+
+```bash
+make zenodo-retrigger-dry-run
+```
+
+Dry run status: passed at `2026-06-30T14:34:37Z`; no external release edit was
+performed.
+
+Prepared external action after explicit confirmation:
+
+```bash
+ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger \
+  scripts/activation/zenodo_retrigger_v0_2_0.sh --execute
+```
+
+This lower-impact path edits only GitHub Release notes with an HTML comment
+marker. It does not move the tag or alter release assets. If Zenodo ignores an
+`edited` release event, the next candidate is a confirmed release-object
+recreation for the existing tag.
+
+Execution guard status: running `--execute` without
+`ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger` exits with code
+`78` before the GitHub Release edit.
+
 Completion evidence:
 
 ```bash

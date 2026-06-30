@@ -33,6 +33,7 @@ JOSS submission: package generated, not submitted
 - Promptfoo local package folder: `evals/promptfoo`
 
 Latest recheck: `2026-06-30T14:29:06Z`.
+Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 
 ## HF Dataset Gate
 
@@ -74,6 +75,20 @@ Manual action:
 Trigger a new GitHub release event for v0.2.0, or create a follow-up release
 after deciding whether v0.2.0 should remain immutable
 Verify DOI on Zenodo
+```
+
+Prepared guarded command:
+
+```bash
+ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger \
+  scripts/activation/zenodo_retrigger_v0_2_0.sh --execute
+```
+
+Dry-run evidence:
+
+```text
+make zenodo-retrigger-dry-run -> pass
+--execute without confirmation guard -> blocked with exit code 78
 ```
 
 ## Promptfoo Benchmark Gate
