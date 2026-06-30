@@ -98,7 +98,7 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T17:14:37Z`; Zenodo query total remained `0`,
+Latest observer run: `2026-06-30T17:48:54Z`; Zenodo query total remained `0`,
 Hugging Face dataset status was `visible`, and Promptfoo runtime artifact
 passed.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
@@ -108,6 +108,9 @@ Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
 `scientific-activation-observer` / `7984877361`.
 Manual browser check at `2026-06-30T15:23:16Z`: Zenodo repo-list sync completed,
 but the repository detail page still showed no `v0.2.0` and no DOI.
+Manual browser check at `2026-06-30T17:47:29Z`: Zenodo repo-list `Sync now`
+returned a success alert, but after reload the `joy7758/atu-compiler`
+repository detail page still showed no `v0.2.0` release and no DOI.
 
 Completion evidence:
 

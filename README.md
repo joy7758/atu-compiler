@@ -7,9 +7,9 @@ episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
 Current status: GitHub release complete; Hugging Face dataset live; Promptfoo
 local runtime artifact generated; Zenodo GitHub integration and release webhook
-delivery complete; Zenodo DOI pending materialization. There is no confirmed
-Zenodo DOI, JOSS submission, or upstream PR until those external actions are
-performed and recorded.
+delivery complete; Zenodo repository-list sync has been run, but Zenodo DOI is
+still not verified. There is no confirmed Zenodo DOI, JOSS submission, or
+upstream PR until those external actions are performed and recorded.
 
 Hugging Face boundary: the live dataset is
 <https://huggingface.co/datasets/joy7759/atu-trace-1000>. The HF namespace
@@ -156,8 +156,9 @@ This repository contains release-prep and publication-observer files such as
 `ACTIVATION_MANIFEST.json`. Treat each external surface separately:
 
 - GitHub Release `v0.2.0`: complete.
-- Zenodo GitHub integration and webhook delivery: complete.
-- Zenodo DOI: pending materialization until Zenodo returns a DOI-bearing record.
+- Zenodo GitHub integration, webhook delivery, and repository-list sync:
+  complete.
+- Zenodo DOI: not verified until Zenodo returns a DOI-bearing record.
 - Hugging Face dataset: live at
   <https://huggingface.co/datasets/joy7759/atu-trace-1000>.
 - Promptfoo runtime artifact: complete locally at

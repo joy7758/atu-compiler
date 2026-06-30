@@ -10,6 +10,7 @@ ATU v0.2 has crossed the GitHub-to-Zenodo trigger boundary:
 GitHub Release exists: yes
 Zenodo GitHub integration enabled: yes
 Zenodo webhook delivery: release / edited / OK
+Zenodo repository-list sync: completed
 Zenodo DOI record: not verified
 ```
 
@@ -70,9 +71,14 @@ then, the truthful state is:
 ```text
 github_release: complete
 zenodo_webhook_delivery: complete
+zenodo_repository_list_sync: complete
 zenodo_doi: pending_materialization
 promptfoo_local_runtime: complete_if_latest_result_passed
 ```
+
+A Zenodo repository-list sync success alert is evidence that Zenodo refreshed
+the GitHub repository list. It is not evidence that a GitHub release was
+ingested or that a DOI was minted.
 
 ## Completion Evidence
 

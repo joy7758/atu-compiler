@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_partial_activation_hf_live_promptfoo_live_doi_pending",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T17:14:37Z",
+  "last_checked_at": "2026-06-30T17:48:54Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -68,9 +68,9 @@
     "repository_binding": "enabled",
     "release_webhook": "active_for_github_release_events",
     "github_hook_delivery_status": "release_edited_delivery_ok",
-    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_hf_metadata_sync",
-    "doi_status": "pending_materialization_after_release_edited_retrigger",
-    "last_checked_at": "2026-06-30T17:14:37Z",
+    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_manual_zenodo_sync",
+    "doi_status": "pending_materialization_after_release_edited_retrigger_and_manual_zenodo_sync",
+    "last_checked_at": "2026-06-30T17:48:54Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
@@ -124,7 +124,7 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T17:14:37Z",
+      "last_observed_at": "2026-06-30T17:48:54Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",
@@ -145,12 +145,14 @@
       "remote_workflow_run_policy": "manual_only_not_auto_run"
     },
     "manual_browser_check": {
-      "checked_at": "2026-06-30T15:23:16Z",
+      "checked_at": "2026-06-30T17:47:29Z",
       "zenodo_account": "logged_in_zenodo_session",
       "repository_visible_in_enabled_repositories": true,
       "repository_page_has_v0_2_0": false,
       "repository_page_has_doi": false,
       "repository_list_sync_clicked": true,
+      "repository_list_sync_recorded_at": "2026-06-30T17:47:29Z",
+      "repository_list_sync_result": "success_alert_repositories_synced_some_items_may_still_be_updating",
       "after_sync_has_v0_2_0": false,
       "after_sync_has_doi": false
     }

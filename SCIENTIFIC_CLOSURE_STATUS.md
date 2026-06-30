@@ -47,8 +47,8 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T17:14:37Z`.
-Latest browser/manual-use check: `2026-06-30T17:10:47Z`.
+Latest observer run: `2026-06-30T17:48:54Z`.
+Latest browser/manual-use check: `2026-06-30T17:47:29Z`.
 
 ## HF Dataset Gate
 
@@ -122,7 +122,8 @@ Zenodo API after edited event -> total: 0
 scientific activation observer -> prepared for read-only polling
 make scientific-activation-observe -> Zenodo total 0, HF dataset visible, Promptfoo runtime artifact passed
 observer network behavior -> endpoint failures return JSON `ok: false` sections
-Zenodo browser sync -> completed, still no v0.2.0 and no DOI on repository page
+Zenodo browser sync -> completed twice; latest success alert at 2026-06-30T17:47:29Z check window,
+still no v0.2.0 and no DOI on repository page after reload
 ```
 
 ## Promptfoo Benchmark Gate

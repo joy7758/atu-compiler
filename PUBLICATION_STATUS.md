@@ -27,7 +27,7 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T17:14:37Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T17:48:54Z`; Zenodo query total remained
   `0`, Hugging Face dataset was visible, and Promptfoo runtime artifact passed.
 - Hugging Face dataset created and populated at
   `https://huggingface.co/datasets/joy7759/atu-trace-1000`.
@@ -50,6 +50,10 @@ Status date: 2026-06-30
 - Manual Zenodo browser check at `2026-06-30T15:23:16Z`: repository remains
   enabled, repository-list sync completed, but the Zenodo repository detail page
   still showed no `v0.2.0` release and no DOI.
+- Manual Zenodo browser check at `2026-06-30T17:47:29Z`: repository remains
+  enabled. `Sync now` returned the Zenodo success alert, but after reload the
+  `joy7758/atu-compiler` detail page still showed no `v0.2.0` release and no
+  DOI.
 
 ## Verified Local/Package Actions
 
@@ -77,8 +81,8 @@ Status date: 2026-06-30
   the Zenodo repository detail page has not ingested the existing `v0.2.0`
   GitHub release. A lower-impact GitHub Release metadata edit successfully
   delivered a `release` / `edited` webhook event to Zenodo. Exact Zenodo API
-  searches still returned `total: 0` at `2026-06-30T14:45:55Z`, so DOI is
-  pending materialization, not verified failed.
+  searches still returned `total: 0` through `2026-06-30T17:48:54Z`, so DOI is
+  pending materialization or Zenodo ingestion failure, not verified complete.
 - Promptfoo share has not been completed. Local runtime evidence exists, but no
   external Promptfoo share URL has been created or recorded.
 - JOSS submission has not been submitted to JOSS. The local submission package
