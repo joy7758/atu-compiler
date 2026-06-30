@@ -59,7 +59,8 @@ Record the live dataset URL in `README.md`, `SCIENTIFIC_CLOSURE_STATUS.md`, and
 ## Gate 2: Zenodo DOI Identity
 
 Current blocker: repository is enabled in Zenodo, but no matching ATU DOI record
-or ingested `v0.2.0` release is visible yet.
+or ingested `v0.2.0` release is visible yet. GitHub webhook deliveries currently
+show the Zenodo `ping` event only, with no `release` event delivery.
 
 Manual activation path:
 

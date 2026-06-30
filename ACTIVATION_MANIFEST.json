@@ -4,6 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_pending_activation",
   "generated_at": "2026-06-30",
+  "last_checked_at": "2026-06-30T14:29:06Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -21,6 +22,9 @@
   },
   "huggingface": {
     "target_dataset_repo": "joy7758/atu-trace-1000",
+    "auth_status": "not_logged_in",
+    "public_dataset_status": "not_found",
+    "last_checked_at": "2026-06-30T14:29:06Z",
     "local_package": "hf_dataset/atu_trace_1000",
     "loader_check": {
       "status": "pass",
@@ -34,7 +38,10 @@
   "zenodo": {
     "repository_binding": "enabled",
     "release_webhook": "active_for_github_release_events",
+    "github_hook_delivery_status": "ping_only_no_release_delivery",
+    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler",
     "doi_status": "not_verified_existing_v0.2.0_not_ingested",
+    "last_checked_at": "2026-06-30T14:29:06Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "trigger_github_release_event_or_create_follow_up_release"
@@ -53,6 +60,13 @@
       "npm install --no-audit --no-fund",
       "npm pack promptfoo@0.121.17 --dry-run --json"
     ],
+    "last_attempt": {
+      "checked_at": "2026-06-30T14:29:06Z",
+      "command": "npm install --no-audit --no-fund",
+      "status": "interrupted_after_90_seconds_without_output",
+      "left_node_modules": false,
+      "left_package_lock": false
+    },
     "retry_command": "cd evals/promptfoo && npm install && npm run eval"
   },
   "joss": {

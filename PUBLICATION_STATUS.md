@@ -18,6 +18,7 @@ Status date: 2026-06-30
   - `RELEASE_NOTES_v0.2.0.md`
 - Zenodo GitHub integration enabled for `joy7758/atu-compiler`.
 - GitHub webhook for Zenodo release events is active.
+- Latest activation recheck: `2026-06-30T14:29:06Z`.
 
 ## Verified Local/Package Actions
 
@@ -38,13 +39,16 @@ Status date: 2026-06-30
 
 - Zenodo DOI has not been verified. The repository is enabled in Zenodo, but
   the Zenodo repository detail page has not ingested the existing `v0.2.0`
-  GitHub release.
+  GitHub release. GitHub webhook deliveries currently show only the Zenodo
+  `ping` event, not a `release` event delivery.
 - Hugging Face dataset upload has not been completed. `hf auth whoami` returned
-  `Not logged in`, and `hf repos ls` returned HTTP 401.
+  `Not logged in`; public lookup for `joy7758/atu-trace-1000` returned
+  `Dataset not found`.
 - Promptfoo share has not been completed. `npx promptfoo` startup hung during
   package bootstrap in this environment and was interrupted.
 - Promptfoo local package metadata exists in `evals/promptfoo/package.json`, but
-  `npm install` also hung in this environment and was interrupted.
+  `npm install --no-audit --no-fund` again produced no output for 90 seconds and
+  was interrupted without leaving `node_modules` or `package-lock.json`.
 - JOSS submission has not been submitted to JOSS. The local submission package
   zip was generated only.
 - OpenInference and Promptfoo upstream PRs have not been opened. Drafts exist

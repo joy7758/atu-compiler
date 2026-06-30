@@ -32,6 +32,8 @@ JOSS submission: package generated, not submitted
 - HF upload-ready folder: `hf_dataset/atu_trace_1000`
 - Promptfoo local package folder: `evals/promptfoo`
 
+Latest recheck: `2026-06-30T14:29:06Z`.
+
 ## HF Dataset Gate
 
 Blocked by authentication.
@@ -43,6 +45,8 @@ HF_TOKEN_MISSING
 HUGGINGFACE_HUB_TOKEN_MISSING
 hf auth whoami -> Error: Not logged in
 hf repos ls -> HTTP 401
+hf datasets info joy7758/atu-trace-1000 -> Dataset not found
+hf datasets list --author joy7758 --search atu-trace -> []
 ```
 
 Dataset package is locally valid but not uploaded. Use:
@@ -60,7 +64,9 @@ Exact Zenodo API searches for the release title, GitHub URL, and
 `joy7758/atu-compiler` returned no matching ATU records after GitHub release
 creation. After enabling the Zenodo GitHub integration, the repository detail
 page still did not list the existing `v0.2.0` release, so DOI minting remains
-unverified.
+unverified. A later recheck found the GitHub Zenodo webhook active, but its
+delivery history contained only the initial `ping` event and no `release`
+delivery.
 
 Manual action:
 
@@ -81,6 +87,7 @@ npx promptfoo eval -> hung during package bootstrap and was interrupted
 npx --yes promptfoo@0.121.17 --help -> hung and was interrupted
 npm install --no-audit --no-fund -> hung and was interrupted
 npm pack promptfoo@0.121.17 --dry-run --json -> hung and was interrupted
+npm install --no-audit --no-fund -> still no output after 90 seconds and was interrupted
 ```
 
 Prepared:
