@@ -11,8 +11,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-EXPECTED_USER = "joy7758"
-DATASET_ID = "joy7758/atu-trace-1000"
+EXPECTED_USER = "joy7759"
+DATASET_ID = "joy7759/atu-trace-1000"
 LOCAL_DATASET_DIR = Path("hf_dataset/atu_trace_1000")
 
 
@@ -112,7 +112,7 @@ def main() -> int:
                 "status": "hf_not_authenticated",
                 "actual_hf_user": None,
                 "stderr": result["stderr"],
-                "next_gate": "hf_auth_login_as_joy7758",
+                "next_gate": "hf_auth_login_as_joy7759",
             }
         )
         json.dump(payload, sys.stdout, indent=2, sort_keys=True)

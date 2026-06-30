@@ -5,16 +5,15 @@ Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: GitHub release complete; Zenodo GitHub integration and release
-webhook delivery complete; Zenodo DOI pending materialization. There is no
-confirmed Zenodo DOI, Hugging Face publication, JOSS submission, or upstream PR
-until those external actions are performed and recorded.
+Current status: GitHub release complete; Hugging Face dataset live; Zenodo
+GitHub integration and release webhook delivery complete; Zenodo DOI pending
+materialization. There is no confirmed Zenodo DOI, JOSS submission, or upstream
+PR until those external actions are performed and recorded.
 
-Hugging Face boundary: the canonical dataset target is locked to
-`joy7758/atu-trace-1000` so dataset identity matches the GitHub and Zenodo
-identity. Browser authentication has only confirmed a `joy7759` session, with
-no visible `joy7758` organization membership, so no HF upload is complete until
-HF authentication is switched to `joy7758` and the live dataset URL is recorded.
+Hugging Face boundary: the live dataset is
+<https://huggingface.co/datasets/joy7759/atu-trace-1000>. The HF namespace
+`joy7759` and GitHub namespace `joy7758` are treated as the same maintainer
+identity by explicit owner confirmation on 2026-06-30.
 
 License: Apache-2.0.
 
@@ -86,8 +85,8 @@ tags, assets, Hugging Face, Zenodo, or JOSS:
 make scientific-activation-observe
 ```
 
-Check that the local Hugging Face identity is safe for the canonical dataset
-upload:
+Check that the local Hugging Face CLI identity matches the live dataset
+namespace before future CLI uploads:
 
 ```bash
 make hf-canonical-identity-check
@@ -156,7 +155,7 @@ This repository contains release-prep and publication-observer files such as
 - GitHub Release `v0.2.0`: complete.
 - Zenodo GitHub integration and webhook delivery: complete.
 - Zenodo DOI: pending materialization until Zenodo returns a DOI-bearing record.
-- Hugging Face dataset: not published until `hf auth whoami` is `joy7758` and a
-  live `joy7758/atu-trace-1000` dataset URL is recorded.
+- Hugging Face dataset: live at
+  <https://huggingface.co/datasets/joy7759/atu-trace-1000>.
 - Promptfoo runtime artifact: not complete until an eval result is generated.
 - JOSS submission: not submitted until a JOSS submission URL is recorded.

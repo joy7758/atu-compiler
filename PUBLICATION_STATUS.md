@@ -27,9 +27,18 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T15:36:46Z`; Zenodo query total remained
-  `0`, Hugging Face dataset remained not found, and Promptfoo runtime remained
-  absent.
+- Latest observer run: `2026-06-30T15:58:42Z`; Zenodo query total remained
+  `0`, Hugging Face dataset was visible, and Promptfoo runtime remained absent.
+- Hugging Face dataset created and populated at
+  `https://huggingface.co/datasets/joy7759/atu-trace-1000`.
+- HF data commit: `945c6e2` uploaded `data/eval.jsonl`, `data/test.jsonl`, and
+  `data/train.jsonl`.
+- HF root metadata commit: `54bd194` uploaded `README.md` and
+  `dataset_infos.json`.
+- HF README update commit: `be34a82` removed stale pre-upload wording from the
+  live dataset card.
+- User confirmed `joy7759` and `joy7758` are the same owner identity for this
+  publication; HF canonical URL is therefore `joy7759/atu-trace-1000`.
 - Manual GitHub observer workflow active: `Scientific Activation Observer`
   (`workflow_dispatch` only). The workflow skips repository webhook-delivery
   inspection because that API is not available to the default `GITHUB_TOKEN`;
@@ -63,15 +72,6 @@ Status date: 2026-06-30
   delivered a `release` / `edited` webhook event to Zenodo. Exact Zenodo API
   searches still returned `total: 0` at `2026-06-30T14:45:55Z`, so DOI is
   pending materialization, not verified failed.
-- Hugging Face dataset upload has not been completed. `hf auth whoami` returned
-  `Not logged in`; public lookup for `joy7758/atu-trace-1000` returned
-  `Dataset not found`. Chrome is logged in to Hugging Face as `joy7759`, with
-  no visible `joy7758` organization membership. The canonical dataset target is
-  now locked to `joy7758/atu-trace-1000`; upload is blocked until HF identity
-  switches to `joy7758`. `make hf-canonical-identity-check` ran at
-  `2026-06-30T15:46:00Z` and returned `hf_not_authenticated` with no mutation.
-  Post-login recheck at `2026-06-30T15:47:49Z` found the HF connector and Chrome
-  session still on `joy7759`; no upload was performed.
 - Promptfoo share has not been completed. `npx promptfoo` startup hung during
   package bootstrap in this environment and was interrupted.
 - Promptfoo local package metadata exists in `evals/promptfoo/package.json`, but
@@ -88,10 +88,7 @@ Status date: 2026-06-30
 1. Monitor Zenodo DOI materialization with `make scientific-activation-observe`.
    Do not mutate the GitHub Release again without new evidence that Zenodo will
    not harvest the existing queued event.
-2. Switch Hugging Face identity to `joy7758`, run
-   `make hf-canonical-identity-check`, then upload `hf_dataset/atu_trace_1000`
-   to `joy7758/atu-trace-1000`.
-3. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts
+2. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts
    successfully.
-4. Log in with ORCID before starting the JOSS submission workflow.
-5. Open upstream issues or pull requests using the prepared PR draft files.
+3. Log in with ORCID before starting the JOSS submission workflow.
+4. Open upstream issues or pull requests using the prepared PR draft files.

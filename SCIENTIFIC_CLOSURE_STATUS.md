@@ -12,7 +12,7 @@ Code exists: yes
 GitHub release exists: yes
 Zenodo GitHub integration: enabled
 Zenodo DOI: not verified
-Hugging Face dataset: not uploaded
+Hugging Face dataset: live
 Promptfoo benchmark execution: not completed in this environment
 JOSS submission: package generated, not submitted
 ```
@@ -23,11 +23,17 @@ JOSS submission: package generated, not submitted
 - GitHub release: `https://github.com/joy7758/atu-compiler/releases/tag/v0.2.0`
 - Release tag: `v0.2.0`
 - Release build commit: `dcf930a`
-- Publication status commit: `e095b80`
+- Publication status commit: use git history for the current status snapshot; do
+  not self-record a commit hash inside this file.
 - Zenodo GitHub integration: enabled for `joy7758/atu-compiler`
 - Zenodo release webhook: active for GitHub `release` events
 - Dataset local loader check: `datasets.load_dataset("json", ...)` loads
   train/eval/test as 1 row each.
+- Hugging Face dataset:
+  `https://huggingface.co/datasets/joy7759/atu-trace-1000`
+- HF data commit: `945c6e2`
+- HF root metadata commit: `54bd194`
+- HF README update commit: `be34a82`
 - Final JOSS zip: `atu_v0.2_joss_submission_final.zip`
 - HF upload-ready folder: `hf_dataset/atu_trace_1000`
 - Promptfoo local package folder: `evals/promptfoo`
@@ -36,38 +42,24 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T15:36:46Z`.
-Latest browser/manual-use check: `2026-06-30T15:23:16Z`.
+Latest observer run: `2026-06-30T15:58:42Z`.
+Latest browser/manual-use check: `2026-06-30T15:58:42Z`.
 
 ## HF Dataset Gate
 
-Blocked by authentication.
+Completed.
 
 Observed:
 
 ```text
-HF_TOKEN_MISSING
-HUGGINGFACE_HUB_TOKEN_MISSING
-hf auth whoami -> Error: Not logged in
-hf repos ls -> HTTP 401
-hf datasets info joy7758/atu-trace-1000 -> Dataset not found
-hf datasets list --author joy7758 --search atu-trace -> []
-Chrome Hugging Face session -> logged in as joy7759
-Chrome Hugging Face organizations -> no visible joy7758 organization membership
-post-login recheck 2026-06-30T15:47:49Z -> CLI not authenticated, connector joy7759, Chrome joy7759
+User confirmation -> joy7759 and joy7758 are the same owner identity for ATU
+HF dataset URL -> https://huggingface.co/datasets/joy7759/atu-trace-1000
+HF data commit -> 945c6e2
+HF root metadata commit -> 54bd194
+HF file tree -> README.md, dataset_infos.json, data/eval.jsonl, data/test.jsonl, data/train.jsonl
 ```
 
-Dataset package is locally valid but not uploaded. The canonical target is
-locked to `joy7758/atu-trace-1000` for identity alignment with GitHub, Zenodo,
-and JOSS. The browser session is `joy7759`, so upload remains blocked until HF
-identity is switched to `joy7758`. Use:
-
-```bash
-hf auth login
-hf auth whoami
-make hf-canonical-identity-check
-hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message "ATU v0.2 dataset initial release"
-```
+The local package remains mirrored at `hf_dataset/atu_trace_1000`.
 
 ## Zenodo DOI Gate
 

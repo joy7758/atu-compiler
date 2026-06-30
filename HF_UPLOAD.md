@@ -15,21 +15,27 @@ hf_dataset/atu_trace_1000
 Canonical upload target:
 
 ```text
-joy7758/atu-trace-1000
+joy7759/atu-trace-1000
 ```
 
 Namespace boundary:
 
-The current browser-use check found a Hugging Face session for `joy7759`, but no
-visible `joy7758` organization membership. Do not upload this dataset to
-`joy7759/atu-trace-1000` or any other namespace. The canonical dataset identity
-is `joy7758/atu-trace-1000` so it matches the GitHub and Zenodo identity.
+The live Hugging Face dataset is:
+
+```text
+joy7759/atu-trace-1000
+```
+
+The user confirmed on 2026-06-30 that `joy7759` and GitHub namespace `joy7758`
+are the same owner identity for this publication. Use `joy7759/atu-trace-1000`
+for HF dataset updates.
 
 Authentication boundary:
 
 No Hugging Face upload is claimed unless `hf auth whoami` succeeds and
-returns `joy7758`, and the dataset repository is created or updated on the
-Hugging Face Hub under `joy7758/atu-trace-1000`.
+returns `joy7759`, or the browser-authenticated HF session is visibly `joy7759`,
+and the dataset repository is created or updated on the Hugging Face Hub under
+`joy7759/atu-trace-1000`.
 
 Pre-upload identity gate:
 
@@ -43,7 +49,7 @@ CLI path:
 .venv/bin/python -m pip install -U huggingface_hub datasets
 .venv/bin/hf auth login
 .venv/bin/hf auth whoami
-.venv/bin/hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message "ATU v0.2 dataset initial release"
+.venv/bin/hf upload joy7759/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message "ATU v0.2 dataset update"
 ```
 
 Python upload example after authentication:
@@ -53,12 +59,12 @@ from huggingface_hub import HfApi
 
 api = HfApi()
 api.create_repo(
-    repo_id="joy7758/atu-trace-1000",
+    repo_id="joy7759/atu-trace-1000",
     repo_type="dataset",
     exist_ok=True,
 )
 api.upload_folder(
-    repo_id="joy7758/atu-trace-1000",
+    repo_id="joy7759/atu-trace-1000",
     repo_type="dataset",
     folder_path="hf_dataset/atu_trace_1000",
 )

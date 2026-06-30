@@ -3,17 +3,16 @@
 Purpose: compile heterogeneous agent traces into deterministic ATU-IR episodes
 for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
 
-Status: version 0.2.0. GitHub Release is complete. Zenodo GitHub integration
-and GitHub release webhook delivery are complete. Zenodo DOI is pending
-materialization until Zenodo returns a DOI-bearing record. No public Hugging
-Face dataset upload, Promptfoo runtime artifact, JOSS submission, or upstream PR
-is claimed until that external action is performed and recorded.
+Status: version 0.2.0. GitHub Release is complete. Hugging Face dataset is live
+at `joy7759/atu-trace-1000`. Zenodo GitHub integration and GitHub release
+webhook delivery are complete. Zenodo DOI is pending materialization until
+Zenodo returns a DOI-bearing record. No Promptfoo runtime artifact, JOSS
+submission, or upstream PR is claimed until that external action is performed
+and recorded.
 
-Hugging Face namespace boundary: canonical target is locked to
-`joy7758/atu-trace-1000` to match GitHub and Zenodo identity. The
-browser-authenticated session observed during activation was `joy7759` with no
-visible `joy7758` organization membership. Do not upload until
-`make hf-canonical-identity-check` reports `identity_match`.
+Hugging Face namespace boundary: live HF target is `joy7759/atu-trace-1000`.
+The user confirmed on 2026-06-30 that HF namespace `joy7759` and GitHub
+namespace `joy7758` are the same owner identity for ATU publication purposes.
 
 Canonical commands:
 
@@ -57,5 +56,5 @@ Protocol boundaries:
 - A Zenodo webhook delivery is not a DOI. DOI completion requires a
   DOI-bearing Zenodo API record.
 - A browser-authenticated Hugging Face session is not a dataset publication.
-  Dataset completion requires `joy7758` HF authentication and a live
-  `joy7758/atu-trace-1000` dataset URL.
+  Dataset completion requires a live dataset URL; ATU v0.2 now uses
+  `joy7759/atu-trace-1000`.

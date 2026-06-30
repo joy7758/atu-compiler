@@ -44,9 +44,10 @@ HF upload has a separate pre-upload identity gate:
 make hf-canonical-identity-check
 ```
 
-That gate is also read-only. It succeeds only when `hf auth whoami` resolves to
-`joy7758`, the canonical namespace for `joy7758/atu-trace-1000`. A visible
-browser session under another namespace is not enough to publish the dataset.
+That gate is also read-only. It succeeds when `hf auth whoami` resolves to
+`joy7759`, the live namespace for `joy7759/atu-trace-1000`. The user confirmed
+on 2026-06-30 that `joy7759` and GitHub namespace `joy7758` are the same owner
+identity for this publication.
 
 Network behavior: one flaky external endpoint should not fail the whole
 observer. Zenodo API checks retry before returning an `ok: false` JSON section.

@@ -10,7 +10,7 @@ identity/citation loop is still pending external activation.
 ```text
 Engineering system: complete
 GitHub software release: complete
-Hugging Face dataset identity: pending
+Hugging Face dataset identity: live
 Zenodo GitHub integration: enabled
 Zenodo DOI identity: pending
 Promptfoo runtime artifact: pending
@@ -23,45 +23,16 @@ evidence succeeds.
 
 ## Gate 1: Hugging Face Dataset Identity
 
-Local evidence already available:
+Completion evidence:
 
 - HF-ready dataset folder: `hf_dataset/atu_trace_1000`
 - Local loader check: train/eval/test each load with 1 row
-- Current blocker: not logged in to Hugging Face
-- Browser-use check: Chrome is logged in to Hugging Face as `joy7759`, not
-  `joy7758`, and no `joy7758` organization membership was visible.
-- Canonical decision: publish only as `joy7758/atu-trace-1000` to keep dataset
-  identity aligned with GitHub, Zenodo, and JOSS.
-
-Use the modern HF CLI available in this environment:
-
-```bash
-cd /Users/zhangbin/Documents/atu
-.venv/bin/hf auth login
-.venv/bin/hf auth whoami
-make hf-canonical-identity-check
-```
-
-If `whoami` succeeds, publish:
-
-```bash
-.venv/bin/hf upload joy7758/atu-trace-1000 \
-  hf_dataset/atu_trace_1000 \
-  . \
-  --repo-type dataset \
-  --commit-message "ATU v0.2 dataset initial release"
-```
-
-Completion evidence:
-
-```bash
-.venv/bin/hf datasets ls --author joy7758
-```
-
-Record the live dataset URL in `README.md`, `SCIENTIFIC_CLOSURE_STATUS.md`, and
-`ACTIVATION_MANIFEST.json`.
-
-Do not upload to a different Hugging Face namespace.
+- User confirmed `joy7759` and `joy7758` are the same owner identity for ATU.
+- Live dataset URL: `https://huggingface.co/datasets/joy7759/atu-trace-1000`
+- HF data commit: `945c6e2`
+- HF root metadata commit: `54bd194`
+- Uploaded files: `README.md`, `dataset_infos.json`, `data/eval.jsonl`,
+  `data/test.jsonl`, `data/train.jsonl`
 
 ## Gate 2: Zenodo DOI Identity
 
@@ -124,7 +95,8 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T15:36:46Z`; Zenodo query total remained `0`.
+Latest observer run: `2026-06-30T15:58:42Z`; Zenodo query total remained `0`
+and Hugging Face dataset status was `visible`.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
 local authenticated observer runs include that check.

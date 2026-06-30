@@ -2,14 +2,14 @@
   "schema_version": "1.0",
   "project": "ATU",
   "release": "v0.2.0",
-  "status": "engineering_complete_scientific_pending_activation",
+  "status": "engineering_complete_scientific_partial_activation_hf_live_doi_pending",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T15:47:49Z",
+  "last_checked_at": "2026-06-30T15:58:42Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
     "zenodo_doi": "not_verified",
-    "huggingface_dataset": "not_uploaded",
+    "huggingface_dataset": "live",
     "promptfoo_runtime": "not_completed_in_current_environment",
     "joss_submission": "package_generated_not_submitted"
   },
@@ -21,30 +21,37 @@
     "manifest_commit_policy": "use_git_history_for_current_manifest_commit_no_self_referential_hash"
   },
   "huggingface": {
-    "target_dataset_repo": "joy7758/atu-trace-1000",
-    "canonical_namespace_decision": "locked_to_joy7758_for_github_zenodo_joss_identity_alignment",
-    "auth_status": "local_cli_not_logged_in",
+    "target_dataset_repo": "joy7759/atu-trace-1000",
+    "canonical_namespace_decision": "joy7759_live_hf_namespace_user_attested_same_owner_as_github_joy7758",
+    "live_dataset_url": "https://huggingface.co/datasets/joy7759/atu-trace-1000",
+    "auth_status": "browser_and_connector_authenticated_as_joy7759_local_cli_not_authenticated",
+    "owner_identity_attestation": {
+      "attested_at": "2026-06-30T15:54:21Z",
+      "github_namespace": "joy7758",
+      "hf_namespace": "joy7759",
+      "attestation": "same_owner_registration_alias"
+    },
     "chrome_session_status": "logged_in_as_joy7759",
-    "chrome_session_namespace_check": "no_joy7758_organization_membership_visible",
-    "namespace_mismatch": "target_repo_joy7758_but_browser_session_joy7759",
-    "public_dataset_status": "not_found",
-    "last_checked_at": "2026-06-30T15:47:49Z",
+    "chrome_session_namespace_check": "joy7759_active_hf_namespace",
+    "namespace_mismatch": "resolved_by_user_attestation_same_owner_alias",
+    "public_dataset_status": "visible",
+    "last_checked_at": "2026-06-30T15:58:42Z",
     "local_package": "hf_dataset/atu_trace_1000",
     "identity_check_command": "make hf-canonical-identity-check",
-    "latest_identity_check": {
-      "checked_at": "2026-06-30T15:46:00Z",
-      "status": "hf_not_authenticated",
-      "required_hf_user": "joy7758",
-      "actual_hf_user": null,
-      "mutation": "none"
-    },
-    "post_login_recheck": {
-      "checked_at": "2026-06-30T15:47:49Z",
-      "local_cli_status": "hf_not_authenticated",
-      "connector_user": "joy7759",
-      "chrome_user": "joy7759",
-      "canonical_identity_gate": "blocked",
-      "upload_performed": false
+    "browser_upload": {
+      "performed": true,
+      "performed_at": "2026-06-30T15:54:21Z",
+      "dataset_url": "https://huggingface.co/datasets/joy7759/atu-trace-1000",
+      "data_commit": "945c6e280813066ecbf207808681c248995892e0",
+      "root_metadata_commit": "54bd1942ffb160aad1a703f44ac2fe12f0c187e8",
+      "readme_update_commit": "be34a823cc621e527c25afd2cb241d39c5ad1776",
+      "uploaded_files": [
+        "README.md",
+        "dataset_infos.json",
+        "data/eval.jsonl",
+        "data/test.jsonl",
+        "data/train.jsonl"
+      ]
     },
     "loader_check": {
       "status": "pass",
@@ -52,8 +59,8 @@
       "eval_rows": 1,
       "test_rows": 1
     },
-    "activation_gate": "switch_huggingface_identity_to_joy7758_then_upload",
-    "upload_command": "hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message \"ATU v0.2 dataset initial release\""
+    "activation_gate": "complete_hf_dataset_live",
+    "future_upload_command": "hf upload joy7759/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message \"ATU v0.2 dataset update\""
   },
   "zenodo": {
     "repository_binding": "enabled",
@@ -61,7 +68,7 @@
     "github_hook_delivery_status": "release_edited_delivery_ok",
     "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_retrigger",
     "doi_status": "pending_materialization_after_release_edited_retrigger",
-    "last_checked_at": "2026-06-30T15:36:46Z",
+    "last_checked_at": "2026-06-30T15:58:42Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
@@ -115,13 +122,13 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T15:36:46Z",
+      "last_observed_at": "2026-06-30T15:58:42Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",
         "zenodo_repo_query_total": 0,
         "zenodo_title_query_total": 0,
-        "huggingface_dataset_status": "not_found_or_not_accessible",
+        "huggingface_dataset_status": "visible",
         "promptfoo_node_modules_present": false
       },
       "github_release_mutation": "hold",

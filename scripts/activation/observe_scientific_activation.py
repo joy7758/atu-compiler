@@ -19,7 +19,7 @@ from pathlib import Path
 REPO = "joy7758/atu-compiler"
 TAG = "v0.2.0"
 HOOK_ID = "647976117"
-DATASET_ID = "joy7758/atu-trace-1000"
+DATASET_ID = "joy7759/atu-trace-1000"
 
 
 def utc_now() -> str:
