@@ -13,7 +13,7 @@ GitHub release exists: yes
 Zenodo GitHub integration: enabled
 Zenodo DOI: not verified
 Hugging Face dataset: live
-Promptfoo benchmark execution: not completed in this environment
+Promptfoo benchmark execution: complete locally
 JOSS submission: package generated, not submitted
 ```
 
@@ -34,16 +34,21 @@ JOSS submission: package generated, not submitted
 - HF data commit: `945c6e2`
 - HF root metadata commit: `54bd194`
 - HF README update commit: `be34a82`
+- HF `dataset_infos.json` update commit: `fd0da1d`
 - Final JOSS zip: `atu_v0.2_joss_submission_final.zip`
 - HF upload-ready folder: `hf_dataset/atu_trace_1000`
 - Promptfoo local package folder: `evals/promptfoo`
+- Promptfoo result artifact:
+  `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json`
+- Promptfoo eval ID: `eval-dYL-2026-06-30T17:02:05`
+- Promptfoo result: `3 passed`, `0 failed`, `0 errors`
 
 Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T16:01:46Z`.
-Latest browser/manual-use check: `2026-06-30T15:58:42Z`.
+Latest observer run: `2026-06-30T17:14:37Z`.
+Latest browser/manual-use check: `2026-06-30T17:10:47Z`.
 
 ## HF Dataset Gate
 
@@ -56,6 +61,8 @@ User confirmation -> joy7759 and joy7758 are the same owner identity for ATU
 HF dataset URL -> https://huggingface.co/datasets/joy7759/atu-trace-1000
 HF data commit -> 945c6e2
 HF root metadata commit -> 54bd194
+HF dataset_infos update commit -> fd0da1d
+HF dataset_infos homepage -> https://huggingface.co/datasets/joy7759/atu-trace-1000
 HF file tree -> README.md, dataset_infos.json, data/eval.jsonl, data/test.jsonl, data/train.jsonl
 ```
 
@@ -113,38 +120,38 @@ make zenodo-retrigger-dry-run -> pass
 guarded --execute -> GitHub release edited event delivered to Zenodo with OK
 Zenodo API after edited event -> total: 0
 scientific activation observer -> prepared for read-only polling
-make scientific-activation-observe -> Zenodo total 0, HF dataset not found, Promptfoo runtime absent
+make scientific-activation-observe -> Zenodo total 0, HF dataset visible, Promptfoo runtime artifact passed
 observer network behavior -> endpoint failures return JSON `ok: false` sections
 Zenodo browser sync -> completed, still no v0.2.0 and no DOI on repository page
 ```
 
 ## Promptfoo Benchmark Gate
 
-Blocked by npm/package bootstrap in this local environment.
+Completed locally.
 
 Observed:
 
 ```text
-npx promptfoo eval -> hung during package bootstrap and was interrupted
-npx --yes promptfoo@0.121.17 --help -> hung and was interrupted
-npm install --no-audit --no-fund -> hung and was interrupted
-npm pack promptfoo@0.121.17 --dry-run --json -> hung and was interrupted
-npm install --no-audit --no-fund -> still no output after 90 seconds and was interrupted
+npm install --no-audit --no-fund -> full dependency bootstrap was too large and was interrupted
+npm install --legacy-peer-deps --omit=optional -> completed
+direct @libsql/darwin-arm64@0.5.29 platform binding -> installed for macOS arm64
+promptfoo --version -> 0.121.17
+promptfoo eval --no-share --output results/...json -> 3 passed, 0 failed, 0 errors
 ```
 
-Prepared:
+Runtime package:
 
 - `evals/promptfoo/package.json`
 - `evals/promptfoo/promptfooconfig.yaml`
 - generated tests under `evals/promptfoo/tests/`
 - deterministic provider under `evals/promptfoo/providers/atu-noop.js`
+- result artifact under `evals/promptfoo/results/`
 
-Retry path in a stable npm environment:
+Re-run path:
 
 ```bash
 cd evals/promptfoo
-npm install
-npm run eval
+npm run eval -- --no-share
 ```
 
 ## JOSS Gate

@@ -38,6 +38,8 @@ def export_promptfoo(episodes: list[dict[str, Any]], out_dir: str | Path) -> Non
 
 
 CONFIG = """description: "ATU replayable eval suite"
+prompts:
+  - "ATU replay evaluation for {{ episode_id }}: {{ task_goal }}"
 providers:
   - id: file://providers/atu-noop.js
 
@@ -52,14 +54,22 @@ tests:
 """
 
 
-NOOP_PROVIDER = """module.exports = {
-  id: 'atu-noop',
+NOOP_PROVIDER = """module.exports = class AtuNoopProvider {
+  constructor(options = {}) {
+    this.providerId = options.id || 'atu-noop';
+  }
+
+  id() {
+    return this.providerId;
+  }
+
   async callApi(prompt, context) {
     return {
       output: JSON.stringify({
         ok: true,
         episode_id: context.vars.episode_id,
-        replay_class: context.vars.replay_class
+        replay_class: context.vars.replay_class,
+        prompt
       })
     };
   }
@@ -83,7 +93,7 @@ assert:
   - type: javascript
     value: |
       const parsed = JSON.parse(output);
-      return parsed.ok === true && parsed.episode_id === vars.episode_id;
+      return parsed.ok === true && parsed.episode_id === context.vars.episode_id;
 metadata:
   replay_class: "{replay_class}"
   provenance_min: {provenance}

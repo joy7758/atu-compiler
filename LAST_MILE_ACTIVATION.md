@@ -13,7 +13,7 @@ GitHub software release: complete
 Hugging Face dataset identity: live
 Zenodo GitHub integration: enabled
 Zenodo DOI identity: pending
-Promptfoo runtime artifact: pending
+Promptfoo runtime artifact: complete locally
 JOSS submission: pending
 ```
 
@@ -31,6 +31,9 @@ Completion evidence:
 - Live dataset URL: `https://huggingface.co/datasets/joy7759/atu-trace-1000`
 - HF data commit: `945c6e2`
 - HF root metadata commit: `54bd194`
+- HF `dataset_infos.json` update commit: `fd0da1d`
+- HF `dataset_infos.json` homepage:
+  `https://huggingface.co/datasets/joy7759/atu-trace-1000`
 - Uploaded files: `README.md`, `dataset_infos.json`, `data/eval.jsonl`,
   `data/test.jsonl`, `data/train.jsonl`
 
@@ -95,8 +98,9 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T16:01:46Z`; Zenodo query total remained `0`
-and Hugging Face dataset status was `visible`.
+Latest observer run: `2026-06-30T17:14:37Z`; Zenodo query total remained `0`,
+Hugging Face dataset status was `visible`, and Promptfoo runtime artifact
+passed.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
 local authenticated observer runs include that check.
@@ -120,23 +124,30 @@ Current evidence:
 
 - `evals/promptfoo/package.json` pins `promptfoo@0.121.17`
 - Promptfoo config and generated tests exist
-- Current blocker: npm tarball/package bootstrap hangs in this environment
+- Result artifact:
+  `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json`
+- Eval ID: `eval-dYL-2026-06-30T17:02:05`
+- Result: `3 passed`, `0 failed`, `0 errors`
 
-Retry path:
+Observed local setup path:
 
 ```bash
 cd /Users/zhangbin/Documents/atu/evals/promptfoo
-rm -rf node_modules package-lock.json
-npm cache clean --force
-npm install --no-audit --no-fund
-npm run eval
+npm install --no-audit --no-fund --omit=optional --legacy-peer-deps --prefer-offline
+tmp_dir=$(mktemp -d)
+curl -fL -o "$tmp_dir/darwin-arm64-0.5.29.tgz" \
+  https://registry.npmjs.org/@libsql/darwin-arm64/-/darwin-arm64-0.5.29.tgz
+mkdir -p node_modules/@libsql/darwin-arm64
+tar -xzf "$tmp_dir/darwin-arm64-0.5.29.tgz" \
+  -C node_modules/@libsql/darwin-arm64 --strip-components=1
+rm -rf "$tmp_dir"
+npm run eval -- --no-share
 ```
 
-Fallback:
+Portable re-run path after dependencies are present:
 
 ```bash
-npm install --legacy-peer-deps
-npm run eval
+npm run eval -- --no-share
 ```
 
 Completion evidence:

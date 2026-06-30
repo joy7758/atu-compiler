@@ -27,8 +27,8 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T16:01:46Z`; Zenodo query total remained
-  `0`, Hugging Face dataset was visible, and Promptfoo runtime remained absent.
+- Latest observer run: `2026-06-30T17:14:37Z`; Zenodo query total remained
+  `0`, Hugging Face dataset was visible, and Promptfoo runtime artifact passed.
 - Hugging Face dataset created and populated at
   `https://huggingface.co/datasets/joy7759/atu-trace-1000`.
 - HF data commit: `945c6e2` uploaded `data/eval.jsonl`, `data/test.jsonl`, and
@@ -37,6 +37,8 @@ Status date: 2026-06-30
   `dataset_infos.json`.
 - HF README update commit: `be34a82` removed stale pre-upload wording from the
   live dataset card.
+- HF `dataset_infos.json` update commit: `fd0da1d` replaced stale `local-only`
+  homepage metadata with the live dataset URL.
 - User confirmed `joy7759` and `joy7758` are the same owner identity for this
   publication; HF canonical URL is therefore `joy7759/atu-trace-1000`.
 - Manual GitHub observer workflow active: `Scientific Activation Observer`
@@ -63,6 +65,11 @@ Status date: 2026-06-30
 - Citation bundle exists: `citation_bundle/`
 - HF upload mirror exists: `hf_dataset/atu_trace_1000/`
 - Promptfoo local package exists: `evals/promptfoo/`
+- Promptfoo local runtime artifact exists:
+  `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json`
+- Promptfoo local eval result: `3 passed`, `0 failed`, `0 errors`.
+- Remote HF `dataset_infos.json` now reports homepage
+  `https://huggingface.co/datasets/joy7759/atu-trace-1000`.
 
 ## Not Completed Externally
 
@@ -72,11 +79,8 @@ Status date: 2026-06-30
   delivered a `release` / `edited` webhook event to Zenodo. Exact Zenodo API
   searches still returned `total: 0` at `2026-06-30T14:45:55Z`, so DOI is
   pending materialization, not verified failed.
-- Promptfoo share has not been completed. `npx promptfoo` startup hung during
-  package bootstrap in this environment and was interrupted.
-- Promptfoo local package metadata exists in `evals/promptfoo/package.json`, but
-  `npm install --no-audit --no-fund` again produced no output for 90 seconds and
-  was interrupted without leaving `node_modules` or `package-lock.json`.
+- Promptfoo share has not been completed. Local runtime evidence exists, but no
+  external Promptfoo share URL has been created or recorded.
 - JOSS submission has not been submitted to JOSS. The local submission package
   zip was generated only. Browser check showed the JOSS submission entry
   requires ORCID login before a submission can be started.
@@ -88,7 +92,7 @@ Status date: 2026-06-30
 1. Monitor Zenodo DOI materialization with `make scientific-activation-observe`.
    Do not mutate the GitHub Release again without new evidence that Zenodo will
    not harvest the existing queued event.
-2. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts
-   successfully.
+2. Decide whether to create a Promptfoo share URL. Do not claim external
+   Promptfoo publication until that URL exists.
 3. Log in with ORCID before starting the JOSS submission workflow.
 4. Open upstream issues or pull requests using the prepared PR draft files.

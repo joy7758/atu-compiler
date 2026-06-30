@@ -163,12 +163,45 @@ def hf_dataset_status() -> dict[str, object]:
 
 def promptfoo_status() -> dict[str, object]:
     root = Path("evals/promptfoo")
-    return {
+    latest_result = None
+    result_files = sorted((root / "results").glob("promptfoo-atu-v0.2.0-*.json"))
+    if result_files:
+        latest_path = max(result_files, key=lambda path: path.stat().st_mtime)
+        try:
+            data = json.loads(latest_path.read_text())
+            prompt_metrics = data.get("results", {}).get("prompts", [{}])[0].get(
+                "metrics", {}
+            )
+            latest_result = {
+                "path": str(latest_path),
+                "eval_id": data.get("evalId"),
+                "test_pass_count": prompt_metrics.get("testPassCount"),
+                "test_fail_count": prompt_metrics.get("testFailCount"),
+                "test_error_count": prompt_metrics.get("testErrorCount"),
+                "assert_pass_count": prompt_metrics.get("assertPassCount"),
+                "assert_fail_count": prompt_metrics.get("assertFailCount"),
+            }
+            latest_result["passed"] = (
+                latest_result["test_pass_count"] == 3
+                and latest_result["test_fail_count"] == 0
+                and latest_result["test_error_count"] == 0
+            )
+        except Exception as exc:  # noqa: BLE001 - observer should stay read-only.
+            latest_result = {
+                "path": str(latest_path),
+                "passed": False,
+                "error": f"{type(exc).__name__}: {exc}",
+            }
+
+    status = {
         "local_package": str(root),
         "node_modules_present": (root / "node_modules").exists(),
         "package_lock_present": (root / "package-lock.json").exists(),
         "config_present": (root / "promptfooconfig.yaml").exists(),
+        "result_artifact_present": latest_result is not None,
+        "latest_result": latest_result,
     }
+    return status
 
 
 def main() -> int:

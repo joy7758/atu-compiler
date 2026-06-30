@@ -36,7 +36,7 @@ The command emits JSON with these read-only checks:
 - Zenodo GitHub webhook deliveries.
 - Zenodo public API search for the repository and release title.
 - Hugging Face dataset visibility.
-- Promptfoo local runtime package presence.
+- Promptfoo local runtime package and latest result artifact status.
 
 HF upload has a separate pre-upload identity gate:
 
@@ -71,6 +71,7 @@ then, the truthful state is:
 github_release: complete
 zenodo_webhook_delivery: complete
 zenodo_doi: pending_materialization
+promptfoo_local_runtime: complete_if_latest_result_passed
 ```
 
 ## Completion Evidence

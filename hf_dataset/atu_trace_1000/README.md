@@ -15,10 +15,10 @@ size_categories:
 # ATU Trace 1000
 
 This dataset card describes the ATU v0.2 Hugging Face dataset publication at
-`joy7759/atu-trace-1000`. The package contains 3 synthetic or local episodes
-compiled from ATU-IR. The HF namespace `joy7759` is the active Hugging Face
-account for the same owner as the GitHub namespace `joy7758`, per maintainer
-confirmation on 2026-06-30.
+`joy7759/atu-trace-1000`. The package contains 3 synthetic or
+local episodes compiled from ATU-IR. The HF namespace `joy7759` is the active
+Hugging Face account for the same owner as the GitHub namespace `joy7758`, per
+maintainer confirmation on 2026-06-30.
 
 ## Dataset Summary
 

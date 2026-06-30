@@ -5,15 +5,18 @@ Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: GitHub release complete; Hugging Face dataset live; Zenodo
-GitHub integration and release webhook delivery complete; Zenodo DOI pending
-materialization. There is no confirmed Zenodo DOI, JOSS submission, or upstream
-PR until those external actions are performed and recorded.
+Current status: GitHub release complete; Hugging Face dataset live; Promptfoo
+local runtime artifact generated; Zenodo GitHub integration and release webhook
+delivery complete; Zenodo DOI pending materialization. There is no confirmed
+Zenodo DOI, JOSS submission, or upstream PR until those external actions are
+performed and recorded.
 
 Hugging Face boundary: the live dataset is
 <https://huggingface.co/datasets/joy7759/atu-trace-1000>. The HF namespace
 `joy7759` and GitHub namespace `joy7758` are treated as the same maintainer
-identity by explicit owner confirmation on 2026-06-30.
+identity by explicit owner confirmation on 2026-06-30. The live
+`dataset_infos.json` metadata now points to the HF dataset URL rather than the
+old `local-only` placeholder.
 
 License: Apache-2.0.
 
@@ -157,5 +160,7 @@ This repository contains release-prep and publication-observer files such as
 - Zenodo DOI: pending materialization until Zenodo returns a DOI-bearing record.
 - Hugging Face dataset: live at
   <https://huggingface.co/datasets/joy7759/atu-trace-1000>.
-- Promptfoo runtime artifact: not complete until an eval result is generated.
+- Promptfoo runtime artifact: complete locally at
+  `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json`
+  with `3 passed`, `0 failed`, and `0 errors`.
 - JOSS submission: not submitted until a JOSS submission URL is recorded.

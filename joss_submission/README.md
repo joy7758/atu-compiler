@@ -5,9 +5,18 @@ Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: release-prep implementation. There is no confirmed Zenodo DOI,
-Hugging Face publication, JOSS submission, or upstream PR until those external
-actions are performed and recorded.
+Current status: GitHub release complete; Hugging Face dataset live; Promptfoo
+local runtime artifact generated; Zenodo GitHub integration and release webhook
+delivery complete; Zenodo DOI pending materialization. There is no confirmed
+Zenodo DOI, JOSS submission, or upstream PR until those external actions are
+performed and recorded.
+
+Hugging Face boundary: the live dataset is
+<https://huggingface.co/datasets/joy7759/atu-trace-1000>. The HF namespace
+`joy7759` and GitHub namespace `joy7758` are treated as the same maintainer
+identity by explicit owner confirmation on 2026-06-30. The live
+`dataset_infos.json` metadata now points to the HF dataset URL rather than the
+old `local-only` placeholder.
 
 License: Apache-2.0.
 
@@ -23,6 +32,10 @@ License: Apache-2.0.
 - `src/atu/`: Python reference compiler and CLI implementation.
 - `examples/`: synthetic source traces.
 - `tests/`: deterministic compile, schema, exporter, and CLI regression tests.
+- `docs/scientific-citation-observer.md`: read-only external activation
+  observer for DOI, dataset, and eval publication gates.
+- `ACTIVATION_MANIFEST.json`: machine-readable current publication and
+  scientific activation state.
 
 ## Install
 
@@ -67,6 +80,25 @@ Run release checks:
 ```bash
 make release-check
 ```
+
+Observe external scientific activation state without mutating GitHub release,
+tags, assets, Hugging Face, Zenodo, or JOSS:
+
+```bash
+make scientific-activation-observe
+```
+
+Check that the local Hugging Face CLI identity matches the live dataset
+namespace before future CLI uploads:
+
+```bash
+make hf-canonical-identity-check
+```
+
+The same read-only observer is available as a manual GitHub Action:
+`Scientific Activation Observer`. The GitHub Action skips repository webhook
+delivery inspection because that endpoint requires permissions not available to
+the default `GITHUB_TOKEN`; local authenticated runs still include it.
 
 ## Compiler Contract
 
@@ -119,6 +151,16 @@ ATU is positioned above existing trace systems:
 
 ## Release Boundary
 
-This repository may contain release-prep files such as `CITATION.cff`,
-`paper/paper.md`, dataset cards, and export packages. Those files are local
-readiness surfaces until an explicit external publication action happens.
+This repository contains release-prep and publication-observer files such as
+`CITATION.cff`, `paper/paper.md`, dataset cards, export packages, and
+`ACTIVATION_MANIFEST.json`. Treat each external surface separately:
+
+- GitHub Release `v0.2.0`: complete.
+- Zenodo GitHub integration and webhook delivery: complete.
+- Zenodo DOI: pending materialization until Zenodo returns a DOI-bearing record.
+- Hugging Face dataset: live at
+  <https://huggingface.co/datasets/joy7759/atu-trace-1000>.
+- Promptfoo runtime artifact: complete locally at
+  `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json`
+  with `3 passed`, `0 failed`, and `0 errors`.
+- JOSS submission: not submitted until a JOSS submission URL is recorded.

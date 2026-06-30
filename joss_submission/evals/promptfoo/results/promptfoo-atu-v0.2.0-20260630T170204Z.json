@@ -1,0 +1,500 @@
+{
+  "evalId": "eval-dYL-2026-06-30T17:02:05",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-06-30T17:02:05.870Z",
+    "prompts": [
+      {
+        "id": "89ed8bb9ad8b73ba1036e5b6326cfe7b9ee7704be9cc0eac23f5ed58bbf3e1ba",
+        "raw": "ATU replay evaluation for {{ episode_id }}: {{ task_goal }}",
+        "label": "ATU replay evaluation for {{ episode_id }}: {{ task_goal }}",
+        "provider": "file://providers/atu-noop.js",
+        "metrics": {
+          "score": 3,
+          "testPassCount": 3,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 6,
+          "assertFailCount": 0,
+          "totalLatencyMs": 1,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 3,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains-json"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "const parsed = JSON.parse(output);\nreturn parsed.ok === true && parsed.episode_id === context.vars.episode_id;\n"
+              }
+            }
+          ]
+        },
+        "id": "e0ea83f9-8d5f-461e-b63e-3689ecc6281b",
+        "latencyMs": 1,
+        "namedScores": {},
+        "prompt": {
+          "raw": "ATU replay evaluation for atu-ep-b087508fbff90258d1: Find two synthetic sources and summarize them",
+          "label": "ATU replay evaluation for {{ episode_id }}: {{ task_goal }}",
+          "config": {}
+        },
+        "promptId": "89ed8bb9ad8b73ba1036e5b6326cfe7b9ee7704be9cc0eac23f5ed58bbf3e1ba",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://providers/atu-noop.js",
+          "label": ""
+        },
+        "response": {
+          "output": "{\"ok\":true,\"episode_id\":\"atu-ep-b087508fbff90258d1\",\"replay_class\":\"semi_deterministic\",\"prompt\":\"ATU replay evaluation for atu-ep-b087508fbff90258d1: Find two synthetic sources and summarize them\"}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "ATU episode atu-ep-b087508fbff90258d1",
+          "vars": {
+            "episode_id": "atu-ep-b087508fbff90258d1",
+            "replay_class": "semi_deterministic",
+            "task_goal": "Find two synthetic sources and summarize them",
+            "input_payload": "file://fixtures/atu-ep-b087508fbff90258d1.json"
+          },
+          "assert": [
+            {
+              "type": "contains-json"
+            },
+            {
+              "type": "javascript",
+              "value": "const parsed = JSON.parse(output);\nreturn parsed.ok === true && parsed.episode_id === context.vars.episode_id;\n"
+            }
+          ],
+          "metadata": {
+            "source": "atu-jsonl",
+            "replay_class": "semi_deterministic",
+            "provenance_min": 1
+          },
+          "options": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "episode_id": "atu-ep-b087508fbff90258d1",
+          "replay_class": "semi_deterministic",
+          "task_goal": "Find two synthetic sources and summarize them",
+          "input_payload": "file://fixtures/atu-ep-b087508fbff90258d1.json"
+        },
+        "metadata": {
+          "source": "atu-jsonl",
+          "replay_class": "semi_deterministic",
+          "provenance_min": 1,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains-json"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "const parsed = JSON.parse(output);\nreturn parsed.ok === true && parsed.episode_id === context.vars.episode_id;\n"
+              }
+            }
+          ]
+        },
+        "id": "9cdf9543-0bc7-4692-beec-d130527a12d0",
+        "latencyMs": 0,
+        "namedScores": {},
+        "prompt": {
+          "raw": "ATU replay evaluation for atu-ep-ce99042cf3b5e9caec: Classify a synthetic trace",
+          "label": "ATU replay evaluation for {{ episode_id }}: {{ task_goal }}",
+          "config": {}
+        },
+        "promptId": "89ed8bb9ad8b73ba1036e5b6326cfe7b9ee7704be9cc0eac23f5ed58bbf3e1ba",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://providers/atu-noop.js",
+          "label": ""
+        },
+        "response": {
+          "output": "{\"ok\":true,\"episode_id\":\"atu-ep-ce99042cf3b5e9caec\",\"replay_class\":\"semi_deterministic\",\"prompt\":\"ATU replay evaluation for atu-ep-ce99042cf3b5e9caec: Classify a synthetic trace\"}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "ATU episode atu-ep-ce99042cf3b5e9caec",
+          "vars": {
+            "episode_id": "atu-ep-ce99042cf3b5e9caec",
+            "replay_class": "semi_deterministic",
+            "task_goal": "Classify a synthetic trace",
+            "input_payload": "file://fixtures/atu-ep-ce99042cf3b5e9caec.json"
+          },
+          "assert": [
+            {
+              "type": "contains-json"
+            },
+            {
+              "type": "javascript",
+              "value": "const parsed = JSON.parse(output);\nreturn parsed.ok === true && parsed.episode_id === context.vars.episode_id;\n"
+            }
+          ],
+          "metadata": {
+            "source": "atu-jsonl",
+            "replay_class": "semi_deterministic",
+            "provenance_min": 0
+          },
+          "options": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "episode_id": "atu-ep-ce99042cf3b5e9caec",
+          "replay_class": "semi_deterministic",
+          "task_goal": "Classify a synthetic trace",
+          "input_payload": "file://fixtures/atu-ep-ce99042cf3b5e9caec.json"
+        },
+        "metadata": {
+          "source": "atu-jsonl",
+          "replay_class": "semi_deterministic",
+          "provenance_min": 0,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains-json"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "javascript",
+                "value": "const parsed = JSON.parse(output);\nreturn parsed.ok === true && parsed.episode_id === context.vars.episode_id;\n"
+              }
+            }
+          ]
+        },
+        "id": "fcd20b54-03e6-4706-ad4d-fba2e257c11c",
+        "latencyMs": 0,
+        "namedScores": {},
+        "prompt": {
+          "raw": "ATU replay evaluation for atu-ep-8e279122f1c809bc16: Create a local synthetic note",
+          "label": "ATU replay evaluation for {{ episode_id }}: {{ task_goal }}",
+          "config": {}
+        },
+        "promptId": "89ed8bb9ad8b73ba1036e5b6326cfe7b9ee7704be9cc0eac23f5ed58bbf3e1ba",
+        "promptIdx": 0,
+        "provider": {
+          "id": "file://providers/atu-noop.js",
+          "label": ""
+        },
+        "response": {
+          "output": "{\"ok\":true,\"episode_id\":\"atu-ep-8e279122f1c809bc16\",\"replay_class\":\"receipt_only\",\"prompt\":\"ATU replay evaluation for atu-ep-8e279122f1c809bc16: Create a local synthetic note\"}"
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "ATU episode atu-ep-8e279122f1c809bc16",
+          "vars": {
+            "episode_id": "atu-ep-8e279122f1c809bc16",
+            "replay_class": "receipt_only",
+            "task_goal": "Create a local synthetic note",
+            "input_payload": "file://fixtures/atu-ep-8e279122f1c809bc16.json"
+          },
+          "assert": [
+            {
+              "type": "contains-json"
+            },
+            {
+              "type": "javascript",
+              "value": "const parsed = JSON.parse(output);\nreturn parsed.ok === true && parsed.episode_id === context.vars.episode_id;\n"
+            }
+          ],
+          "metadata": {
+            "source": "atu-jsonl",
+            "replay_class": "receipt_only",
+            "provenance_min": 1
+          },
+          "options": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "episode_id": "atu-ep-8e279122f1c809bc16",
+          "replay_class": "receipt_only",
+          "task_goal": "Create a local synthetic note",
+          "input_payload": "file://fixtures/atu-ep-8e279122f1c809bc16.json"
+        },
+        "metadata": {
+          "source": "atu-jsonl",
+          "replay_class": "receipt_only",
+          "provenance_min": 1,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 3,
+      "failures": 0,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "total": 0,
+        "numRequests": 3,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 17,
+      "evaluationDurationMs": 17
+    }
+  },
+  "config": {
+    "description": "ATU replayable eval suite",
+    "prompts": [
+      "ATU replay evaluation for {{ episode_id }}: {{ task_goal }}"
+    ],
+    "providers": [
+      {
+        "id": "file://providers/atu-noop.js"
+      }
+    ],
+    "tests": [
+      "file://tests/train/*.yaml",
+      "file://tests/eval/*.yaml",
+      "file://tests/test/*.yaml"
+    ],
+    "defaultTest": {
+      "metadata": {
+        "source": "atu-jsonl"
+      }
+    },
+    "outputPath": [
+      "results/promptfoo-atu-v0.2.0-20260630T170204Z.json"
+    ],
+    "extensions": []
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.121.17",
+    "nodeVersion": "v26.0.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "exportedAt": "2026-06-30T17:02:05.909Z",
+    "evaluationCreatedAt": "2026-06-30T17:02:05.870Z"
+  },
+  "vars": [
+    "episode_id",
+    "replay_class",
+    "task_goal",
+    "input_payload"
+  ],
+  "runtimeOptions": {
+    "eventSource": "cli",
+    "showProgressBar": false,
+    "repeat": 1,
+    "maxConcurrency": 4,
+    "cache": true
+  }
+}

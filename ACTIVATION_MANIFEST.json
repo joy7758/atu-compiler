@@ -2,15 +2,15 @@
   "schema_version": "1.0",
   "project": "ATU",
   "release": "v0.2.0",
-  "status": "engineering_complete_scientific_partial_activation_hf_live_doi_pending",
+  "status": "engineering_complete_scientific_partial_activation_hf_live_promptfoo_live_doi_pending",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T16:01:46Z",
+  "last_checked_at": "2026-06-30T17:14:37Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
     "zenodo_doi": "not_verified",
     "huggingface_dataset": "live",
-    "promptfoo_runtime": "not_completed_in_current_environment",
+    "promptfoo_runtime": "complete_local_promptfoo_eval_artifact",
     "joss_submission": "package_generated_not_submitted"
   },
   "github": {
@@ -35,7 +35,7 @@
     "chrome_session_namespace_check": "joy7759_active_hf_namespace",
     "namespace_mismatch": "resolved_by_user_attestation_same_owner_alias",
     "public_dataset_status": "visible",
-    "last_checked_at": "2026-06-30T16:01:46Z",
+    "last_checked_at": "2026-06-30T17:10:47Z",
     "local_package": "hf_dataset/atu_trace_1000",
     "identity_check_command": "make hf-canonical-identity-check",
     "browser_upload": {
@@ -45,6 +45,8 @@
       "data_commit": "945c6e280813066ecbf207808681c248995892e0",
       "root_metadata_commit": "54bd1942ffb160aad1a703f44ac2fe12f0c187e8",
       "readme_update_commit": "be34a823cc621e527c25afd2cb241d39c5ad1776",
+      "dataset_infos_update_commit": "fd0da1d41a63c2c7bf9fd629ac6174545f548f27",
+      "dataset_infos_update_checked_at": "2026-06-30T17:10:47Z",
       "uploaded_files": [
         "README.md",
         "dataset_infos.json",
@@ -59,16 +61,16 @@
       "eval_rows": 1,
       "test_rows": 1
     },
-    "activation_gate": "complete_hf_dataset_live",
+    "activation_gate": "complete_hf_dataset_live_metadata_synced",
     "future_upload_command": "hf upload joy7759/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message \"ATU v0.2 dataset update\""
   },
   "zenodo": {
     "repository_binding": "enabled",
     "release_webhook": "active_for_github_release_events",
     "github_hook_delivery_status": "release_edited_delivery_ok",
-    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_retrigger",
+    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_hf_metadata_sync",
     "doi_status": "pending_materialization_after_release_edited_retrigger",
-    "last_checked_at": "2026-06-30T16:01:46Z",
+    "last_checked_at": "2026-06-30T17:14:37Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
@@ -122,14 +124,18 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T16:01:46Z",
+      "last_observed_at": "2026-06-30T17:14:37Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",
         "zenodo_repo_query_total": 0,
         "zenodo_title_query_total": 0,
         "huggingface_dataset_status": "visible",
-        "promptfoo_node_modules_present": false
+        "huggingface_dataset_sha": "fd0da1d41a63c2c7bf9fd629ac6174545f548f27",
+        "huggingface_dataset_infos_homepage": "https://huggingface.co/datasets/joy7759/atu-trace-1000",
+        "promptfoo_result_artifact_present": true,
+        "promptfoo_eval_passed": true,
+        "promptfoo_eval_id": "eval-dYL-2026-06-30T17:02:05"
       },
       "github_release_mutation": "hold",
       "tag_mutation": "forbidden_without_explicit_new_confirmation",
@@ -153,24 +159,46 @@
     "local_package": "evals/promptfoo",
     "prepared_files": [
       "evals/promptfoo/package.json",
+      "evals/promptfoo/package-lock.json",
       "evals/promptfoo/promptfooconfig.yaml",
       "evals/promptfoo/providers/atu-noop.js",
-      "evals/promptfoo/tests"
+      "evals/promptfoo/tests",
+      "evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json"
     ],
-    "blocked_commands": [
+    "retry_command": "cd evals/promptfoo && npm install --legacy-peer-deps && npm run eval -- --no-share",
+    "runtime_status": "complete_local_promptfoo_eval_artifact",
+    "package_install_strategy": "npm install --legacy-peer-deps --omit=optional plus direct @libsql/darwin-arm64@0.5.29 platform binding for local macOS arm64 runtime",
+    "resolved_commands": [
+      "npm install --no-audit --no-fund --omit=optional --legacy-peer-deps --prefer-offline --loglevel=warn",
+      "curl -fL https://registry.npmjs.org/@libsql/darwin-arm64/-/darwin-arm64-0.5.29.tgz and extract to node_modules/@libsql/darwin-arm64",
+      "./node_modules/.bin/promptfoo --version",
+      "./node_modules/.bin/promptfoo eval --no-share --output evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json --no-progress-bar"
+    ],
+    "latest_result": {
+      "path": "evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json",
+      "eval_id": "eval-dYL-2026-06-30T17:02:05",
+      "timestamp": "2026-06-30T17:02:05.870Z",
+      "test_pass_count": 3,
+      "test_fail_count": 0,
+      "test_error_count": 0,
+      "assert_pass_count": 6,
+      "assert_fail_count": 0,
+      "shared": false
+    },
+    "completion_gate": "complete_promptfoo_local_runtime_passed",
+    "previous_blocked_commands": [
       "npx promptfoo eval",
       "npx --yes promptfoo@0.121.17 --help",
       "npm install --no-audit --no-fund",
       "npm pack promptfoo@0.121.17 --dry-run --json"
     ],
-    "last_attempt": {
+    "previous_last_attempt": {
       "checked_at": "2026-06-30T14:29:06Z",
       "command": "npm install --no-audit --no-fund",
       "status": "interrupted_after_90_seconds_without_output",
       "left_node_modules": false,
       "left_package_lock": false
-    },
-    "retry_command": "cd evals/promptfoo && npm install && npm run eval"
+    }
   },
   "joss": {
     "final_zip": "atu_v0.2_joss_submission_final.zip",
@@ -185,7 +213,7 @@
   "completion_criteria": [
     "Zenodo DOI minted and recorded in CITATION.cff",
     "Hugging Face dataset live and linked from README.md",
-    "Promptfoo eval result generated and attached or linked",
+    "Promptfoo eval result generated and linked from SCIENTIFIC_CLOSURE_STATUS.md",
     "JOSS submission opened or explicitly deferred"
   ]
 }

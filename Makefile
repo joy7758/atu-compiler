@@ -1,4 +1,4 @@
-.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles zenodo-retrigger-dry-run scientific-activation-observe hf-canonical-identity-check
+.PHONY: test compile-fixtures export-artifacts validate release-check stats promptfoo-eval publication-bundles zenodo-retrigger-dry-run scientific-activation-observe hf-canonical-identity-check
 
 PYTHON ?= .venv/bin/python
 ATU ?= .venv/bin/atu
@@ -25,6 +25,9 @@ export-artifacts:
 stats:
 	$(ATU) stats --input out/atu.jsonl
 
+promptfoo-eval:
+	cd evals/promptfoo && mkdir -p results && ./node_modules/.bin/promptfoo eval --no-share --no-progress-bar --output results/promptfoo-atu-v0.2.0-$$(date -u +%Y%m%dT%H%M%SZ).json
+
 release-check: test compile-fixtures validate export-artifacts stats
 
 publication-bundles: release-check
@@ -34,6 +37,7 @@ publication-bundles: release-check
 	cp -R datasets/atu-trace-1000/. hf_dataset/atu_trace_1000/
 	cp paper/paper.md CITATION.cff README.md joss_submission/
 	cp -R src datasets joss_submission/
+	rsync -a --exclude node_modules evals joss_submission/
 	find joss_submission -name __pycache__ -type d -prune -exec rm -rf {} +
 	find joss_submission -name '*.pyc' -delete
 	zip -qr atu_v0.2_joss_submission.zip joss_submission

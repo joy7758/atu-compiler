@@ -6,13 +6,17 @@ for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
 Status: version 0.2.0. GitHub Release is complete. Hugging Face dataset is live
 at `joy7759/atu-trace-1000`. Zenodo GitHub integration and GitHub release
 webhook delivery are complete. Zenodo DOI is pending materialization until
-Zenodo returns a DOI-bearing record. No Promptfoo runtime artifact, JOSS
-submission, or upstream PR is claimed until that external action is performed
-and recorded.
+Zenodo returns a DOI-bearing record. Promptfoo local runtime artifact is present
+at `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json`
+with `3 passed`, `0 failed`, and `0 errors`. No JOSS submission or upstream PR
+is claimed until that external action is performed and recorded.
 
 Hugging Face namespace boundary: live HF target is `joy7759/atu-trace-1000`.
 The user confirmed on 2026-06-30 that HF namespace `joy7759` and GitHub
 namespace `joy7758` are the same owner identity for ATU publication purposes.
+Remote HF metadata is synchronized: `dataset_infos.json` homepage points to
+`https://huggingface.co/datasets/joy7759/atu-trace-1000` as of commit
+`fd0da1d`.
 
 Canonical commands:
 

@@ -67,10 +67,11 @@ size_categories:
 
 # ATU Trace 1000
 
-This is a dataset-card scaffold generated from ATU-IR episodes. The current
-package contains {len(episodes)} synthetic or local episodes. It is ready for
-manual Hugging Face repository upload after review, but this repository does
-not claim upload until that external action is performed.
+This dataset card describes the ATU v0.2 Hugging Face dataset publication at
+`joy7759/atu-trace-1000`. The package contains {len(episodes)} synthetic or
+local episodes compiled from ATU-IR. The HF namespace `joy7759` is the active
+Hugging Face account for the same owner as the GitHub namespace `joy7758`, per
+maintainer confirmation on 2026-06-30.
 
 ## Dataset Summary
 
@@ -110,17 +111,18 @@ with the standard Hugging Face JSON loader without a custom dataset script.
 ## Privacy and Licensing
 
 Public exports must use synthetic or explicitly licensed traces after redaction.
-This scaffold does not claim external publication, DOI assignment, or
-third-party validation until those actions are recorded.
+This dataset is externally published on Hugging Face. It does not claim DOI
+assignment or third-party validation until those actions are separately
+recorded.
 """
 
 
 def dataset_infos(splits: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
     return {
         "atu-trace-1000": {
-            "description": "ATU trace-to-dataset compiler output scaffold.",
+            "description": "ATU trace-to-dataset compiler output published on Hugging Face.",
             "citation": "See CITATION.cff in the software repository.",
-            "homepage": "local-only",
+            "homepage": "https://huggingface.co/datasets/joy7759/atu-trace-1000",
             "license": "apache-2.0",
             "features": {
                 "episode_id": {"dtype": "string", "_type": "Value"},
