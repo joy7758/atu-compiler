@@ -1,0 +1,12 @@
+description: "ATU replayable eval suite"
+providers:
+  - id: file://providers/atu-noop.js
+
+defaultTest:
+  metadata:
+    source: atu-jsonl
+
+tests:
+  - file://tests/train/*.yaml
+  - file://tests/eval/*.yaml
+  - file://tests/test/*.yaml

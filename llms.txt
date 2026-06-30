@@ -1,0 +1,37 @@
+# ATU Compiler
+
+Purpose: compile heterogeneous agent traces into deterministic ATU-IR episodes
+for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
+
+Status: local alpha, version 0.2.0-alpha1. No DOI, no public dataset publish,
+no JOSS submission, and no upstream PR are claimed by this repository.
+
+Canonical commands:
+
+- Install for development: `python -m pip install -e ".[test]"`
+- Compile OTLP: `atu compile --source otlp --input examples/autogen/trace.otlp.json --output out/atu.jsonl`
+- Compile OpenInference: `atu compile --source openinference --input examples/crewai/openinference_trace.json --output out/atu.jsonl`
+- Compile LangSmith: `atu compile --source langsmith --input examples/langsmith/run_export.json --output out/atu.jsonl`
+- Validate: `atu validate --input out/atu.jsonl --schema schemas/atu-ir.schema.json`
+- Export HF dataset: `atu export-hf --input out/atu.jsonl --output datasets/atu-trace-1000`
+- Export Promptfoo suite: `atu export-promptfoo --input out/atu.jsonl --output evals/promptfoo`
+- Build replay manifests: `atu replay-manifest --input out/atu.jsonl --output replay/manifests`
+- Test: `python -m pytest`
+
+Important files:
+
+- `schemas/atu-ir.schema.json`: canonical output schema.
+- `rfcs/RFC-0001-atu-ir-v0.2.md`: design contract and non-goals.
+- `mapping/*.md`: source mapping rules.
+- `src/atu/compiler.py`: span-to-episode pipeline.
+- `src/atu/ingest/*.py`: source adapters.
+- `src/atu/export/*.py`: downstream exporters.
+- `tests/test_compiler.py`: deterministic compile and schema checks.
+
+Protocol boundaries:
+
+- OpenTelemetry/OpenInference/LangSmith exports are inputs, not ATU truth.
+- ATU-IR JSONL is the normalized compiler output.
+- Replay manifests and receipts describe replay/audit, not external validation.
+- Dataset and Promptfoo exports are generated views, not separate source truth.
+- Citation files are local readiness until a release or DOI exists.

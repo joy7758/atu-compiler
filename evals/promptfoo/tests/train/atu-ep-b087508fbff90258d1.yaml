@@ -1,0 +1,15 @@
+description: "ATU episode atu-ep-b087508fbff90258d1"
+vars:
+  episode_id: "atu-ep-b087508fbff90258d1"
+  replay_class: "semi_deterministic"
+  task_goal: "Find two synthetic sources and summarize them"
+  input_payload: "file://fixtures/atu-ep-b087508fbff90258d1.json"
+assert:
+  - type: contains-json
+  - type: javascript
+    value: |
+      const parsed = JSON.parse(output);
+      return parsed.ok === true && parsed.episode_id === vars.episode_id;
+metadata:
+  replay_class: "semi_deterministic"
+  provenance_min: 1.0

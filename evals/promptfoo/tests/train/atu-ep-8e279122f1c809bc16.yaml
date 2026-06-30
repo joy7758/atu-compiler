@@ -1,0 +1,15 @@
+description: "ATU episode atu-ep-8e279122f1c809bc16"
+vars:
+  episode_id: "atu-ep-8e279122f1c809bc16"
+  replay_class: "receipt_only"
+  task_goal: "Create a local synthetic note"
+  input_payload: "file://fixtures/atu-ep-8e279122f1c809bc16.json"
+assert:
+  - type: contains-json
+  - type: javascript
+    value: |
+      const parsed = JSON.parse(output);
+      return parsed.ok === true && parsed.episode_id === vars.episode_id;
+metadata:
+  replay_class: "receipt_only"
+  provenance_min: 1.0

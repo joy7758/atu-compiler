@@ -1,0 +1,15 @@
+description: "ATU episode atu-ep-ce99042cf3b5e9caec"
+vars:
+  episode_id: "atu-ep-ce99042cf3b5e9caec"
+  replay_class: "semi_deterministic"
+  task_goal: "Classify a synthetic trace"
+  input_payload: "file://fixtures/atu-ep-ce99042cf3b5e9caec.json"
+assert:
+  - type: contains-json
+  - type: javascript
+    value: |
+      const parsed = JSON.parse(output);
+      return parsed.ok === true && parsed.episode_id === vars.episode_id;
+metadata:
+  replay_class: "semi_deterministic"
+  provenance_min: 0.0

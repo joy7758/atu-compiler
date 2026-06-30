@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use ATU Compiler, cite the software repository and the specific release you used."
+title: "ATU Compiler: a trace-to-dataset compiler profile for agent episodes"
+type: software
+authors:
+  - name: "ATU contributors"
+version: "0.2.0-alpha1"
+date-released: "2026-06-30"
+license: "MIT"
+abstract: >-
+  ATU Compiler converts OpenTelemetry, OpenInference, and LangSmith-style
+  traces into deterministic, episode-level ATU-IR JSONL with replay classes,
+  receipts, labels, and dataset/eval export surfaces.

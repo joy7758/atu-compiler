@@ -1,0 +1,67 @@
+{
+  "resourceSpans": [
+    {
+      "resource": {
+        "attributes": [
+          { "key": "service.name", "value": { "stringValue": "crewai" } },
+          { "key": "service.namespace", "value": { "stringValue": "atu-examples" } }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "atu.synthetic.openinference"
+          },
+          "spans": [
+            {
+              "traceId": "crewai-trace-001",
+              "spanId": "crewroot001",
+              "name": "crew_task",
+              "startTimeUnixNano": "1719700100000000000",
+              "endTimeUnixNano": "1719700104000000000",
+              "attributes": [
+                { "key": "openinference.span.kind", "value": { "stringValue": "AGENT" } },
+                { "key": "input.value", "value": { "stringValue": "Create a local synthetic note" } },
+                { "key": "task_type", "value": { "stringValue": "file_generation" } },
+                { "key": "agent.name", "value": { "stringValue": "crew-writer" } }
+              ],
+              "status": { "code": "STATUS_CODE_OK" }
+            },
+            {
+              "traceId": "crewai-trace-001",
+              "spanId": "crewtool001",
+              "parentSpanId": "crewroot001",
+              "name": "write_synthetic_note",
+              "startTimeUnixNano": "1719700101000000000",
+              "endTimeUnixNano": "1719700102500000000",
+              "attributes": [
+                { "key": "openinference.span.kind", "value": { "stringValue": "TOOL" } },
+                { "key": "tool.name", "value": { "stringValue": "file_write" } },
+                { "key": "input.value", "value": { "stringValue": "synthetic note body" } },
+                { "key": "output.value", "value": { "stringValue": "wrote memory://synthetic/note.txt" } },
+                { "key": "side_effect", "value": { "boolValue": true } },
+                { "key": "artifact_uri", "value": { "stringValue": "memory://synthetic/note.txt" } }
+              ],
+              "status": { "code": "STATUS_CODE_OK" }
+            },
+            {
+              "traceId": "crewai-trace-001",
+              "spanId": "crewllm001",
+              "parentSpanId": "crewroot001",
+              "name": "report_result",
+              "startTimeUnixNano": "1719700102500000000",
+              "endTimeUnixNano": "1719700104000000000",
+              "attributes": [
+                { "key": "openinference.span.kind", "value": { "stringValue": "LLM" } },
+                { "key": "llm.system", "value": { "stringValue": "OpenAI" } },
+                { "key": "llm.model_name", "value": { "stringValue": "gpt-5-mini" } },
+                { "key": "output.value", "value": { "stringValue": "The local synthetic note was created." } }
+              ],
+              "status": { "code": "STATUS_CODE_OK" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
