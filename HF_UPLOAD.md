@@ -20,7 +20,7 @@ joy7758/atu-trace-1000
 
 Authentication boundary:
 
-No Hugging Face upload is claimed unless `huggingface-cli whoami` succeeds and
+No Hugging Face upload is claimed unless `hf auth whoami` succeeds and
 the dataset repository is created or updated on the Hugging Face Hub.
 
 CLI path:

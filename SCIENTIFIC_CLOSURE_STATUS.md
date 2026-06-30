@@ -76,6 +76,7 @@ Observed:
 npx promptfoo eval -> hung during package bootstrap and was interrupted
 npx --yes promptfoo@0.121.17 --help -> hung and was interrupted
 npm install --no-audit --no-fund -> hung and was interrupted
+npm pack promptfoo@0.121.17 --dry-run --json -> hung and was interrupted
 ```
 
 Prepared:

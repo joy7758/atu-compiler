@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "project": "ATU",
+  "release": "v0.2.0",
+  "status": "engineering_complete_scientific_pending_activation",
+  "generated_at": "2026-06-30",
+  "truth_boundaries": {
+    "github_release": "complete",
+    "zenodo_doi": "not_verified",
+    "huggingface_dataset": "not_uploaded",
+    "promptfoo_runtime": "not_completed_in_current_environment",
+    "joss_submission": "package_generated_not_submitted"
+  },
+  "github": {
+    "repository": "https://github.com/joy7758/atu-compiler",
+    "release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.0",
+    "release_tag": "v0.2.0",
+    "release_build_commit": "dcf930a",
+    "status_commit": "888b9b2"
+  },
+  "huggingface": {
+    "target_dataset_repo": "joy7758/atu-trace-1000",
+    "local_package": "hf_dataset/atu_trace_1000",
+    "loader_check": {
+      "status": "pass",
+      "train_rows": 1,
+      "eval_rows": 1,
+      "test_rows": 1
+    },
+    "activation_gate": "hf auth login",
+    "upload_command": "hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message \"ATU v0.2 dataset initial release\""
+  },
+  "zenodo": {
+    "activation_gate": "enable joy7758/atu-compiler in Zenodo GitHub integration",
+    "doi_status": "not_found_by_exact_api_search",
+    "settings_url": "https://zenodo.org/account/settings/github/"
+  },
+  "promptfoo": {
+    "local_package": "evals/promptfoo",
+    "prepared_files": [
+      "evals/promptfoo/package.json",
+      "evals/promptfoo/promptfooconfig.yaml",
+      "evals/promptfoo/providers/atu-noop.js",
+      "evals/promptfoo/tests"
+    ],
+    "blocked_commands": [
+      "npx promptfoo eval",
+      "npx --yes promptfoo@0.121.17 --help",
+      "npm install --no-audit --no-fund",
+      "npm pack promptfoo@0.121.17 --dry-run --json"
+    ],
+    "retry_command": "cd evals/promptfoo && npm install && npm run eval"
+  },
+  "joss": {
+    "final_zip": "atu_v0.2_joss_submission_final.zip",
+    "zip_status": "generated",
+    "submitted": false
+  },
+  "completion_criteria": [
+    "Zenodo DOI minted and recorded in CITATION.cff",
+    "Hugging Face dataset live and linked from README.md",
+    "Promptfoo eval result generated and attached or linked",
+    "JOSS submission opened or explicitly deferred"
+  ]
+}
