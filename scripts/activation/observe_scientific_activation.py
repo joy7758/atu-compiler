@@ -240,11 +240,20 @@ def hf_dataset_status() -> dict[str, object]:
         "--format",
         "json",
     ]
-    result = run(cmd)
+    result = (
+        {
+            "ok": False,
+            "returncode": "skipped",
+            "stdout": "",
+            "stderr": "hf CLI skipped by ATU_OBSERVER_SKIP_HF_CLI",
+        }
+        if os.environ.get("ATU_OBSERVER_SKIP_HF_CLI") == "1"
+        else run(cmd)
+    )
     if result["ok"]:
         return {"ok": True, "dataset": DATASET_ID, "status": "visible", "source": "hf_cli"}
 
-    api_url = f"https://huggingface.co/api/datasets/{urllib.parse.quote(DATASET_ID, safe='')}"
+    api_url = f"https://huggingface.co/api/datasets/{urllib.parse.quote(DATASET_ID, safe='/')}"
     try:
         with urllib.request.urlopen(api_url, timeout=30) as response:
             data = json.load(response)
