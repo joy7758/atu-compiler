@@ -36,7 +36,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T15:27:27Z`.
+Latest observer run: `2026-06-30T15:36:46Z`.
 Latest browser/manual-use check: `2026-06-30T15:23:16Z`.
 
 ## HF Dataset Gate
@@ -56,12 +56,15 @@ Chrome Hugging Face session -> logged in as joy7759
 Chrome Hugging Face organizations -> no visible joy7758 organization membership
 ```
 
-Dataset package is locally valid but not uploaded. The documented target is
-`joy7758/atu-trace-1000`, but the browser session is `joy7759`; choose the
-namespace before upload. If using the documented target, use:
+Dataset package is locally valid but not uploaded. The canonical target is
+locked to `joy7758/atu-trace-1000` for identity alignment with GitHub, Zenodo,
+and JOSS. The browser session is `joy7759`, so upload remains blocked until HF
+identity is switched to `joy7758`. Use:
 
 ```bash
 hf auth login
+hf auth whoami
+make hf-canonical-identity-check
 hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message "ATU v0.2 dataset initial release"
 ```
 

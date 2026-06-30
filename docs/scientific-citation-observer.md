@@ -38,6 +38,16 @@ The command emits JSON with these read-only checks:
 - Hugging Face dataset visibility.
 - Promptfoo local runtime package presence.
 
+HF upload has a separate pre-upload identity gate:
+
+```bash
+make hf-canonical-identity-check
+```
+
+That gate is also read-only. It succeeds only when `hf auth whoami` resolves to
+`joy7758`, the canonical namespace for `joy7758/atu-trace-1000`. A visible
+browser session under another namespace is not enough to publish the dataset.
+
 Network behavior: one flaky external endpoint should not fail the whole
 observer. Zenodo API checks retry before returning an `ok: false` JSON section.
 

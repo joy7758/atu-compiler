@@ -1,4 +1,4 @@
-.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles zenodo-retrigger-dry-run scientific-activation-observe
+.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles zenodo-retrigger-dry-run scientific-activation-observe hf-canonical-identity-check
 
 PYTHON ?= .venv/bin/python
 ATU ?= .venv/bin/atu
@@ -43,3 +43,6 @@ zenodo-retrigger-dry-run:
 
 scientific-activation-observe:
 	$(PYTHON) scripts/activation/observe_scientific_activation.py
+
+hf-canonical-identity-check:
+	$(PYTHON) scripts/activation/check_hf_canonical_identity.py

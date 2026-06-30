@@ -9,10 +9,11 @@ materialization until Zenodo returns a DOI-bearing record. No public Hugging
 Face dataset upload, Promptfoo runtime artifact, JOSS submission, or upstream PR
 is claimed until that external action is performed and recorded.
 
-Hugging Face namespace boundary: docs target `joy7758/atu-trace-1000`, but the
+Hugging Face namespace boundary: canonical target is locked to
+`joy7758/atu-trace-1000` to match GitHub and Zenodo identity. The
 browser-authenticated session observed during activation was `joy7759` with no
-visible `joy7758` organization membership. Do not upload to any HF namespace
-until the target namespace is explicitly confirmed.
+visible `joy7758` organization membership. Do not upload until
+`make hf-canonical-identity-check` reports `identity_match`.
 
 Canonical commands:
 
@@ -26,6 +27,7 @@ Canonical commands:
 - Build replay manifests: `atu replay-manifest --input out/atu.jsonl --output replay/manifests`
 - Release check: `make release-check`
 - Observe external activation: `make scientific-activation-observe`
+- Check HF canonical identity: `make hf-canonical-identity-check`
 - Manual GitHub observer: Actions -> `Scientific Activation Observer`
   (workflow skips repo hook-delivery inspection; local authenticated observer
   includes it)
@@ -55,5 +57,5 @@ Protocol boundaries:
 - A Zenodo webhook delivery is not a DOI. DOI completion requires a
   DOI-bearing Zenodo API record.
 - A browser-authenticated Hugging Face session is not a dataset publication.
-  Dataset completion requires an explicit namespace decision and a live dataset
-  URL.
+  Dataset completion requires `joy7758` HF authentication and a live
+  `joy7758/atu-trace-1000` dataset URL.
