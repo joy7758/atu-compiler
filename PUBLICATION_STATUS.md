@@ -59,8 +59,12 @@ Status date: 2026-06-30
   local authenticated observer runs include it. CI-side hook diagnosis is
   therefore `indeterminate_without_repo_hook_delivery_permission`; CI-side HF
   checks use the public Hugging Face API when the `hf` CLI is unavailable.
-- Latest GitHub observer workflow run: `28454815985`, conclusion `success`,
-  artifact `scientific-activation-observer` / `7984877361`.
+- Latest GitHub observer workflow run: `28466699508`, conclusion `success`,
+  head SHA `bcf03b9610ada5975966f3c450f4fb3b5c9612eb`, artifact
+  `scientific-activation-observer` / `7989891992`. Its CI-side observer result
+  reported Zenodo query total `0`, Hugging Face dataset `visible` via public
+  API, Promptfoo passed, and hook-delivery diagnosis
+  `indeterminate_without_repo_hook_delivery_permission`.
 - Manual Zenodo browser check at `2026-06-30T15:23:16Z`: repository remains
   enabled, repository-list sync completed, but the Zenodo repository detail page
   still showed no `v0.2.0` release and no DOI.

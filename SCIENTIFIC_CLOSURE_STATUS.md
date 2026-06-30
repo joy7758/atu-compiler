@@ -108,8 +108,11 @@ because that API requires permissions not available to the default
 `GITHUB_TOKEN`. CI-side hook diagnosis is therefore indeterminate; local
 authenticated observer runs remain authoritative for Zenodo webhook-delivery
 diagnosis.
-Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
-`scientific-activation-observer` / `7984877361`.
+Latest GitHub workflow run: `28466699508`, conclusion `success`, head SHA
+`bcf03b9610ada5975966f3c450f4fb3b5c9612eb`, artifact
+`scientific-activation-observer` / `7989891992`. CI-side result: Zenodo query
+total `0`, Hugging Face dataset `visible` via public API, Promptfoo passed, and
+hook-delivery diagnosis `indeterminate_without_repo_hook_delivery_permission`.
 
 Prepared guarded command:
 

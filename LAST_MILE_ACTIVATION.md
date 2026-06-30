@@ -106,8 +106,11 @@ Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
 local authenticated observer runs include that check. CI-side hook diagnosis is
 indeterminate by design when repository-hook permissions are unavailable.
-Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
-`scientific-activation-observer` / `7984877361`.
+Latest GitHub workflow run: `28466699508`, conclusion `success`, head SHA
+`bcf03b9610ada5975966f3c450f4fb3b5c9612eb`, artifact
+`scientific-activation-observer` / `7989891992`. CI-side result: Zenodo query
+total `0`, Hugging Face dataset `visible` via public API, Promptfoo passed, and
+hook-delivery diagnosis `indeterminate_without_repo_hook_delivery_permission`.
 Manual browser check at `2026-06-30T15:23:16Z`: Zenodo repo-list sync completed,
 but the repository detail page still showed no `v0.2.0` and no DOI.
 Manual browser check at `2026-06-30T17:47:29Z`: Zenodo repo-list `Sync now`
