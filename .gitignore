@@ -12,3 +12,4 @@ out/
 replay/manifests/
 .coverage
 htmlcov/
+node_modules/

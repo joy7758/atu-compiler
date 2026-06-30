@@ -27,7 +27,8 @@ CLI path:
 
 ```bash
 .venv/bin/python -m pip install -U huggingface_hub datasets
-.venv/bin/huggingface-cli login
+.venv/bin/hf auth login
+.venv/bin/hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message "ATU v0.2 dataset initial release"
 ```
 
 Python upload example after authentication:

@@ -26,6 +26,7 @@ Status date: 2026-06-30
   - eval: 1 row
   - test: 1 row
 - JOSS zip exists: `atu_v0.2_joss_submission.zip`
+- JOSS final zip exists: `atu_v0.2_joss_submission_final.zip`
 - JOSS zip has no `__pycache__` or `.pyc` entries.
 - Citation bundle exists: `citation_bundle/`
 - HF upload mirror exists: `hf_dataset/atu_trace_1000/`
@@ -40,6 +41,8 @@ Status date: 2026-06-30
   `Not logged in`, and `hf repos ls` returned HTTP 401.
 - Promptfoo share has not been completed. `npx promptfoo` startup hung during
   package bootstrap in this environment and was interrupted.
+- Promptfoo local package metadata exists in `evals/promptfoo/package.json`, but
+  `npm install` also hung in this environment and was interrupted.
 - JOSS submission has not been submitted to JOSS. The local submission package
   zip was generated only.
 - OpenInference and Promptfoo upstream PRs have not been opened. Drafts exist
@@ -52,5 +55,5 @@ Status date: 2026-06-30
    `joy7758/atu-trace-1000`.
 3. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts
    successfully.
-4. Submit `atu_v0.2_joss_submission.zip` through the JOSS workflow.
+4. Submit `atu_v0.2_joss_submission_final.zip` through the JOSS workflow.
 5. Open upstream issues or pull requests using the prepared PR draft files.
