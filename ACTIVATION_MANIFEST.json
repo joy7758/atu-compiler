@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_pending_activation",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T15:04:35Z",
+  "last_checked_at": "2026-06-30T15:10:25Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -24,7 +24,7 @@
     "target_dataset_repo": "joy7758/atu-trace-1000",
     "auth_status": "not_logged_in",
     "public_dataset_status": "not_found",
-    "last_checked_at": "2026-06-30T15:04:35Z",
+    "last_checked_at": "2026-06-30T15:10:25Z",
     "local_package": "hf_dataset/atu_trace_1000",
     "loader_check": {
       "status": "pass",
@@ -41,7 +41,7 @@
     "github_hook_delivery_status": "release_edited_delivery_ok",
     "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_retrigger",
     "doi_status": "pending_materialization_after_release_edited_retrigger",
-    "last_checked_at": "2026-06-30T15:04:35Z",
+    "last_checked_at": "2026-06-30T15:10:25Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
@@ -52,6 +52,19 @@
     "observer_github_workflow_remote_state": "active",
     "observer_github_workflow_id": 304775898,
     "observer_github_workflow_hook_delivery_behavior": "skips_repo_hook_delivery_api_due_to_github_token_permission_boundary",
+    "latest_observer_workflow_run": {
+      "run_id": 28454815985,
+      "status": "completed",
+      "conclusion": "success",
+      "event": "workflow_dispatch",
+      "head_sha": "6737bb176fa8d4cdb12ebf6bd57e2036b3d55d1c",
+      "checked_at": "2026-06-30T15:10:25Z",
+      "github_hook_status": "skipped",
+      "zenodo_repo_query_total": 0,
+      "huggingface_status": "not_found_or_not_accessible",
+      "artifact_id": 7984877361,
+      "artifact_name": "scientific-activation-observer"
+    },
     "prepared_retrigger_script": "scripts/activation/zenodo_retrigger_v0_2_0.sh",
     "prepared_retrigger_dry_run": "make zenodo-retrigger-dry-run",
     "prepared_retrigger_execute": "ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute",
@@ -82,7 +95,7 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T15:04:35Z",
+      "last_observed_at": "2026-06-30T15:10:25Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",

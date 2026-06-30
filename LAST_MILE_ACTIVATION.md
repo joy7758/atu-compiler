@@ -117,10 +117,12 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T15:04:35Z`; Zenodo query total remained `0`.
+Latest observer run: `2026-06-30T15:10:25Z`; Zenodo query total remained `0`.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
 local authenticated observer runs include that check.
+Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
+`scientific-activation-observer` / `7984877361`.
 
 Completion evidence:
 

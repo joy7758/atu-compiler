@@ -36,7 +36,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T15:04:35Z`.
+Latest observer run: `2026-06-30T15:10:25Z`.
 
 ## HF Dataset Gate
 
@@ -94,6 +94,8 @@ Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection
 because that API requires permissions not available to the default
 `GITHUB_TOKEN`.
+Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
+`scientific-activation-observer` / `7984877361`.
 
 Prepared guarded command:
 

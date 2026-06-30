@@ -27,13 +27,15 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T15:04:35Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T15:10:25Z`; Zenodo query total remained
   `0`, Hugging Face dataset remained not found, and Promptfoo runtime remained
   absent.
 - Manual GitHub observer workflow active: `Scientific Activation Observer`
   (`workflow_dispatch` only). The workflow skips repository webhook-delivery
   inspection because that API is not available to the default `GITHUB_TOKEN`;
   local authenticated observer runs include it.
+- Latest GitHub observer workflow run: `28454815985`, conclusion `success`,
+  artifact `scientific-activation-observer` / `7984877361`.
 
 ## Verified Local/Package Actions
 
