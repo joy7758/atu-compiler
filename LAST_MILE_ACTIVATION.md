@@ -95,7 +95,7 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T15:58:42Z`; Zenodo query total remained `0`
+Latest observer run: `2026-06-30T16:01:46Z`; Zenodo query total remained `0`
 and Hugging Face dataset status was `visible`.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;

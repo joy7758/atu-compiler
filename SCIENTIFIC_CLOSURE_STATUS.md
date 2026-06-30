@@ -42,7 +42,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T15:58:42Z`.
+Latest observer run: `2026-06-30T16:01:46Z`.
 Latest browser/manual-use check: `2026-06-30T15:58:42Z`.
 
 ## HF Dataset Gate

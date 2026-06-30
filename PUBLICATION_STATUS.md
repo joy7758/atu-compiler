@@ -27,7 +27,7 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T15:58:42Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T16:01:46Z`; Zenodo query total remained
   `0`, Hugging Face dataset was visible, and Promptfoo runtime remained absent.
 - Hugging Face dataset created and populated at
   `https://huggingface.co/datasets/joy7759/atu-trace-1000`.

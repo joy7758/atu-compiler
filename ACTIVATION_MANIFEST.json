@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_partial_activation_hf_live_doi_pending",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T15:58:42Z",
+  "last_checked_at": "2026-06-30T16:01:46Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -35,7 +35,7 @@
     "chrome_session_namespace_check": "joy7759_active_hf_namespace",
     "namespace_mismatch": "resolved_by_user_attestation_same_owner_alias",
     "public_dataset_status": "visible",
-    "last_checked_at": "2026-06-30T15:58:42Z",
+    "last_checked_at": "2026-06-30T16:01:46Z",
     "local_package": "hf_dataset/atu_trace_1000",
     "identity_check_command": "make hf-canonical-identity-check",
     "browser_upload": {
@@ -68,7 +68,7 @@
     "github_hook_delivery_status": "release_edited_delivery_ok",
     "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_retrigger",
     "doi_status": "pending_materialization_after_release_edited_retrigger",
-    "last_checked_at": "2026-06-30T15:58:42Z",
+    "last_checked_at": "2026-06-30T16:01:46Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
@@ -122,7 +122,7 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T15:58:42Z",
+      "last_observed_at": "2026-06-30T16:01:46Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",
