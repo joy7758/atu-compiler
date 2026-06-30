@@ -60,21 +60,24 @@ Observed local corpus stats:
 }
 ```
 
-## Explicit Boundaries
+## Publication Build Status
 
-- No GitHub release has been created.
-- A local git tag may exist only after the release-prep commit is verified.
-- No Zenodo DOI has been minted.
-- No Hugging Face dataset has been uploaded.
-- No Promptfoo package has been published.
-- No JOSS submission has been made.
-- No upstream issue or pull request has been opened.
+- GitHub release target: `https://github.com/joy7758/atu-compiler/releases/tag/v0.2.0`
+- Source tag target: `v0.2.0`
+- Zenodo DOI: pending unless the GitHub repository is connected to Zenodo and
+  the GitHub release webhook completes.
+- Hugging Face dataset upload: package-ready under `datasets/atu-trace-1000`
+  and `hf_dataset/atu_trace_1000`; upload requires Hugging Face authentication.
+- Promptfoo package: local eval package-ready under `evals/promptfoo`; external
+  sharing requires successful `npx promptfoo share`.
+- JOSS package: local zip package-ready after `make publication-bundles`.
+- Upstream PRs: draft text prepared; no upstream issue or pull request is
+  claimed until opened externally.
 - `out/` and `replay/manifests/` are generated local verification artifacts.
 
-## External Commands Not Run
+## External Publication Commands
 
-The following publication commands are intentionally not run in this local
-release-prep pass:
+The intended publication commands are:
 
 ```bash
 git push origin release/v0.2.0
@@ -83,18 +86,17 @@ gh release create v0.2.0 --title "ATU v0.2 Compiler Release" --notes-file RELEAS
 huggingface-cli login
 ```
 
-Reason: the repository has no configured remote in this local checkout, and
-external visibility actions require explicit human confirmation.
+Record actual completion separately when those commands succeed.
 
 ## Next External Gates
 
 These require explicit human confirmation before action:
 
-1. confirm external publication;
-2. add or verify GitHub remote `https://github.com/joy7758/atu-compiler`;
-3. push branch `release/v0.2.0` and tag `v0.2.0`;
-4. create the GitHub release from `RELEASE_NOTES_v0.2.0.md`;
-5. connect Zenodo and mint a software DOI;
-6. upload or create a Hugging Face dataset repo;
+1. add or verify GitHub remote `https://github.com/joy7758/atu-compiler`;
+2. push branch `release/v0.2.0` and tag `v0.2.0`;
+3. create the GitHub release from `RELEASE_NOTES_v0.2.0.md`;
+4. verify whether Zenodo minted a DOI;
+5. authenticate to Hugging Face and upload the dataset package;
+6. share Promptfoo eval results if desired;
 7. open upstream issues or pull requests;
 8. submit the JOSS package.

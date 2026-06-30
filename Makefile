@@ -1,4 +1,4 @@
-.PHONY: test compile-fixtures export-artifacts validate release-check stats
+.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles
 
 PYTHON ?= .venv/bin/python
 ATU ?= .venv/bin/atu
@@ -26,3 +26,14 @@ stats:
 	$(ATU) stats --input out/atu.jsonl
 
 release-check: test compile-fixtures validate export-artifacts stats
+
+publication-bundles: release-check
+	rm -rf citation_bundle joss_submission hf_dataset/atu_trace_1000 atu_v0.2_joss_submission.zip
+	mkdir -p citation_bundle joss_submission hf_dataset/atu_trace_1000
+	cp CITATION.cff .zenodo.json RELEASE_NOTES_v0.2.0.md citation_bundle/
+	cp -R datasets/atu-trace-1000/. hf_dataset/atu_trace_1000/
+	cp paper/paper.md CITATION.cff README.md joss_submission/
+	cp -R src datasets joss_submission/
+	find joss_submission -name __pycache__ -type d -prune -exec rm -rf {} +
+	find joss_submission -name '*.pyc' -delete
+	zip -qr atu_v0.2_joss_submission.zip joss_submission

@@ -1,0 +1,28 @@
+{
+  "title": "ATU v0.2: Agent Trace-to-Dataset Compiler",
+  "upload_type": "software",
+  "description": "Trace-to-dataset compiler profile for agent systems, with OpenTelemetry, OpenInference, and LangSmith-compatible ingest plus replay-aware ATU-IR exports.",
+  "creators": [
+    {
+      "name": "Zhang, Bin"
+    }
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent traces",
+    "OpenTelemetry",
+    "OpenInference",
+    "LangSmith",
+    "datasets",
+    "evaluation"
+  ],
+  "version": "0.2.0",
+  "publication_date": "2026-06-30",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/joy7758/atu-compiler",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

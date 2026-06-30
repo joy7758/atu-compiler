@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "ATU v0.2: Agent Trace-to-Dataset Compiler"
+message: "If you use this software, please cite the repository and the specific release you used."
+type: software
+version: "0.2.0"
+authors:
+  - family-names: "Zhang"
+    given-names: "Bin"
+license: "Apache-2.0"
+repository-code: "https://github.com/joy7758/atu-compiler"
+date-released: "2026-06-30"
+abstract: >-
+  ATU Compiler converts OpenTelemetry, OpenInference, and LangSmith-style
+  traces into deterministic, episode-level ATU-IR JSONL with replay classes,
+  receipts, labels, and dataset/eval export surfaces.
