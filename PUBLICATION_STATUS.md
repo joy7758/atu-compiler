@@ -25,6 +25,11 @@ Status date: 2026-06-30
   Release notes with an HTML comment marker.
 - GitHub webhook delivery after re-trigger: `release` / `edited` / `OK` at
   `2026-06-30T14:43:30.23Z`.
+- Scientific activation observer prepared:
+  `make scientific-activation-observe`.
+- Latest observer run: `2026-06-30T14:53:23Z`; Zenodo query total remained
+  `0`, Hugging Face dataset remained not found, and Promptfoo runtime remained
+  absent.
 
 ## Verified Local/Package Actions
 
@@ -46,8 +51,9 @@ Status date: 2026-06-30
 - Zenodo DOI has not been verified. The repository is enabled in Zenodo, but
   the Zenodo repository detail page has not ingested the existing `v0.2.0`
   GitHub release. A lower-impact GitHub Release metadata edit successfully
-  delivered a `release` / `edited` webhook event to Zenodo, but exact Zenodo API
-  searches still returned `total: 0` at `2026-06-30T14:45:55Z`.
+  delivered a `release` / `edited` webhook event to Zenodo. Exact Zenodo API
+  searches still returned `total: 0` at `2026-06-30T14:45:55Z`, so DOI is
+  pending materialization, not verified failed.
 - Hugging Face dataset upload has not been completed. `hf auth whoami` returned
   `Not logged in`; public lookup for `joy7758/atu-trace-1000` returned
   `Dataset not found`.
@@ -63,9 +69,9 @@ Status date: 2026-06-30
 
 ## Next Manual Gates
 
-1. Decide whether to recreate the GitHub Release object for the existing
-   `v0.2.0` tag, or create a follow-up release, because Zenodo did not mint a
-   DOI from the lower-impact `edited` release event.
+1. Monitor Zenodo DOI materialization with `make scientific-activation-observe`.
+   Do not mutate the GitHub Release again without new evidence that Zenodo will
+   not harvest the existing queued event.
 2. Authenticate with Hugging Face and upload `hf_dataset/atu_trace_1000` to
    `joy7758/atu-trace-1000`.
 3. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts

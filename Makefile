@@ -1,4 +1,4 @@
-.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles zenodo-retrigger-dry-run
+.PHONY: test compile-fixtures export-artifacts validate release-check stats publication-bundles zenodo-retrigger-dry-run scientific-activation-observe
 
 PYTHON ?= .venv/bin/python
 ATU ?= .venv/bin/atu
@@ -40,3 +40,6 @@ publication-bundles: release-check
 
 zenodo-retrigger-dry-run:
 	scripts/activation/zenodo_retrigger_v0_2_0.sh --dry-run
+
+scientific-activation-observe:
+	.venv/bin/python scripts/activation/observe_scientific_activation.py

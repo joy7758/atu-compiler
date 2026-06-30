@@ -35,6 +35,8 @@ JOSS submission: package generated, not submitted
 Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
+Scientific activation observer start: `2026-06-30T14:51:49Z`.
+Latest observer run: `2026-06-30T14:53:23Z`.
 
 ## HF Dataset Gate
 
@@ -60,7 +62,8 @@ hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset
 
 ## Zenodo DOI Gate
 
-Blocked by release ingestion after repository-to-Zenodo binding.
+Pending Zenodo DOI materialization after repository-to-Zenodo binding and
+successful release webhook delivery.
 
 Exact Zenodo API searches for the release title, GitHub URL, and
 `joy7758/atu-compiler` returned no matching ATU records after GitHub release
@@ -70,15 +73,21 @@ unverified. A later recheck found the GitHub Zenodo webhook active, but its
 delivery history contained only the initial `ping` event and no `release`
 delivery. After executing the guarded metadata edit, GitHub recorded a
 `release` / `edited` webhook delivery with status `OK`, but Zenodo API searches
-for the repository and release title still returned `total: 0`.
+for the repository and release title still returned `total: 0`. This is now
+tracked as an asynchronous ingestion window rather than a reason for immediate
+GitHub release mutation.
 
 Manual action:
 
 ```text
-Create a Zenodo-ingestable GitHub release event after deciding whether to
-recreate the existing GitHub Release object for v0.2.0 or create a follow-up
-release
+Monitor Zenodo materialization without further GitHub Release mutation
 Verify DOI on Zenodo
+```
+
+Observer command:
+
+```bash
+make scientific-activation-observe
 ```
 
 Prepared guarded command:
@@ -95,6 +104,8 @@ make zenodo-retrigger-dry-run -> pass
 --execute without confirmation guard -> blocked with exit code 78
 guarded --execute -> GitHub release edited event delivered to Zenodo with OK
 Zenodo API after edited event -> total: 0
+scientific activation observer -> prepared for read-only polling
+make scientific-activation-observe -> Zenodo total 0, HF dataset not found, Promptfoo runtime absent
 ```
 
 ## Promptfoo Benchmark Gate

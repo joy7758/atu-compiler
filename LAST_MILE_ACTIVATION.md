@@ -58,23 +58,22 @@ Record the live dataset URL in `README.md`, `SCIENTIFIC_CLOSURE_STATUS.md`, and
 
 ## Gate 2: Zenodo DOI Identity
 
-Current blocker: repository is enabled in Zenodo, but no matching ATU DOI record
-or ingested `v0.2.0` release is visible yet. A guarded GitHub Release metadata
-edit delivered a `release` / `edited` webhook event to Zenodo with status `OK`,
-but Zenodo API searches still returned `total: 0`.
+Current state: repository is enabled in Zenodo and a guarded GitHub Release
+metadata edit delivered a `release` / `edited` webhook event to Zenodo with
+status `OK`. Zenodo API searches still returned `total: 0`, so DOI is pending
+materialization.
 
 Manual activation path:
 
 ```text
 1. Keep Zenodo repository binding enabled for joy7758/atu-compiler
-2. If Zenodo requires a `published` release event, choose a confirmed
-   release-object recreation or follow-up release strategy
+2. Monitor the Zenodo ingestion window without further GitHub Release mutation
 3. Verify the DOI on Zenodo
 ```
 
-If a re-trigger is required, prefer editing/publishing release metadata in the
-GitHub UI or creating a follow-up release after deciding whether `v0.2.0` should
-remain immutable. Do not move the existing `v0.2.0` tag casually.
+The GitHub-side re-trigger has already been executed once. Further GitHub
+Release mutation is on hold while Zenodo DOI materialization is plausibly
+pending. Do not move the existing `v0.2.0` tag.
 
 Prepared dry run:
 
@@ -93,9 +92,8 @@ ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger \
 ```
 
 This lower-impact path edits only GitHub Release notes with an HTML comment
-marker. It does not move the tag or alter release assets. If Zenodo ignores an
-`edited` release event, the next candidate is a confirmed release-object
-recreation for the existing tag.
+marker. It does not move the tag or alter release assets. It has already been
+executed once and produced a successful `release` / `edited` webhook delivery.
 
 Execution guard status: running `--execute` without
 `ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger` exits with code
@@ -108,6 +106,18 @@ executed_at: 2026-06-30T14:43:22Z
 github_delivery: release / edited / OK at 2026-06-30T14:43:30.23Z
 zenodo_api_after_retrigger: total 0 at 2026-06-30T14:45:55Z
 ```
+
+Observer path:
+
+```bash
+make scientific-activation-observe
+```
+
+Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
+change release assets while Zenodo DOI materialization is still plausibly
+pending.
+
+Latest observer run: `2026-06-30T14:53:23Z`; Zenodo query total remained `0`.
 
 Completion evidence:
 

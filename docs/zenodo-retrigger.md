@@ -21,8 +21,8 @@ Status date: 2026-06-30
 This runbook prepares a Zenodo ingestion trigger. It must not be interpreted as
 evidence that a DOI exists.
 
-Do not move `v0.2.0`. Do not delete the release unless the lower-impact trigger
-has failed and the user has explicitly confirmed a release recreation plan.
+Do not move `v0.2.0`. Do not delete or recreate the release while Zenodo DOI
+materialization is still plausibly pending.
 
 ## Prepared Command
 
@@ -46,9 +46,8 @@ refreshing an HTML comment marker. This should create a GitHub `release`
 webhook delivery without changing the tag or release assets.
 
 The action is intentionally lower impact than deleting and recreating the
-GitHub Release, but Zenodo may still ignore an `edited` release event. If that
-happens, the next candidate action is a confirmed release-object recreation for
-the existing `v0.2.0` tag.
+GitHub Release. After the action is executed, switch to read-only monitoring
+unless new evidence shows that Zenodo will not harvest the queued event.
 
 ## Executed Re-trigger
 
@@ -62,9 +61,14 @@ zenodo_api_after_retrigger: total 0 at 2026-06-30T14:45:55Z
 ```
 
 This proves Zenodo received a GitHub `release` webhook delivery for the edited
-release. It does not prove DOI creation. The next candidate action requires a
-separate confirmation because it would recreate the GitHub Release object or
-create a follow-up release.
+release. It does not prove DOI creation. The current next action is read-only
+monitoring.
+
+Observer command:
+
+```bash
+make scientific-activation-observe
+```
 
 ## Completion Evidence
 
