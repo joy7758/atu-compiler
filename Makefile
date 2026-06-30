@@ -1,4 +1,4 @@
-.PHONY: test compile-fixtures export-artifacts validate release-check stats promptfoo-eval publication-bundles zenodo-retrigger-dry-run zenodo-release-published-event-plan scientific-activation-observe hf-canonical-identity-check
+.PHONY: test compile-fixtures export-artifacts validate release-check stats promptfoo-eval publication-bundles zenodo-retrigger-dry-run zenodo-release-published-event-plan zenodo-v0.2.1-release-dry-run scientific-activation-observe hf-canonical-identity-check
 
 PYTHON ?= .venv/bin/python
 ATU ?= .venv/bin/atu
@@ -31,22 +31,29 @@ promptfoo-eval:
 release-check: test compile-fixtures validate export-artifacts stats
 
 publication-bundles: release-check
-	rm -rf citation_bundle joss_submission hf_dataset/atu_trace_1000 atu_v0.2_joss_submission.zip
+	rm -rf citation_bundle joss_submission hf_dataset/atu_trace_1000 atu_v0.2_joss_submission.zip atu_v0.2_joss_submission_final.zip
 	mkdir -p citation_bundle joss_submission hf_dataset/atu_trace_1000
-	cp CITATION.cff .zenodo.json RELEASE_NOTES_v0.2.0.md citation_bundle/
+	cp CITATION.cff .zenodo.json RELEASE_NOTES_v0.2.0.md RELEASE_NOTES_v0.2.1.md citation_bundle/
 	cp -R datasets/atu-trace-1000/. hf_dataset/atu_trace_1000/
-	cp paper/paper.md CITATION.cff README.md joss_submission/
-	cp -R src datasets joss_submission/
+	cp paper/paper.md CITATION.cff README.md LICENSE pyproject.toml llms.txt \
+		RELEASE_NOTES_v0.2.0.md RELEASE_NOTES_v0.2.1.md \
+		ACTIVATION_MANIFEST.json PUBLICATION_STATUS.md SCIENTIFIC_CLOSURE_STATUS.md \
+		LAST_MILE_ACTIVATION.md joss_submission/
+	cp -R src datasets docs scripts schemas mapping rfcs examples tests replay joss_submission/
 	rsync -a --exclude node_modules evals joss_submission/
 	find joss_submission -name __pycache__ -type d -prune -exec rm -rf {} +
 	find joss_submission -name '*.pyc' -delete
 	zip -qr atu_v0.2_joss_submission.zip joss_submission
+	zip -qr atu_v0.2_joss_submission_final.zip joss_submission
 
 zenodo-retrigger-dry-run:
 	scripts/activation/zenodo_retrigger_v0_2_0.sh --dry-run
 
 zenodo-release-published-event-plan:
 	scripts/activation/zenodo_release_published_event_plan.sh --dry-run
+
+zenodo-v0.2.1-release-dry-run:
+	scripts/activation/create_v0_2_1_zenodo_release.sh --dry-run
 
 scientific-activation-observe:
 	$(PYTHON) scripts/activation/observe_scientific_activation.py

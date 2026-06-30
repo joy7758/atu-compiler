@@ -5,11 +5,16 @@ Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: GitHub release complete; Hugging Face dataset live; Promptfoo
-local runtime artifact generated; Zenodo GitHub integration and release webhook
-delivery complete; Zenodo DOI pending materialization. There is no confirmed
-Zenodo DOI, JOSS submission, or upstream PR until those external actions are
-performed and recorded.
+Current status: GitHub `v0.2.0` release complete; Hugging Face dataset live;
+Promptfoo local runtime artifact generated; Zenodo GitHub integration and
+release webhook delivery complete; Zenodo repository-list sync has been run,
+but Zenodo DOI is still not verified. The latest observer diagnosis says the
+original `v0.2.0` release predates the Zenodo hook, so a new GitHub `release` /
+`published` event requires explicit maintainer confirmation. Software release
+metadata has been prepared as `0.2.1` for a guarded Zenodo activation release
+path, but that path has not been executed. There is no confirmed Zenodo DOI,
+JOSS submission, or upstream PR until those external actions are performed and
+recorded.
 
 Hugging Face boundary: the live dataset is
 <https://huggingface.co/datasets/joy7759/atu-trace-1000>. The HF namespace
@@ -34,6 +39,11 @@ License: Apache-2.0.
 - `tests/`: deterministic compile, schema, exporter, and CLI regression tests.
 - `docs/scientific-citation-observer.md`: read-only external activation
   observer for DOI, dataset, and eval publication gates.
+- `docs/zenodo-release-ingestion-decision.md`: decision record for the missing
+  Zenodo `release` / `published` event.
+- `scripts/activation/create_v0_2_1_zenodo_release.sh`: guarded dry-run-first
+  path for creating a new Zenodo-triggering GitHub release after explicit
+  maintainer confirmation.
 - `ACTIVATION_MANIFEST.json`: machine-readable current publication and
   scientific activation state.
 
@@ -86,6 +96,19 @@ tags, assets, Hugging Face, Zenodo, or JOSS:
 
 ```bash
 make scientific-activation-observe
+```
+
+Inspect the read-only Zenodo release-published event plan:
+
+```bash
+make zenodo-release-published-event-plan
+```
+
+Inspect the guarded `v0.2.1` Zenodo activation release path without mutating
+tags, releases, assets, or DOI state:
+
+```bash
+make zenodo-v0.2.1-release-dry-run
 ```
 
 Check that the local Hugging Face CLI identity matches the live dataset
@@ -156,8 +179,11 @@ This repository contains release-prep and publication-observer files such as
 `ACTIVATION_MANIFEST.json`. Treat each external surface separately:
 
 - GitHub Release `v0.2.0`: complete.
-- Zenodo GitHub integration and webhook delivery: complete.
-- Zenodo DOI: pending materialization until Zenodo returns a DOI-bearing record.
+- Zenodo GitHub integration, webhook delivery, and repository-list sync:
+  complete.
+- Zenodo DOI: not verified until Zenodo returns a DOI-bearing record. Current
+  diagnosis requires an explicitly confirmed new GitHub `release` / `published`
+  event.
 - Hugging Face dataset: live at
   <https://huggingface.co/datasets/joy7759/atu-trace-1000>.
 - Promptfoo runtime artifact: complete locally at

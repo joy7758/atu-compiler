@@ -1,5 +1,5 @@
 {
-  "title": "ATU v0.2: Agent Trace-to-Dataset Compiler",
+  "title": "ATU v0.2.1: Agent Trace-to-Dataset Compiler",
   "upload_type": "software",
   "description": "Trace-to-dataset compiler profile for agent systems, with OpenTelemetry, OpenInference, and LangSmith-compatible ingest plus replay-aware ATU-IR exports.",
   "creators": [
@@ -16,7 +16,7 @@
     "datasets",
     "evaluation"
   ],
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publication_date": "2026-06-30",
   "related_identifiers": [
     {

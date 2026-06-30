@@ -1,8 +1,8 @@
 cff-version: 1.2.0
-title: "ATU v0.2: Agent Trace-to-Dataset Compiler"
+title: "ATU v0.2.1: Agent Trace-to-Dataset Compiler"
 message: "If you use this software, please cite the repository and the specific release you used."
 type: software
-version: "0.2.0"
+version: "0.2.1"
 authors:
   - family-names: "Zhang"
     given-names: "Bin"

@@ -5,12 +5,14 @@ Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: GitHub release complete; Hugging Face dataset live; Promptfoo
-local runtime artifact generated; Zenodo GitHub integration and release webhook
-delivery complete; Zenodo repository-list sync has been run, but Zenodo DOI is
-still not verified. The latest observer diagnosis says the original `v0.2.0`
-release predates the Zenodo hook, so a new GitHub `release` / `published` event
-requires explicit maintainer confirmation. There is no confirmed Zenodo DOI,
+Current status: GitHub `v0.2.0` release complete; Hugging Face dataset live;
+Promptfoo local runtime artifact generated; Zenodo GitHub integration and
+release webhook delivery complete; Zenodo repository-list sync has been run,
+but Zenodo DOI is still not verified. The latest observer diagnosis says the
+original `v0.2.0` release predates the Zenodo hook, so a new GitHub `release` /
+`published` event requires explicit maintainer confirmation. Software release
+metadata has been prepared as `0.2.1` for a guarded Zenodo activation release
+path, but that path has not been executed. There is no confirmed Zenodo DOI,
 JOSS submission, or upstream PR until those external actions are performed and
 recorded.
 
@@ -39,6 +41,9 @@ License: Apache-2.0.
   observer for DOI, dataset, and eval publication gates.
 - `docs/zenodo-release-ingestion-decision.md`: decision record for the missing
   Zenodo `release` / `published` event.
+- `scripts/activation/create_v0_2_1_zenodo_release.sh`: guarded dry-run-first
+  path for creating a new Zenodo-triggering GitHub release after explicit
+  maintainer confirmation.
 - `ACTIVATION_MANIFEST.json`: machine-readable current publication and
   scientific activation state.
 
@@ -97,6 +102,13 @@ Inspect the read-only Zenodo release-published event plan:
 
 ```bash
 make zenodo-release-published-event-plan
+```
+
+Inspect the guarded `v0.2.1` Zenodo activation release path without mutating
+tags, releases, assets, or DOI state:
+
+```bash
+make zenodo-v0.2.1-release-dry-run
 ```
 
 Check that the local Hugging Face CLI identity matches the live dataset

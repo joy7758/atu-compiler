@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:atu:schema:receipt:0.2.0",
+  "title": "ATU Tool Receipt",
+  "type": "object",
+  "required": ["receipt_id", "step_id", "tool_name", "timestamp", "result_digest", "side_effect"],
+  "properties": {
+    "receipt_id": { "type": "string" },
+    "step_id": { "type": "string" },
+    "tool_name": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "input_digest": { "type": ["string", "null"] },
+    "result_digest": { "type": "string" },
+    "side_effect": { "type": "boolean" },
+    "idempotency_key": { "type": ["string", "null"] },
+    "uri": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}
