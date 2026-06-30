@@ -36,7 +36,8 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T15:10:25Z`.
+Latest observer run: `2026-06-30T15:27:27Z`.
+Latest browser/manual-use check: `2026-06-30T15:23:16Z`.
 
 ## HF Dataset Gate
 
@@ -51,9 +52,13 @@ hf auth whoami -> Error: Not logged in
 hf repos ls -> HTTP 401
 hf datasets info joy7758/atu-trace-1000 -> Dataset not found
 hf datasets list --author joy7758 --search atu-trace -> []
+Chrome Hugging Face session -> logged in as joy7759
+Chrome Hugging Face organizations -> no visible joy7758 organization membership
 ```
 
-Dataset package is locally valid but not uploaded. Use:
+Dataset package is locally valid but not uploaded. The documented target is
+`joy7758/atu-trace-1000`, but the browser session is `joy7759`; choose the
+namespace before upload. If using the documented target, use:
 
 ```bash
 hf auth login
@@ -114,6 +119,7 @@ Zenodo API after edited event -> total: 0
 scientific activation observer -> prepared for read-only polling
 make scientific-activation-observe -> Zenodo total 0, HF dataset not found, Promptfoo runtime absent
 observer network behavior -> endpoint failures return JSON `ok: false` sections
+Zenodo browser sync -> completed, still no v0.2.0 and no DOI on repository page
 ```
 
 ## Promptfoo Benchmark Gate
@@ -166,6 +172,12 @@ The final zip includes:
 
 The zip was checked for `__pycache__`, `.pyc`, `node_modules`, and `.git`
 entries; none were present.
+
+Browser check:
+
+```text
+JOSS submission entry -> requires ORCID login before submission starts
+```
 
 ## Closure Definition
 

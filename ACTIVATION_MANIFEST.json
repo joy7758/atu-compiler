@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_pending_activation",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T15:10:25Z",
+  "last_checked_at": "2026-06-30T15:27:27Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -22,9 +22,12 @@
   },
   "huggingface": {
     "target_dataset_repo": "joy7758/atu-trace-1000",
-    "auth_status": "not_logged_in",
+    "auth_status": "local_cli_not_logged_in",
+    "chrome_session_status": "logged_in_as_joy7759",
+    "chrome_session_namespace_check": "no_joy7758_organization_membership_visible",
+    "namespace_mismatch": "target_repo_joy7758_but_browser_session_joy7759",
     "public_dataset_status": "not_found",
-    "last_checked_at": "2026-06-30T15:10:25Z",
+    "last_checked_at": "2026-06-30T15:27:27Z",
     "local_package": "hf_dataset/atu_trace_1000",
     "loader_check": {
       "status": "pass",
@@ -32,7 +35,7 @@
       "eval_rows": 1,
       "test_rows": 1
     },
-    "activation_gate": "hf auth login",
+    "activation_gate": "confirm_huggingface_namespace_then_auth_or_browser_upload",
     "upload_command": "hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message \"ATU v0.2 dataset initial release\""
   },
   "zenodo": {
@@ -41,7 +44,7 @@
     "github_hook_delivery_status": "release_edited_delivery_ok",
     "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_retrigger",
     "doi_status": "pending_materialization_after_release_edited_retrigger",
-    "last_checked_at": "2026-06-30T15:10:25Z",
+    "last_checked_at": "2026-06-30T15:27:27Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
     "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
@@ -95,7 +98,7 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T15:10:25Z",
+      "last_observed_at": "2026-06-30T15:27:27Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",
@@ -110,6 +113,16 @@
       "doi_completion_requires": "zenodo_api_record_with_doi",
       "network_failure_behavior": "return_ok_false_json_without_failing_whole_observer",
       "remote_workflow_run_policy": "manual_only_not_auto_run"
+    },
+    "manual_browser_check": {
+      "checked_at": "2026-06-30T15:23:16Z",
+      "zenodo_account": "logged_in_zenodo_session",
+      "repository_visible_in_enabled_repositories": true,
+      "repository_page_has_v0_2_0": false,
+      "repository_page_has_doi": false,
+      "repository_list_sync_clicked": true,
+      "after_sync_has_v0_2_0": false,
+      "after_sync_has_doi": false
     }
   },
   "promptfoo": {
@@ -138,7 +151,12 @@
   "joss": {
     "final_zip": "atu_v0.2_joss_submission_final.zip",
     "zip_status": "generated",
-    "submitted": false
+    "submitted": false,
+    "manual_browser_check": {
+      "checked_at": "2026-06-30T15:23:16Z",
+      "submission_entry_requires_orcid_login": true,
+      "submission_started": false
+    }
   },
   "completion_criteria": [
     "Zenodo DOI minted and recorded in CITATION.cff",

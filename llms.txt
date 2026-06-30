@@ -9,6 +9,11 @@ materialization until Zenodo returns a DOI-bearing record. No public Hugging
 Face dataset upload, Promptfoo runtime artifact, JOSS submission, or upstream PR
 is claimed until that external action is performed and recorded.
 
+Hugging Face namespace boundary: docs target `joy7758/atu-trace-1000`, but the
+browser-authenticated session observed during activation was `joy7759` with no
+visible `joy7758` organization membership. Do not upload to any HF namespace
+until the target namespace is explicitly confirmed.
+
 Canonical commands:
 
 - Install for development: `python -m pip install -e ".[test]"`
@@ -49,3 +54,6 @@ Protocol boundaries:
   separate truth surfaces.
 - A Zenodo webhook delivery is not a DOI. DOI completion requires a
   DOI-bearing Zenodo API record.
+- A browser-authenticated Hugging Face session is not a dataset publication.
+  Dataset completion requires an explicit namespace decision and a live dataset
+  URL.

@@ -28,6 +28,8 @@ Local evidence already available:
 - HF-ready dataset folder: `hf_dataset/atu_trace_1000`
 - Local loader check: train/eval/test each load with 1 row
 - Current blocker: not logged in to Hugging Face
+- Browser-use check: Chrome is logged in to Hugging Face as `joy7759`, not
+  `joy7758`, and no `joy7758` organization membership was visible.
 
 Use the modern HF CLI available in this environment:
 
@@ -55,6 +57,9 @@ Completion evidence:
 
 Record the live dataset URL in `README.md`, `SCIENTIFIC_CLOSURE_STATUS.md`, and
 `ACTIVATION_MANIFEST.json`.
+
+Do not upload to a different Hugging Face namespace without an explicit
+namespace decision.
 
 ## Gate 2: Zenodo DOI Identity
 
@@ -117,12 +122,14 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T15:10:25Z`; Zenodo query total remained `0`.
+Latest observer run: `2026-06-30T15:27:27Z`; Zenodo query total remained `0`.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
 local authenticated observer runs include that check.
 Latest GitHub workflow run: `28454815985`, conclusion `success`, artifact
 `scientific-activation-observer` / `7984877361`.
+Manual browser check at `2026-06-30T15:23:16Z`: Zenodo repo-list sync completed,
+but the repository detail page still showed no `v0.2.0` and no DOI.
 
 Completion evidence:
 
@@ -181,6 +188,9 @@ Open https://joss.readthedocs.io/en/latest/submitting.html
 Submit the repository/release package according to JOSS instructions
 Use atu_v0.2_joss_submission_final.zip as the local package reference
 ```
+
+Browser-use check: JOSS submission entry requires ORCID login before a
+submission can be started.
 
 Completion evidence:
 

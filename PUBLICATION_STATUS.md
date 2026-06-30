@@ -27,7 +27,7 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T15:10:25Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T15:27:27Z`; Zenodo query total remained
   `0`, Hugging Face dataset remained not found, and Promptfoo runtime remained
   absent.
 - Manual GitHub observer workflow active: `Scientific Activation Observer`
@@ -36,6 +36,9 @@ Status date: 2026-06-30
   local authenticated observer runs include it.
 - Latest GitHub observer workflow run: `28454815985`, conclusion `success`,
   artifact `scientific-activation-observer` / `7984877361`.
+- Manual Zenodo browser check at `2026-06-30T15:23:16Z`: repository remains
+  enabled, repository-list sync completed, but the Zenodo repository detail page
+  still showed no `v0.2.0` release and no DOI.
 
 ## Verified Local/Package Actions
 
@@ -62,14 +65,17 @@ Status date: 2026-06-30
   pending materialization, not verified failed.
 - Hugging Face dataset upload has not been completed. `hf auth whoami` returned
   `Not logged in`; public lookup for `joy7758/atu-trace-1000` returned
-  `Dataset not found`.
+  `Dataset not found`. Chrome is logged in to Hugging Face as `joy7759`, with
+  no visible `joy7758` organization membership, so uploading to the documented
+  `joy7758/atu-trace-1000` target requires a namespace decision.
 - Promptfoo share has not been completed. `npx promptfoo` startup hung during
   package bootstrap in this environment and was interrupted.
 - Promptfoo local package metadata exists in `evals/promptfoo/package.json`, but
   `npm install --no-audit --no-fund` again produced no output for 90 seconds and
   was interrupted without leaving `node_modules` or `package-lock.json`.
 - JOSS submission has not been submitted to JOSS. The local submission package
-  zip was generated only.
+  zip was generated only. Browser check showed the JOSS submission entry
+  requires ORCID login before a submission can be started.
 - OpenInference and Promptfoo upstream PRs have not been opened. Drafts exist
   in `PR_OPENINFERENCE.md` and `PR_PROMPTFOO.md`.
 
@@ -78,9 +84,10 @@ Status date: 2026-06-30
 1. Monitor Zenodo DOI materialization with `make scientific-activation-observe`.
    Do not mutate the GitHub Release again without new evidence that Zenodo will
    not harvest the existing queued event.
-2. Authenticate with Hugging Face and upload `hf_dataset/atu_trace_1000` to
-   `joy7758/atu-trace-1000`.
+2. Confirm whether the Hugging Face dataset should be published under
+   `joy7758/atu-trace-1000` with separate credentials or under the currently
+   logged-in `joy7759` namespace.
 3. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts
    successfully.
-4. Submit `atu_v0.2_joss_submission_final.zip` through the JOSS workflow.
+4. Log in with ORCID before starting the JOSS submission workflow.
 5. Open upstream issues or pull requests using the prepared PR draft files.

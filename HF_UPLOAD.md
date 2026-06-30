@@ -18,10 +18,19 @@ Suggested upload target:
 joy7758/atu-trace-1000
 ```
 
+Namespace boundary:
+
+The current browser-use check found a Hugging Face session for `joy7759`, but no
+visible `joy7758` organization membership. Do not upload this dataset to
+`joy7759/atu-trace-1000` or any other namespace unless the namespace decision is
+explicitly confirmed and all release/status files are updated to that canonical
+dataset URL.
+
 Authentication boundary:
 
 No Hugging Face upload is claimed unless `hf auth whoami` succeeds and
-the dataset repository is created or updated on the Hugging Face Hub.
+the dataset repository is created or updated on the Hugging Face Hub under the
+confirmed target namespace.
 
 CLI path:
 

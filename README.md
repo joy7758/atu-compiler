@@ -10,6 +10,12 @@ webhook delivery complete; Zenodo DOI pending materialization. There is no
 confirmed Zenodo DOI, Hugging Face publication, JOSS submission, or upstream PR
 until those external actions are performed and recorded.
 
+Hugging Face boundary: the documented dataset target is
+`joy7758/atu-trace-1000`. Browser authentication has only confirmed a
+`joy7759` session, with no visible `joy7758` organization membership, so no HF
+upload is complete until the target namespace is explicitly confirmed and the
+live dataset URL is recorded.
+
 License: Apache-2.0.
 
 ## Agent-Readable Entry Points
@@ -143,6 +149,7 @@ This repository contains release-prep and publication-observer files such as
 - GitHub Release `v0.2.0`: complete.
 - Zenodo GitHub integration and webhook delivery: complete.
 - Zenodo DOI: pending materialization until Zenodo returns a DOI-bearing record.
-- Hugging Face dataset: not published until a live dataset URL is recorded.
+- Hugging Face dataset: not published until the namespace is confirmed and a
+  live dataset URL is recorded.
 - Promptfoo runtime artifact: not complete until an eval result is generated.
 - JOSS submission: not submitted until a JOSS submission URL is recorded.
