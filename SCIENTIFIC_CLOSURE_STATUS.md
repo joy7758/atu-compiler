@@ -36,7 +36,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T15:02:03Z`.
+Latest observer run: `2026-06-30T15:04:35Z`.
 
 ## HF Dataset Gate
 
@@ -90,7 +90,8 @@ Observer command:
 make scientific-activation-observe
 ```
 
-Manual GitHub workflow: `Scientific Activation Observer`.
+Manual GitHub workflow: `Scientific Activation Observer` is active and
+`workflow_dispatch` only.
 
 Prepared guarded command:
 

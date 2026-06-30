@@ -27,10 +27,11 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T15:02:03Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T15:04:35Z`; Zenodo query total remained
   `0`, Hugging Face dataset remained not found, and Promptfoo runtime remained
   absent.
-- Manual GitHub observer workflow prepared: `Scientific Activation Observer`.
+- Manual GitHub observer workflow active: `Scientific Activation Observer`
+  (`workflow_dispatch` only).
 
 ## Verified Local/Package Actions
 
