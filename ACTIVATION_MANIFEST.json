@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_pending_activation",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T14:34:37Z",
+  "last_checked_at": "2026-06-30T14:45:55Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -38,13 +38,13 @@
   "zenodo": {
     "repository_binding": "enabled",
     "release_webhook": "active_for_github_release_events",
-    "github_hook_delivery_status": "ping_only_no_release_delivery",
-    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler",
-    "doi_status": "not_verified_existing_v0.2.0_not_ingested",
-    "last_checked_at": "2026-06-30T14:29:06Z",
+    "github_hook_delivery_status": "release_edited_delivery_ok",
+    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_retrigger",
+    "doi_status": "not_verified_after_release_edited_retrigger",
+    "last_checked_at": "2026-06-30T14:45:55Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
-    "next_gate": "trigger_github_release_event_or_create_follow_up_release",
+    "next_gate": "confirmed_release_object_recreation_or_follow_up_release_if_zenodo_requires_published_event",
     "prepared_retrigger_script": "scripts/activation/zenodo_retrigger_v0_2_0.sh",
     "prepared_retrigger_dry_run": "make zenodo-retrigger-dry-run",
     "prepared_retrigger_execute": "ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute",
@@ -56,6 +56,21 @@
       "execute_without_guard": "blocked_exit_78",
       "tag_mutation": false,
       "asset_mutation": false
+    },
+    "executed_retrigger": {
+      "executed_at": "2026-06-30T14:43:22Z",
+      "release_marker": "<!-- atu-zenodo-retrigger: 2026-06-30T14:43:22Z -->",
+      "github_release_delivery": {
+        "event": "release",
+        "action": "edited",
+        "status": "OK",
+        "delivered_at": "2026-06-30T14:43:30.23Z"
+      },
+      "release_body_marker_present": true,
+      "zenodo_api_result_at_2026_06_30T14_45_55Z": {
+        "total": 0,
+        "records": []
+      }
     }
   },
   "promptfoo": {

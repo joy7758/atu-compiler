@@ -21,6 +21,10 @@ Status date: 2026-06-30
 - Latest activation recheck: `2026-06-30T14:29:06Z`.
 - Zenodo re-trigger dry-run command prepared and verified:
   `make zenodo-retrigger-dry-run`.
+- Zenodo re-trigger executed at `2026-06-30T14:43:22Z` by editing GitHub
+  Release notes with an HTML comment marker.
+- GitHub webhook delivery after re-trigger: `release` / `edited` / `OK` at
+  `2026-06-30T14:43:30.23Z`.
 
 ## Verified Local/Package Actions
 
@@ -41,8 +45,9 @@ Status date: 2026-06-30
 
 - Zenodo DOI has not been verified. The repository is enabled in Zenodo, but
   the Zenodo repository detail page has not ingested the existing `v0.2.0`
-  GitHub release. GitHub webhook deliveries currently show only the Zenodo
-  `ping` event, not a `release` event delivery.
+  GitHub release. A lower-impact GitHub Release metadata edit successfully
+  delivered a `release` / `edited` webhook event to Zenodo, but exact Zenodo API
+  searches still returned `total: 0` at `2026-06-30T14:45:55Z`.
 - Hugging Face dataset upload has not been completed. `hf auth whoami` returned
   `Not logged in`; public lookup for `joy7758/atu-trace-1000` returned
   `Dataset not found`.
@@ -58,10 +63,9 @@ Status date: 2026-06-30
 
 ## Next Manual Gates
 
-1. Re-trigger Zenodo ingestion for `v0.2.0` or create a follow-up release after
-   deciding whether the existing `v0.2.0` release should remain immutable.
-   Prepared guarded command:
-   `ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute`.
+1. Decide whether to recreate the GitHub Release object for the existing
+   `v0.2.0` tag, or create a follow-up release, because Zenodo did not mint a
+   DOI from the lower-impact `edited` release event.
 2. Authenticate with Hugging Face and upload `hf_dataset/atu_trace_1000` to
    `joy7758/atu-trace-1000`.
 3. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts

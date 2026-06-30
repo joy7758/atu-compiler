@@ -34,6 +34,7 @@ JOSS submission: package generated, not submitted
 
 Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
+Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 
 ## HF Dataset Gate
 
@@ -67,13 +68,16 @@ creation. After enabling the Zenodo GitHub integration, the repository detail
 page still did not list the existing `v0.2.0` release, so DOI minting remains
 unverified. A later recheck found the GitHub Zenodo webhook active, but its
 delivery history contained only the initial `ping` event and no `release`
-delivery.
+delivery. After executing the guarded metadata edit, GitHub recorded a
+`release` / `edited` webhook delivery with status `OK`, but Zenodo API searches
+for the repository and release title still returned `total: 0`.
 
 Manual action:
 
 ```text
-Trigger a new GitHub release event for v0.2.0, or create a follow-up release
-after deciding whether v0.2.0 should remain immutable
+Create a Zenodo-ingestable GitHub release event after deciding whether to
+recreate the existing GitHub Release object for v0.2.0 or create a follow-up
+release
 Verify DOI on Zenodo
 ```
 
@@ -89,6 +93,8 @@ Dry-run evidence:
 ```text
 make zenodo-retrigger-dry-run -> pass
 --execute without confirmation guard -> blocked with exit code 78
+guarded --execute -> GitHub release edited event delivered to Zenodo with OK
+Zenodo API after edited event -> total: 0
 ```
 
 ## Promptfoo Benchmark Gate

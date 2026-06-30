@@ -10,7 +10,7 @@ Status date: 2026-06-30
   "release": "v0.2.0",
   "zenodo_github_integration": "enabled",
   "github_webhook": "active",
-  "github_webhook_deliveries": "ping_only_no_release_delivery",
+  "github_webhook_deliveries": "release_edited_delivery_ok",
   "zenodo_record_search": "total_0",
   "doi_status": "not_verified"
 }
@@ -49,6 +49,22 @@ The action is intentionally lower impact than deleting and recreating the
 GitHub Release, but Zenodo may still ignore an `edited` release event. If that
 happens, the next candidate action is a confirmed release-object recreation for
 the existing `v0.2.0` tag.
+
+## Executed Re-trigger
+
+The guarded lower-impact re-trigger was executed once:
+
+```text
+executed_at: 2026-06-30T14:43:22Z
+release_marker: <!-- atu-zenodo-retrigger: 2026-06-30T14:43:22Z -->
+github_delivery: release / edited / OK at 2026-06-30T14:43:30.23Z
+zenodo_api_after_retrigger: total 0 at 2026-06-30T14:45:55Z
+```
+
+This proves Zenodo received a GitHub `release` webhook delivery for the edited
+release. It does not prove DOI creation. The next candidate action requires a
+separate confirmation because it would recreate the GitHub Release object or
+create a follow-up release.
 
 ## Completion Evidence
 

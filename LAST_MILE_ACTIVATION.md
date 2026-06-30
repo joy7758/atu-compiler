@@ -59,14 +59,16 @@ Record the live dataset URL in `README.md`, `SCIENTIFIC_CLOSURE_STATUS.md`, and
 ## Gate 2: Zenodo DOI Identity
 
 Current blocker: repository is enabled in Zenodo, but no matching ATU DOI record
-or ingested `v0.2.0` release is visible yet. GitHub webhook deliveries currently
-show the Zenodo `ping` event only, with no `release` event delivery.
+or ingested `v0.2.0` release is visible yet. A guarded GitHub Release metadata
+edit delivered a `release` / `edited` webhook event to Zenodo with status `OK`,
+but Zenodo API searches still returned `total: 0`.
 
 Manual activation path:
 
 ```text
 1. Keep Zenodo repository binding enabled for joy7758/atu-compiler
-2. Trigger a new GitHub release event if Zenodo does not ingest the existing one
+2. If Zenodo requires a `published` release event, choose a confirmed
+   release-object recreation or follow-up release strategy
 3. Verify the DOI on Zenodo
 ```
 
@@ -98,6 +100,14 @@ recreation for the existing tag.
 Execution guard status: running `--execute` without
 `ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger` exits with code
 `78` before the GitHub Release edit.
+
+Executed re-trigger:
+
+```text
+executed_at: 2026-06-30T14:43:22Z
+github_delivery: release / edited / OK at 2026-06-30T14:43:30.23Z
+zenodo_api_after_retrigger: total 0 at 2026-06-30T14:45:55Z
+```
 
 Completion evidence:
 
