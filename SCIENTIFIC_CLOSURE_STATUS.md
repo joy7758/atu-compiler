@@ -91,7 +91,9 @@ make scientific-activation-observe
 ```
 
 Manual GitHub workflow: `Scientific Activation Observer` is active and
-`workflow_dispatch` only.
+`workflow_dispatch` only. It skips repository webhook-delivery inspection
+because that API requires permissions not available to the default
+`GITHUB_TOKEN`.
 
 Prepared guarded command:
 

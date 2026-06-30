@@ -22,6 +22,8 @@ Canonical commands:
 - Release check: `make release-check`
 - Observe external activation: `make scientific-activation-observe`
 - Manual GitHub observer: Actions -> `Scientific Activation Observer`
+  (workflow skips repo hook-delivery inspection; local authenticated observer
+  includes it)
 
 Important files:
 

@@ -81,7 +81,9 @@ make scientific-activation-observe
 ```
 
 The same read-only observer is available as a manual GitHub Action:
-`Scientific Activation Observer`.
+`Scientific Activation Observer`. The GitHub Action skips repository webhook
+delivery inspection because that endpoint requires permissions not available to
+the default `GITHUB_TOKEN`; local authenticated runs still include it.
 
 ## Compiler Contract
 

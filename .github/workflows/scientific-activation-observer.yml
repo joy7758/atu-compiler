@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
+      ATU_OBSERVER_SKIP_REPO_HOOK_DELIVERIES: "1"
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -33,6 +34,7 @@ jobs:
           payload = json.loads(Path("scientific-activation-observer.json").read_text())
           assert payload["mode"] == "read_only_observer"
           print("checked_at", payload["checked_at"])
+          print("github_hook_status", payload["github_zenodo_hook"].get("status", payload["github_zenodo_hook"].get("ok")))
           print("zenodo_repo_total", payload["zenodo"]["repo_query"].get("total"))
           print("huggingface_status", payload["huggingface"].get("status"))
           PY

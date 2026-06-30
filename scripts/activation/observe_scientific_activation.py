@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -119,6 +120,12 @@ def github_release() -> dict[str, object]:
 
 
 def github_hook_deliveries() -> dict[str, object]:
+    if os.environ.get("ATU_OBSERVER_SKIP_REPO_HOOK_DELIVERIES") == "1":
+        return {
+            "ok": None,
+            "status": "skipped",
+            "reason": "repo_hook_delivery_api_requires_permissions_not_available_to_github_actions_token",
+        }
     result = run(
         [
             "gh",

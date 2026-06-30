@@ -43,6 +43,9 @@ observer. Zenodo API checks retry before returning an `ok: false` JSON section.
 
 The GitHub workflow is `workflow_dispatch` only. It is not scheduled, and it
 does not mutate tags, releases, assets, Zenodo, Hugging Face, Promptfoo, or JOSS.
+The workflow intentionally skips the repository webhook-delivery API because
+GitHub Actions `GITHUB_TOKEN` does not have the repository-hook permission needed
+for that endpoint. Local authenticated runs still check webhook deliveries.
 
 ## Policy
 

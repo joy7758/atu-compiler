@@ -31,7 +31,9 @@ Status date: 2026-06-30
   `0`, Hugging Face dataset remained not found, and Promptfoo runtime remained
   absent.
 - Manual GitHub observer workflow active: `Scientific Activation Observer`
-  (`workflow_dispatch` only).
+  (`workflow_dispatch` only). The workflow skips repository webhook-delivery
+  inspection because that API is not available to the default `GITHUB_TOKEN`;
+  local authenticated observer runs include it.
 
 ## Verified Local/Package Actions
 

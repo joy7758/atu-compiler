@@ -119,7 +119,8 @@ pending.
 
 Latest observer run: `2026-06-30T15:04:35Z`; Zenodo query total remained `0`.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
-`workflow_dispatch` only.
+`workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
+local authenticated observer runs include that check.
 
 Completion evidence:
 

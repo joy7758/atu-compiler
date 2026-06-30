@@ -51,6 +51,7 @@
     "observer_github_workflow_trigger": "workflow_dispatch_only",
     "observer_github_workflow_remote_state": "active",
     "observer_github_workflow_id": 304775898,
+    "observer_github_workflow_hook_delivery_behavior": "skips_repo_hook_delivery_api_due_to_github_token_permission_boundary",
     "prepared_retrigger_script": "scripts/activation/zenodo_retrigger_v0_2_0.sh",
     "prepared_retrigger_dry_run": "make zenodo-retrigger-dry-run",
     "prepared_retrigger_execute": "ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute",
