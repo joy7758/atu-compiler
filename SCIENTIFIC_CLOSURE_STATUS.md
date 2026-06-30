@@ -10,6 +10,7 @@ citation loop is not fully closed.
 ```text
 Code exists: yes
 GitHub release exists: yes
+Zenodo GitHub integration: enabled
 Zenodo DOI: not verified
 Hugging Face dataset: not uploaded
 Promptfoo benchmark execution: not completed in this environment
@@ -23,6 +24,8 @@ JOSS submission: package generated, not submitted
 - Release tag: `v0.2.0`
 - Release build commit: `dcf930a`
 - Publication status commit: `e095b80`
+- Zenodo GitHub integration: enabled for `joy7758/atu-compiler`
+- Zenodo release webhook: active for GitHub `release` events
 - Dataset local loader check: `datasets.load_dataset("json", ...)` loads
   train/eval/test as 1 row each.
 - Final JOSS zip: `atu_v0.2_joss_submission_final.zip`
@@ -51,18 +54,19 @@ hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset
 
 ## Zenodo DOI Gate
 
-Blocked by repository-to-Zenodo binding or webhook completion.
+Blocked by release ingestion after repository-to-Zenodo binding.
 
 Exact Zenodo API searches for the release title, GitHub URL, and
 `joy7758/atu-compiler` returned no matching ATU records after GitHub release
-creation.
+creation. After enabling the Zenodo GitHub integration, the repository detail
+page still did not list the existing `v0.2.0` release, so DOI minting remains
+unverified.
 
 Manual action:
 
 ```text
-Open https://zenodo.org/account/settings/github/
-Enable joy7758/atu-compiler
-Trigger a new GitHub release event if needed
+Trigger a new GitHub release event for v0.2.0, or create a follow-up release
+after deciding whether v0.2.0 should remain immutable
 Verify DOI on Zenodo
 ```
 

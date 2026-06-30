@@ -6,6 +6,7 @@
   "generated_at": "2026-06-30",
   "truth_boundaries": {
     "github_release": "complete",
+    "zenodo_github_integration": "enabled",
     "zenodo_doi": "not_verified",
     "huggingface_dataset": "not_uploaded",
     "promptfoo_runtime": "not_completed_in_current_environment",
@@ -31,9 +32,12 @@
     "upload_command": "hf upload joy7758/atu-trace-1000 hf_dataset/atu_trace_1000 . --repo-type dataset --commit-message \"ATU v0.2 dataset initial release\""
   },
   "zenodo": {
-    "activation_gate": "enable joy7758/atu-compiler in Zenodo GitHub integration",
-    "doi_status": "not_found_by_exact_api_search",
-    "settings_url": "https://zenodo.org/account/settings/github/"
+    "repository_binding": "enabled",
+    "release_webhook": "active_for_github_release_events",
+    "doi_status": "not_verified_existing_v0.2.0_not_ingested",
+    "settings_url": "https://zenodo.org/account/settings/github/",
+    "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
+    "next_gate": "trigger_github_release_event_or_create_follow_up_release"
   },
   "promptfoo": {
     "local_package": "evals/promptfoo",

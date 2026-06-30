@@ -16,6 +16,8 @@ Status date: 2026-06-30
   - `CITATION.cff`
   - `default.zenodo.json`
   - `RELEASE_NOTES_v0.2.0.md`
+- Zenodo GitHub integration enabled for `joy7758/atu-compiler`.
+- GitHub webhook for Zenodo release events is active.
 
 ## Verified Local/Package Actions
 
@@ -34,9 +36,9 @@ Status date: 2026-06-30
 
 ## Not Completed Externally
 
-- Zenodo DOI has not been verified. Exact Zenodo API searches for the release
-  title and GitHub URL returned no matching records immediately after GitHub
-  release creation.
+- Zenodo DOI has not been verified. The repository is enabled in Zenodo, but
+  the Zenodo repository detail page has not ingested the existing `v0.2.0`
+  GitHub release.
 - Hugging Face dataset upload has not been completed. `hf auth whoami` returned
   `Not logged in`, and `hf repos ls` returned HTTP 401.
 - Promptfoo share has not been completed. `npx promptfoo` startup hung during
@@ -50,7 +52,8 @@ Status date: 2026-06-30
 
 ## Next Manual Gates
 
-1. Connect `joy7758/atu-compiler` to Zenodo and verify DOI creation.
+1. Re-trigger Zenodo ingestion for `v0.2.0` or create a follow-up release after
+   deciding whether the existing `v0.2.0` release should remain immutable.
 2. Authenticate with Hugging Face and upload `hf_dataset/atu_trace_1000` to
    `joy7758/atu-trace-1000`.
 3. Run Promptfoo eval/share in an environment where the Promptfoo CLI starts

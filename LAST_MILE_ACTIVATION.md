@@ -11,6 +11,7 @@ identity/citation loop is still pending external activation.
 Engineering system: complete
 GitHub software release: complete
 Hugging Face dataset identity: pending
+Zenodo GitHub integration: enabled
 Zenodo DOI identity: pending
 Promptfoo runtime artifact: pending
 JOSS submission: pending
@@ -57,16 +58,15 @@ Record the live dataset URL in `README.md`, `SCIENTIFIC_CLOSURE_STATUS.md`, and
 
 ## Gate 2: Zenodo DOI Identity
 
-Current blocker: no matching ATU record found by exact Zenodo API searches.
+Current blocker: repository is enabled in Zenodo, but no matching ATU DOI record
+or ingested `v0.2.0` release is visible yet.
 
 Manual activation path:
 
 ```text
-1. Open https://zenodo.org/account/settings/github/
-2. Enable repository: joy7758/atu-compiler
-3. Ensure release tracking is enabled
-4. Trigger a new GitHub release event if Zenodo does not ingest the existing one
-5. Verify the DOI on Zenodo
+1. Keep Zenodo repository binding enabled for joy7758/atu-compiler
+2. Trigger a new GitHub release event if Zenodo does not ingest the existing one
+3. Verify the DOI on Zenodo
 ```
 
 If a re-trigger is required, prefer editing/publishing release metadata in the
