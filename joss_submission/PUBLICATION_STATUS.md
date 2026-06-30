@@ -27,7 +27,7 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T18:21:38Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T18:26:55Z`; Zenodo query total remained
   `0`, Hugging Face dataset was visible, and Promptfoo runtime artifact passed.
   The observer now reports that `v0.2.0` was published before the Zenodo hook
   existed and that no `release` / `published` delivery has been seen.
@@ -101,7 +101,7 @@ Status date: 2026-06-30
   delivered a `release` / `edited` webhook event to Zenodo, but no
   `release` / `published` delivery exists because `v0.2.0` was published before
   the Zenodo hook was created. Exact Zenodo API searches still returned
-  `total: 0` through `2026-06-30T18:21:38Z`. A guarded `v0.2.1` release path is
+  `total: 0` through `2026-06-30T18:26:55Z`. A guarded `v0.2.1` release path is
   prepared but has not been executed; no `v0.2.1` tag or GitHub Release is
   claimed here.
 - Promptfoo share has not been completed. Local runtime evidence exists, but no

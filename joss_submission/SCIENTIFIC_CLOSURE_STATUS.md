@@ -47,7 +47,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T18:21:38Z`.
+Latest observer run: `2026-06-30T18:26:55Z`.
 Latest browser/manual-use check: `2026-06-30T17:47:29Z`.
 Guarded `v0.2.1` safe-path preparation: release notes and dry-run-first script
 prepared; software release metadata is set to `0.2.1`; ATU-IR/profile metadata
