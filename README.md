@@ -8,8 +8,11 @@ episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 Current status: GitHub release complete; Hugging Face dataset live; Promptfoo
 local runtime artifact generated; Zenodo GitHub integration and release webhook
 delivery complete; Zenodo repository-list sync has been run, but Zenodo DOI is
-still not verified. There is no confirmed Zenodo DOI, JOSS submission, or
-upstream PR until those external actions are performed and recorded.
+still not verified. The latest observer diagnosis says the original `v0.2.0`
+release predates the Zenodo hook, so a new GitHub `release` / `published` event
+requires explicit maintainer confirmation. There is no confirmed Zenodo DOI,
+JOSS submission, or upstream PR until those external actions are performed and
+recorded.
 
 Hugging Face boundary: the live dataset is
 <https://huggingface.co/datasets/joy7759/atu-trace-1000>. The HF namespace
@@ -34,6 +37,8 @@ License: Apache-2.0.
 - `tests/`: deterministic compile, schema, exporter, and CLI regression tests.
 - `docs/scientific-citation-observer.md`: read-only external activation
   observer for DOI, dataset, and eval publication gates.
+- `docs/zenodo-release-ingestion-decision.md`: decision record for the missing
+  Zenodo `release` / `published` event.
 - `ACTIVATION_MANIFEST.json`: machine-readable current publication and
   scientific activation state.
 
@@ -86,6 +91,12 @@ tags, assets, Hugging Face, Zenodo, or JOSS:
 
 ```bash
 make scientific-activation-observe
+```
+
+Inspect the read-only Zenodo release-published event plan:
+
+```bash
+make zenodo-release-published-event-plan
 ```
 
 Check that the local Hugging Face CLI identity matches the live dataset
@@ -158,7 +169,9 @@ This repository contains release-prep and publication-observer files such as
 - GitHub Release `v0.2.0`: complete.
 - Zenodo GitHub integration, webhook delivery, and repository-list sync:
   complete.
-- Zenodo DOI: not verified until Zenodo returns a DOI-bearing record.
+- Zenodo DOI: not verified until Zenodo returns a DOI-bearing record. Current
+  diagnosis requires an explicitly confirmed new GitHub `release` / `published`
+  event.
 - Hugging Face dataset: live at
   <https://huggingface.co/datasets/joy7759/atu-trace-1000>.
 - Promptfoo runtime artifact: complete locally at

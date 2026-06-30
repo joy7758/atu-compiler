@@ -1,4 +1,4 @@
-.PHONY: test compile-fixtures export-artifacts validate release-check stats promptfoo-eval publication-bundles zenodo-retrigger-dry-run scientific-activation-observe hf-canonical-identity-check
+.PHONY: test compile-fixtures export-artifacts validate release-check stats promptfoo-eval publication-bundles zenodo-retrigger-dry-run zenodo-release-published-event-plan scientific-activation-observe hf-canonical-identity-check
 
 PYTHON ?= .venv/bin/python
 ATU ?= .venv/bin/atu
@@ -44,6 +44,9 @@ publication-bundles: release-check
 
 zenodo-retrigger-dry-run:
 	scripts/activation/zenodo_retrigger_v0_2_0.sh --dry-run
+
+zenodo-release-published-event-plan:
+	scripts/activation/zenodo_release_published_event_plan.sh --dry-run
 
 scientific-activation-observe:
 	$(PYTHON) scripts/activation/observe_scientific_activation.py

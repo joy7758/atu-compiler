@@ -6,8 +6,10 @@ for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
 Status: version 0.2.0. GitHub Release is complete. Hugging Face dataset is live
 at `joy7759/atu-trace-1000`. Zenodo GitHub integration and GitHub release
 webhook delivery are complete, and Zenodo repository-list sync was manually run.
-Zenodo DOI is not verified until Zenodo returns a DOI-bearing record.
-Promptfoo local runtime artifact is present
+Zenodo DOI is not verified until Zenodo returns a DOI-bearing record. Current
+observer diagnosis: `v0.2.0` predates the Zenodo hook and no `release` /
+`published` delivery exists, so a new release-published event requires explicit
+maintainer confirmation. Promptfoo local runtime artifact is present
 at `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json`
 with `3 passed`, `0 failed`, and `0 errors`. No JOSS submission or upstream PR
 is claimed until that external action is performed and recorded.
@@ -31,6 +33,7 @@ Canonical commands:
 - Build replay manifests: `atu replay-manifest --input out/atu.jsonl --output replay/manifests`
 - Release check: `make release-check`
 - Observe external activation: `make scientific-activation-observe`
+- Inspect Zenodo release-published event options: `make zenodo-release-published-event-plan`
 - Check HF canonical identity: `make hf-canonical-identity-check`
 - Manual GitHub observer: Actions -> `Scientific Activation Observer`
   (workflow skips repo hook-delivery inspection; local authenticated observer
@@ -47,6 +50,8 @@ Important files:
 - `tests/test_compiler.py`: deterministic compile and schema checks.
 - `ACTIVATION_MANIFEST.json`: machine-readable publication/activation state.
 - `docs/scientific-citation-observer.md`: read-only DOI/dataset/eval monitor.
+- `docs/zenodo-release-ingestion-decision.md`: decision record for the missing
+  Zenodo release-published event.
 - `scripts/activation/observe_scientific_activation.py`: JSON observer command.
 
 Protocol boundaries:
@@ -62,6 +67,8 @@ Protocol boundaries:
   DOI-bearing Zenodo API record.
 - A Zenodo repository-list sync success alert is not a DOI. It only confirms
   Zenodo refreshed the GitHub repository list.
+- A GitHub `release` / `edited` webhook delivery is not equivalent to a
+  `release` / `published` event for Zenodo archival.
 - A browser-authenticated Hugging Face session is not a dataset publication.
   Dataset completion requires a live dataset URL; ATU v0.2 now uses
   `joy7759/atu-trace-1000`.

@@ -41,20 +41,21 @@ Completion evidence:
 
 Current state: repository is enabled in Zenodo and a guarded GitHub Release
 metadata edit delivered a `release` / `edited` webhook event to Zenodo with
-status `OK`. Zenodo API searches still returned `total: 0`, so DOI is pending
-materialization.
+status `OK`. Zenodo API searches still returned `total: 0`. The observer now
+reports that the original `v0.2.0` release predates the Zenodo hook and that no
+`release` / `published` delivery has been seen.
 
 Manual activation path:
 
 ```text
 1. Keep Zenodo repository binding enabled for joy7758/atu-compiler
-2. Monitor the Zenodo ingestion window without further GitHub Release mutation
+2. Choose a new `release` / `published` event path
 3. Verify the DOI on Zenodo
 ```
 
 The GitHub-side re-trigger has already been executed once. Further GitHub
-Release mutation is on hold while Zenodo DOI materialization is plausibly
-pending. Do not move the existing `v0.2.0` tag.
+Release mutation requires explicit confirmation. Do not move the existing
+`v0.2.0` tag.
 
 Prepared dry run:
 
@@ -98,7 +99,7 @@ Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
 change release assets while Zenodo DOI materialization is still plausibly
 pending.
 
-Latest observer run: `2026-06-30T17:48:54Z`; Zenodo query total remained `0`,
+Latest observer run: `2026-06-30T17:58:25Z`; Zenodo query total remained `0`,
 Hugging Face dataset status was `visible`, and Promptfoo runtime artifact
 passed.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
@@ -111,6 +112,26 @@ but the repository detail page still showed no `v0.2.0` and no DOI.
 Manual browser check at `2026-06-30T17:47:29Z`: Zenodo repo-list `Sync now`
 returned a success alert, but after reload the `joy7758/atu-compiler`
 repository detail page still showed no `v0.2.0` release and no DOI.
+
+Decision document:
+
+```text
+docs/zenodo-release-ingestion-decision.md
+```
+
+Read-only command plan:
+
+```bash
+make zenodo-release-published-event-plan
+```
+
+Current executable conclusion:
+
+```text
+new release / published event is required
+safe path: create v0.2.1 patch release after explicit confirmation
+version-exact path: delete and recreate GitHub Release v0.2.0 without moving tag after explicit confirmation
+```
 
 Completion evidence:
 

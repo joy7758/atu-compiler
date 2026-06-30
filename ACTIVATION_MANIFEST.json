@@ -4,7 +4,7 @@
   "release": "v0.2.0",
   "status": "engineering_complete_scientific_partial_activation_hf_live_promptfoo_live_doi_pending",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T17:48:54Z",
+  "last_checked_at": "2026-06-30T17:58:25Z",
   "truth_boundaries": {
     "github_release": "complete",
     "zenodo_github_integration": "enabled",
@@ -69,11 +69,11 @@
     "release_webhook": "active_for_github_release_events",
     "github_hook_delivery_status": "release_edited_delivery_ok",
     "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_manual_zenodo_sync",
-    "doi_status": "pending_materialization_after_release_edited_retrigger_and_manual_zenodo_sync",
-    "last_checked_at": "2026-06-30T17:48:54Z",
+    "doi_status": "not_verified_new_release_published_event_required",
+    "last_checked_at": "2026-06-30T17:58:25Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
-    "next_gate": "monitor_zenodo_ingestion_window_no_more_github_release_mutation_without_new_evidence",
+    "next_gate": "explicit_maintainer_decision_for_new_release_published_event",
     "observer_script": "scripts/activation/observe_scientific_activation.py",
     "observer_command": "make scientific-activation-observe",
     "observer_github_workflow": ".github/workflows/scientific-activation-observer.yml",
@@ -97,6 +97,7 @@
     "prepared_retrigger_script": "scripts/activation/zenodo_retrigger_v0_2_0.sh",
     "prepared_retrigger_dry_run": "make zenodo-retrigger-dry-run",
     "prepared_retrigger_execute": "ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger scripts/activation/zenodo_retrigger_v0_2_0.sh --execute",
+    "prepared_release_published_event_plan": "make zenodo-release-published-event-plan",
     "execution_guard": "requires_explicit_user_confirmation_before_execute",
     "prepared_retrigger_status": {
       "checked_at": "2026-06-30T14:34:37Z",
@@ -124,7 +125,7 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T17:48:54Z",
+      "last_observed_at": "2026-06-30T17:58:25Z",
       "last_observation_result": {
         "github_release_marker_present": true,
         "github_release_delivery": "release_edited_ok",
@@ -143,6 +144,21 @@
       "doi_completion_requires": "zenodo_api_record_with_doi",
       "network_failure_behavior": "return_ok_false_json_without_failing_whole_observer",
       "remote_workflow_run_policy": "manual_only_not_auto_run"
+    },
+    "ingestion_diagnosis": {
+      "release_published_at": "2026-06-30T11:07:54Z",
+      "hook_created_at": "2026-06-30T14:20:40Z",
+      "release_predates_zenodo_hook": true,
+      "release_delivery_actions_seen": [
+        "edited"
+      ],
+      "has_release_published_delivery": false,
+      "has_release_edited_delivery": true,
+      "new_release_published_event_required": true,
+      "decision_doc": "docs/zenodo-release-ingestion-decision.md",
+      "dry_run_plan_command": "make zenodo-release-published-event-plan",
+      "safe_path": "create_v0_2_1_patch_release_after_explicit_confirmation",
+      "version_exact_path": "delete_and_recreate_v0_2_0_release_without_moving_tag_after_explicit_confirmation"
     },
     "manual_browser_check": {
       "checked_at": "2026-06-30T17:47:29Z",

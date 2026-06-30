@@ -27,8 +27,12 @@ Status date: 2026-06-30
   `2026-06-30T14:43:30.23Z`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T17:48:54Z`; Zenodo query total remained
+- Latest observer run: `2026-06-30T17:58:25Z`; Zenodo query total remained
   `0`, Hugging Face dataset was visible, and Promptfoo runtime artifact passed.
+  The observer now reports that `v0.2.0` was published before the Zenodo hook
+  existed and that no `release` / `published` delivery has been seen.
+- Zenodo release-published event plan prepared and dry-run verified:
+  `make zenodo-release-published-event-plan`.
 - Hugging Face dataset created and populated at
   `https://huggingface.co/datasets/joy7759/atu-trace-1000`.
 - HF data commit: `945c6e2` uploaded `data/eval.jsonl`, `data/test.jsonl`, and
@@ -80,9 +84,10 @@ Status date: 2026-06-30
 - Zenodo DOI has not been verified. The repository is enabled in Zenodo, but
   the Zenodo repository detail page has not ingested the existing `v0.2.0`
   GitHub release. A lower-impact GitHub Release metadata edit successfully
-  delivered a `release` / `edited` webhook event to Zenodo. Exact Zenodo API
-  searches still returned `total: 0` through `2026-06-30T17:48:54Z`, so DOI is
-  pending materialization or Zenodo ingestion failure, not verified complete.
+  delivered a `release` / `edited` webhook event to Zenodo, but no
+  `release` / `published` delivery exists because `v0.2.0` was published before
+  the Zenodo hook was created. Exact Zenodo API searches still returned
+  `total: 0` through `2026-06-30T17:58:25Z`.
 - Promptfoo share has not been completed. Local runtime evidence exists, but no
   external Promptfoo share URL has been created or recorded.
 - JOSS submission has not been submitted to JOSS. The local submission package
@@ -93,9 +98,11 @@ Status date: 2026-06-30
 
 ## Next Manual Gates
 
-1. Monitor Zenodo DOI materialization with `make scientific-activation-observe`.
-   Do not mutate the GitHub Release again without new evidence that Zenodo will
-   not harvest the existing queued event.
+1. Choose a Zenodo closure path from
+   `docs/zenodo-release-ingestion-decision.md`. The safe path is a new patch
+   release such as `v0.2.1`; the version-exact path is deleting and recreating
+   the `v0.2.0` GitHub Release without moving the tag. Either external action
+   requires explicit maintainer confirmation.
 2. Decide whether to create a Promptfoo share URL. Do not claim external
    Promptfoo publication until that URL exists.
 3. Log in with ORCID before starting the JOSS submission workflow.

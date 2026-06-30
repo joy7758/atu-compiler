@@ -12,6 +12,7 @@ Zenodo GitHub integration enabled: yes
 Zenodo webhook delivery: release / edited / OK
 Zenodo repository-list sync: completed
 Zenodo DOI record: not verified
+Observer diagnosis: new release / published event required
 ```
 
 The correct next state is observation, not more GitHub mutation. The observer
@@ -38,6 +39,8 @@ The command emits JSON with these read-only checks:
 - Zenodo public API search for the repository and release title.
 - Hugging Face dataset visibility.
 - Promptfoo local runtime package and latest result artifact status.
+- Zenodo ingestion diagnosis, including whether the release predates the
+  Zenodo hook and whether a `release` / `published` delivery exists.
 
 HF upload has a separate pre-upload identity gate:
 
@@ -78,7 +81,13 @@ promptfoo_local_runtime: complete_if_latest_result_passed
 
 A Zenodo repository-list sync success alert is evidence that Zenodo refreshed
 the GitHub repository list. It is not evidence that a GitHub release was
-ingested or that a DOI was minted.
+ingested or that a DOI was minted. Likewise, a GitHub `release` / `edited`
+webhook delivery is not equivalent to a `release` / `published` event for
+Zenodo archival.
+
+When `zenodo_ingestion_diagnosis.new_release_published_event_required` is true,
+follow `docs/zenodo-release-ingestion-decision.md` before mutating GitHub
+releases or tags.
 
 ## Completion Evidence
 

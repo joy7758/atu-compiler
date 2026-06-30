@@ -47,7 +47,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T17:48:54Z`.
+Latest observer run: `2026-06-30T17:58:25Z`.
 Latest browser/manual-use check: `2026-06-30T17:47:29Z`.
 
 ## HF Dataset Gate
@@ -70,8 +70,9 @@ The local package remains mirrored at `hf_dataset/atu_trace_1000`.
 
 ## Zenodo DOI Gate
 
-Pending Zenodo DOI materialization after repository-to-Zenodo binding and
-successful release webhook delivery.
+Pending Zenodo DOI materialization after repository-to-Zenodo binding. The
+latest evidence indicates that a fresh GitHub `release` / `published` event is
+needed before Zenodo will ingest the release.
 
 Exact Zenodo API searches for the release title, GitHub URL, and
 `joy7758/atu-compiler` returned no matching ATU records after GitHub release
@@ -82,13 +83,13 @@ delivery history contained only the initial `ping` event and no `release`
 delivery. After executing the guarded metadata edit, GitHub recorded a
 `release` / `edited` webhook delivery with status `OK`, but Zenodo API searches
 for the repository and release title still returned `total: 0`. This is now
-tracked as an asynchronous ingestion window rather than a reason for immediate
-GitHub release mutation.
+tracked as a missing `release` / `published` event rather than ordinary queue
+delay: `v0.2.0` was published before the Zenodo hook was created.
 
 Manual action:
 
 ```text
-Monitor Zenodo materialization without further GitHub Release mutation
+Choose a new release-published event path from docs/zenodo-release-ingestion-decision.md
 Verify DOI on Zenodo
 ```
 
@@ -121,6 +122,7 @@ guarded --execute -> GitHub release edited event delivered to Zenodo with OK
 Zenodo API after edited event -> total: 0
 scientific activation observer -> prepared for read-only polling
 make scientific-activation-observe -> Zenodo total 0, HF dataset visible, Promptfoo runtime artifact passed
+observer diagnosis -> release predates Zenodo hook, no release/published delivery, new release-published event required
 observer network behavior -> endpoint failures return JSON `ok: false` sections
 Zenodo browser sync -> completed twice; latest success alert at 2026-06-30T17:47:29Z check window,
 still no v0.2.0 and no DOI on repository page after reload

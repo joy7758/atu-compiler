@@ -18,8 +18,8 @@ Status date: 2026-06-30
 
 ## Boundary
 
-This runbook prepares a Zenodo ingestion trigger. It must not be interpreted as
-evidence that a DOI exists.
+This runbook records the lower-impact `release` / `edited` trigger attempt. It
+must not be interpreted as evidence that a DOI exists.
 
 Do not move `v0.2.0`. Do not delete or recreate the release while Zenodo DOI
 materialization is still plausibly pending.
@@ -61,8 +61,13 @@ zenodo_api_after_retrigger: total 0 at 2026-06-30T14:45:55Z
 ```
 
 This proves Zenodo received a GitHub `release` webhook delivery for the edited
-release. It does not prove DOI creation. The current next action is read-only
-monitoring.
+release. It does not prove DOI creation. Later observer evidence showed that
+`v0.2.0` predates the Zenodo hook and that no `release` / `published` delivery
+exists. The current next action is not another edited re-trigger; use:
+
+```text
+docs/zenodo-release-ingestion-decision.md
+```
 
 Observer command:
 
