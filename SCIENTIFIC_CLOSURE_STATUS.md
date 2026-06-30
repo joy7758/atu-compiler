@@ -54,6 +54,7 @@ hf datasets info joy7758/atu-trace-1000 -> Dataset not found
 hf datasets list --author joy7758 --search atu-trace -> []
 Chrome Hugging Face session -> logged in as joy7759
 Chrome Hugging Face organizations -> no visible joy7758 organization membership
+post-login recheck 2026-06-30T15:47:49Z -> CLI not authenticated, connector joy7759, Chrome joy7759
 ```
 
 Dataset package is locally valid but not uploaded. The canonical target is

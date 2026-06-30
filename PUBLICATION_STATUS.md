@@ -69,7 +69,9 @@ Status date: 2026-06-30
   no visible `joy7758` organization membership. The canonical dataset target is
   now locked to `joy7758/atu-trace-1000`; upload is blocked until HF identity
   switches to `joy7758`. `make hf-canonical-identity-check` ran at
-  `2026-06-30T15:37:49Z` and returned `hf_not_authenticated` with no mutation.
+  `2026-06-30T15:46:00Z` and returned `hf_not_authenticated` with no mutation.
+  Post-login recheck at `2026-06-30T15:47:49Z` found the HF connector and Chrome
+  session still on `joy7759`; no upload was performed.
 - Promptfoo share has not been completed. `npx promptfoo` startup hung during
   package bootstrap in this environment and was interrupted.
 - Promptfoo local package metadata exists in `evals/promptfoo/package.json`, but
