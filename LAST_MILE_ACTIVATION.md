@@ -96,18 +96,19 @@ Do not rebuild either GitHub Release, move either tag, or change release assets
 to chase the DOI. The DOI is already verified through the `v0.2.1` Zenodo
 activation release.
 
-Latest observer run: `2026-07-01T00:15:05Z`; Zenodo DOI status was `verified`,
+Latest observer run: `2026-07-01T00:18:20Z`; Zenodo DOI status was `verified`,
 Hugging Face dataset status was `visible`, and Promptfoo runtime artifact
 passed.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
 `workflow_dispatch` only. It skips repository webhook-delivery inspection in CI;
 local authenticated observer runs include that check. CI-side hook diagnosis is
 indeterminate by design when repository-hook permissions are unavailable.
-Latest GitHub workflow run: `28466699508`, conclusion `success`, head SHA
-`bcf03b9610ada5975966f3c450f4fb3b5c9612eb`, artifact
-`scientific-activation-observer` / `7989891992`. CI-side result: Zenodo query
-total `0`, Hugging Face dataset `visible` via public API, Promptfoo passed, and
-hook-delivery diagnosis `indeterminate_without_repo_hook_delivery_permission`.
+Latest GitHub workflow run: `28484543839`, conclusion `success`, head SHA
+`722d8b02d52dae8b8b6e25d7fc044c57d1fa9cd0`, artifact
+`scientific-activation-observer` / `7996881311`. CI-side result: Zenodo DOI
+`verified`, Zenodo record `21087765`, Hugging Face dataset `visible` via public
+API, Promptfoo passed, and hook-delivery diagnosis
+`indeterminate_without_repo_hook_delivery_permission`.
 Manual browser check at `2026-06-30T15:23:16Z`: Zenodo repo-list sync completed,
 but the repository detail page still showed no `v0.2.0` and no DOI.
 Manual browser check at `2026-06-30T17:47:29Z`: Zenodo repo-list `Sync now`

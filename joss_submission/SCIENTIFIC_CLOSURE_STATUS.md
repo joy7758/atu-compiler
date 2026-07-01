@@ -55,7 +55,7 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-07-01T00:15:05Z`.
+Latest observer run: `2026-07-01T00:18:20Z`.
 Latest browser/manual-use check: `2026-06-30T17:47:29Z`.
 Guarded `v0.2.1` safe-path execution: tag pushed, GitHub Release published, and
 Zenodo DOI verified. Software release metadata is set to `0.2.1`;
@@ -112,9 +112,12 @@ because that API requires permissions not available to the default
 `GITHUB_TOKEN`. CI-side hook diagnosis is therefore indeterminate; local
 authenticated observer runs remain authoritative for Zenodo webhook-delivery
 diagnosis.
-Latest GitHub workflow run before DOI recording: `28466699508`, conclusion
-`success`, head SHA `bcf03b9610ada5975966f3c450f4fb3b5c9612eb`, artifact
-`scientific-activation-observer` / `7989891992`.
+Latest GitHub workflow run after DOI recording: `28484543839`, conclusion
+`success`, head SHA `722d8b02d52dae8b8b6e25d7fc044c57d1fa9cd0`, artifact
+`scientific-activation-observer` / `7996881311`. CI-side result: Zenodo DOI
+`verified`, Zenodo record `21087765`, Hugging Face dataset `visible` via public
+API, Promptfoo passed, and hook-delivery diagnosis
+`indeterminate_without_repo_hook_delivery_permission`.
 
 Execution evidence:
 
