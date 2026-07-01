@@ -5,16 +5,12 @@ Compiler Profile**. It does not define a new tracing standard. It compiles
 OpenTelemetry, OpenInference, and LangSmith-style trace exports into
 episode-level ATU-IR JSONL for replay-aware datasets and eval suites.
 
-Current status: GitHub `v0.2.0` release complete; Hugging Face dataset live;
-Promptfoo local runtime artifact generated; Zenodo GitHub integration and
-release webhook delivery complete; Zenodo repository-list sync has been run,
-but Zenodo DOI is still not verified. The latest observer diagnosis says the
-original `v0.2.0` release predates the Zenodo hook, so a new GitHub `release` /
-`published` event requires explicit maintainer confirmation. Software release
-metadata has been prepared as `0.2.1` for a guarded Zenodo activation release
-path, but that path has not been executed. There is no confirmed Zenodo DOI,
-JOSS submission, or upstream PR until those external actions are performed and
-recorded.
+Current status: GitHub `v0.2.0` release complete; Zenodo activation release
+`v0.2.1` complete; Zenodo DOI verified as
+<https://doi.org/10.5281/zenodo.21087765>; Hugging Face dataset live; Promptfoo
+local runtime artifact generated. The ATU-IR/profile remains `0.2.0`; software
+release metadata is `0.2.1`. JOSS submission and upstream PRs are not claimed
+until those external actions are performed and recorded.
 
 Hugging Face boundary: the live dataset is
 <https://huggingface.co/datasets/joy7759/atu-trace-1000>. The HF namespace
@@ -179,11 +175,11 @@ This repository contains release-prep and publication-observer files such as
 `ACTIVATION_MANIFEST.json`. Treat each external surface separately:
 
 - GitHub Release `v0.2.0`: complete.
+- GitHub Release `v0.2.1`: complete as the Zenodo activation release.
 - Zenodo GitHub integration, webhook delivery, and repository-list sync:
   complete.
-- Zenodo DOI: not verified until Zenodo returns a DOI-bearing record. Current
-  diagnosis requires an explicitly confirmed new GitHub `release` / `published`
-  event.
+- Zenodo DOI: verified at <https://doi.org/10.5281/zenodo.21087765>
+  (record `21087765`, concept DOI `10.5281/zenodo.21087764`).
 - Hugging Face dataset: live at
   <https://huggingface.co/datasets/joy7759/atu-trace-1000>.
 - Promptfoo runtime artifact: complete locally at

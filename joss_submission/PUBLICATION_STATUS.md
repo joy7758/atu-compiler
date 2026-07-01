@@ -1,6 +1,6 @@
-# ATU v0.2.0 Publication Status
+# ATU v0.2 / v0.2.1 Publication Status
 
-Status date: 2026-06-30
+Status date: 2026-07-01
 
 ## Completed External Actions
 
@@ -25,15 +25,27 @@ Status date: 2026-06-30
   Release notes with an HTML comment marker.
 - GitHub webhook delivery after re-trigger: `release` / `edited` / `OK` at
   `2026-06-30T14:43:30.23Z`.
+- Zenodo activation GitHub Release created:
+  `https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1`.
+- Tag pushed: `v0.2.1`
+- Zenodo activation release published at `2026-06-30T23:59:42Z`.
+- Zenodo hook deliveries after `v0.2.1`: `release` / `created` / `OK` with
+  status code `202`, `release` / `published` with status code `409`, and
+  `release` / `released` with status code `403`.
+- Zenodo DOI minted and verified:
+  `https://doi.org/10.5281/zenodo.21087765`.
+- Zenodo concept DOI verified: `https://doi.org/10.5281/zenodo.21087764`.
+- Zenodo record: `https://zenodo.org/records/21087765`.
+- Zenodo archive file: `joy7758/atu-compiler-v0.2.1.zip`, size `745012`,
+  checksum `md5:01cc153a59416dfa43e7041a6cfd72ba`.
 - Scientific activation observer prepared:
   `make scientific-activation-observe`.
-- Latest observer run: `2026-06-30T18:26:55Z`; Zenodo query total remained
-  `0`, Hugging Face dataset was visible, and Promptfoo runtime artifact passed.
-  The observer now reports that `v0.2.0` was published before the Zenodo hook
-  existed and that no `release` / `published` delivery has been seen.
+- Latest observer run: `2026-07-01T00:15:05Z`; Zenodo DOI status was
+  `verified`, Hugging Face dataset was visible, and Promptfoo runtime artifact
+  passed.
 - Zenodo release-published event plan prepared and dry-run verified:
   `make zenodo-release-published-event-plan`.
-- Guarded `v0.2.1` Zenodo activation release path prepared:
+- Guarded `v0.2.1` Zenodo activation release path executed:
   `RELEASE_NOTES_v0.2.1.md`,
   `scripts/activation/create_v0_2_1_zenodo_release.sh`, and
   `make zenodo-v0.2.1-release-dry-run`.
@@ -95,15 +107,10 @@ Status date: 2026-06-30
 
 ## Not Completed Externally
 
-- Zenodo DOI has not been verified. The repository is enabled in Zenodo, but
-  the Zenodo repository detail page has not ingested the existing `v0.2.0`
-  GitHub release. A lower-impact GitHub Release metadata edit successfully
-  delivered a `release` / `edited` webhook event to Zenodo, but no
-  `release` / `published` delivery exists because `v0.2.0` was published before
-  the Zenodo hook was created. Exact Zenodo API searches still returned
-  `total: 0` through `2026-06-30T18:26:55Z`. A guarded `v0.2.1` release path is
-  prepared but has not been executed; no `v0.2.1` tag or GitHub Release is
-  claimed here.
+- Zenodo DOI gate is complete for software release `v0.2.1`. The original
+  `v0.2.0` GitHub Release still predates the Zenodo hook and remains without a
+  separate Zenodo DOI, but the citable software artifact is now the `v0.2.1`
+  Zenodo activation release.
 - Promptfoo share has not been completed. Local runtime evidence exists, but no
   external Promptfoo share URL has been created or recorded.
 - JOSS submission has not been submitted to JOSS. The local submission package
@@ -114,13 +121,7 @@ Status date: 2026-06-30
 
 ## Next Manual Gates
 
-1. Choose a Zenodo closure path from
-   `docs/zenodo-release-ingestion-decision.md`. The safe path is a new patch
-   release such as `v0.2.1`, with dry-run command
-   `make zenodo-v0.2.1-release-dry-run`; the version-exact path is deleting and
-   recreating the `v0.2.0` GitHub Release without moving the tag. Either
-   external action requires explicit maintainer confirmation.
-2. Decide whether to create a Promptfoo share URL. Do not claim external
+1. Decide whether to create a Promptfoo share URL. Do not claim external
    Promptfoo publication until that URL exists.
-3. Log in with ORCID before starting the JOSS submission workflow.
-4. Open upstream issues or pull requests using the prepared PR draft files.
+2. Log in with ORCID before starting the JOSS submission workflow.
+3. Open upstream issues or pull requests using the prepared PR draft files.

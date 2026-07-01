@@ -1,24 +1,29 @@
 # Scientific Citation Observer
 
-Status date: 2026-06-30
+Status date: 2026-07-01
 
 ## Purpose
 
-ATU v0.2 has crossed the GitHub-to-Zenodo trigger boundary:
+ATU v0.2 has crossed the GitHub-to-Zenodo citation boundary through the
+non-destructive `v0.2.1` activation release:
 
 ```text
-GitHub Release exists: yes
+GitHub Release v0.2.0 exists: yes
+GitHub Release v0.2.1 exists: yes
 Zenodo GitHub integration enabled: yes
-Zenodo webhook delivery: release / edited / OK
+Zenodo webhook delivery: release / created / OK for v0.2.1
 Zenodo repository-list sync: completed
-Zenodo DOI record: not verified
-Observer diagnosis: new release / published event required
+Zenodo DOI record: verified
+Zenodo DOI: 10.5281/zenodo.21087765
+Zenodo concept DOI: 10.5281/zenodo.21087764
+Zenodo record: https://zenodo.org/records/21087765
+Observer diagnosis: DOI-bearing record present
 ```
 
-The correct next state is observation, not more GitHub mutation. The observer
-records whether external systems have materialized the scientific identity
-artifacts without moving tags, editing releases, uploading datasets, or
-submitting packages.
+The correct next state is continued observation and downstream status
+synchronization, not more GitHub mutation. The observer records whether
+external systems have materialized the scientific identity artifacts without
+moving tags, editing releases, uploading datasets, or submitting packages.
 
 ## Command
 
@@ -68,44 +73,52 @@ signal. The Hugging Face dataset check falls back to the public Hub API when the
 
 ## Policy
 
-Do not rebuild the `v0.2.0` release, create a follow-up release, move the tag, or
-change release assets while the Zenodo ingestion window is still plausibly
-pending.
+Do not rebuild the `v0.2.0` release, move either tag, or change release assets
+to chase the DOI. The citable software artifact is the `v0.2.1` Zenodo
+activation release, while the original `v0.2.0` GitHub Release remains the
+stable compiler release boundary.
 
-Only record DOI completion after Zenodo returns a DOI-bearing record. Until
-then, the truthful state is:
+DOI completion is recorded only because Zenodo returned a DOI-bearing record:
 
 ```text
 github_release: complete
-zenodo_webhook_delivery: complete
+zenodo_activation_release: complete
 zenodo_repository_list_sync: complete
-zenodo_doi: pending_materialization
+zenodo_doi: verified
+zenodo_record: https://zenodo.org/records/21087765
 promptfoo_local_runtime: complete_if_latest_result_passed
 ```
 
 A Zenodo repository-list sync success alert is evidence that Zenodo refreshed
 the GitHub repository list. It is not evidence that a GitHub release was
-ingested or that a DOI was minted. Likewise, a GitHub `release` / `edited`
-webhook delivery is not equivalent to a `release` / `published` event for
-Zenodo archival.
-
-When `zenodo_ingestion_diagnosis.new_release_published_event_required` is true,
-follow `docs/zenodo-release-ingestion-decision.md` before mutating GitHub
-releases or tags. The prepared safe-path command is dry-run only:
-
-```bash
-make zenodo-v0.2.1-release-dry-run
-```
-
-Creating the external `v0.2.1` tag and GitHub Release requires explicit
-maintainer confirmation through the script's `--execute` mode and environment
-guard. The presence of the script or release notes is not evidence that a new
-release was published.
+ingested or that a DOI was minted. Likewise, the historical GitHub `release` /
+`edited` webhook delivery for `v0.2.0` is not equivalent to a new release event
+for Zenodo archival. That historical path is documented in
+`docs/zenodo-retrigger.md`; the selected closure path is documented in
+`docs/zenodo-release-ingestion-decision.md`.
 
 ## Completion Evidence
 
-The observer is evidence for DOI completion only when its Zenodo section returns
-a record with a DOI. At that point update:
+The observer is evidence for DOI completion because its Zenodo section returns
+the expected record:
+
+```json
+{
+  "doi_status": "verified",
+  "record": {
+    "record_id": 21087765,
+    "doi": "10.5281/zenodo.21087765",
+    "conceptdoi": "10.5281/zenodo.21087764",
+    "status": "published",
+    "state": "done",
+    "submitted": true,
+    "title": "ATU v0.2.1: Agent Trace-to-Dataset Compiler",
+    "version": "0.2.1"
+  }
+}
+```
+
+The DOI state has been propagated into:
 
 - `CITATION.cff`
 - `README.md`

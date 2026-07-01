@@ -1,17 +1,19 @@
 # ATU v0.2.0 Scientific Closure Status
 
-Status date: 2026-06-30
+Status date: 2026-07-01
 
 ## Current Position
 
-ATU v0.2.0 is externally visible as software, but the broader scientific
-citation loop is not fully closed.
+ATU v0.2.0 is externally visible as software, and the software citation loop is
+active through the `v0.2.1` Zenodo activation release. The broader ecosystem
+loop is not fully closed because Promptfoo share, JOSS submission, and upstream
+PRs are still separate external actions.
 
 ```text
 Code exists: yes
 GitHub release exists: yes
 Zenodo GitHub integration: enabled
-Zenodo DOI: not verified
+Zenodo DOI: verified
 Hugging Face dataset: live
 Promptfoo benchmark execution: complete locally
 JOSS submission: package generated, not submitted
@@ -22,6 +24,12 @@ JOSS submission: package generated, not submitted
 - GitHub repository: `https://github.com/joy7758/atu-compiler`
 - GitHub release: `https://github.com/joy7758/atu-compiler/releases/tag/v0.2.0`
 - Release tag: `v0.2.0`
+- Zenodo activation release:
+  `https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1`
+- Zenodo DOI: `https://doi.org/10.5281/zenodo.21087765`
+- Zenodo concept DOI: `https://doi.org/10.5281/zenodo.21087764`
+- Zenodo record: `https://zenodo.org/records/21087765`
+- Zenodo archive file: `joy7758/atu-compiler-v0.2.1.zip`
 - Release build commit: `dcf930a`
 - Publication status commit: use git history for the current status snapshot; do
   not self-record a commit hash inside this file.
@@ -47,11 +55,11 @@ Latest recheck: `2026-06-30T14:29:06Z`.
 Zenodo re-trigger preparation check: `2026-06-30T14:34:37Z`.
 Zenodo re-trigger execution check: `2026-06-30T14:45:55Z`.
 Scientific activation observer start: `2026-06-30T14:51:49Z`.
-Latest observer run: `2026-06-30T18:26:55Z`.
+Latest observer run: `2026-07-01T00:15:05Z`.
 Latest browser/manual-use check: `2026-06-30T17:47:29Z`.
-Guarded `v0.2.1` safe-path preparation: release notes and dry-run-first script
-prepared; software release metadata is set to `0.2.1`; ATU-IR/profile metadata
-remains `0.2.0`; no `v0.2.1` tag or GitHub Release has been created.
+Guarded `v0.2.1` safe-path execution: tag pushed, GitHub Release published, and
+Zenodo DOI verified. Software release metadata is set to `0.2.1`;
+ATU-IR/profile metadata remains `0.2.0`.
 
 ## HF Dataset Gate
 
@@ -73,28 +81,24 @@ The local package remains mirrored at `hf_dataset/atu_trace_1000`.
 
 ## Zenodo DOI Gate
 
-Pending Zenodo DOI materialization after repository-to-Zenodo binding. The
-latest evidence indicates that a fresh GitHub `release` / `published` event is
-needed before Zenodo will ingest the release.
+Completed for the citable software release `v0.2.1`.
 
-Exact Zenodo API searches for the release title, GitHub URL, and
-`joy7758/atu-compiler` returned no matching ATU records after GitHub release
-creation. After enabling the Zenodo GitHub integration, the repository detail
-page still did not list the existing `v0.2.0` release, so DOI minting remains
-unverified. A later recheck found the GitHub Zenodo webhook active, but its
-delivery history contained only the initial `ping` event and no `release`
-delivery. After executing the guarded metadata edit, GitHub recorded a
-`release` / `edited` webhook delivery with status `OK`, but Zenodo API searches
-for the repository and release title still returned `total: 0`. This is now
-tracked as a missing `release` / `published` event rather than ordinary queue
-delay: `v0.2.0` was published before the Zenodo hook was created.
-
-Manual action:
+Observed:
 
 ```text
-Choose a new release-published event path from docs/zenodo-release-ingestion-decision.md
-Verify DOI on Zenodo
+v0.2.1 tag -> pushed
+v0.2.1 GitHub Release -> published at 2026-06-30T23:59:42Z
+Zenodo record -> https://zenodo.org/records/21087765
+Zenodo DOI -> https://doi.org/10.5281/zenodo.21087765
+Zenodo concept DOI -> https://doi.org/10.5281/zenodo.21087764
+Zenodo status -> published
+Zenodo state -> done
+Zenodo archive -> joy7758/atu-compiler-v0.2.1.zip
 ```
+
+The original `v0.2.0` GitHub Release still predates the Zenodo hook and does not
+have its own Zenodo DOI. The citation anchor for the software artifact is now
+the `v0.2.1` Zenodo activation release.
 
 Observer command:
 
@@ -108,46 +112,21 @@ because that API requires permissions not available to the default
 `GITHUB_TOKEN`. CI-side hook diagnosis is therefore indeterminate; local
 authenticated observer runs remain authoritative for Zenodo webhook-delivery
 diagnosis.
-Latest GitHub workflow run: `28466699508`, conclusion `success`, head SHA
-`bcf03b9610ada5975966f3c450f4fb3b5c9612eb`, artifact
-`scientific-activation-observer` / `7989891992`. CI-side result: Zenodo query
-total `0`, Hugging Face dataset `visible` via public API, Promptfoo passed, and
-hook-delivery diagnosis `indeterminate_without_repo_hook_delivery_permission`.
+Latest GitHub workflow run before DOI recording: `28466699508`, conclusion
+`success`, head SHA `bcf03b9610ada5975966f3c450f4fb3b5c9612eb`, artifact
+`scientific-activation-observer` / `7989891992`.
 
-Prepared guarded command:
-
-```bash
-ATU_CONFIRM_ZENODO_RETRIGGER=release-v0.2.0-zenodo-retrigger \
-  scripts/activation/zenodo_retrigger_v0_2_0.sh --execute
-```
-
-Prepared guarded `v0.2.1` safe path:
-
-```bash
-make zenodo-v0.2.1-release-dry-run
-```
-
-Execution, only after explicit maintainer confirmation:
-
-```bash
-ATU_CONFIRM_ZENODO_V0_2_1_RELEASE=v0.2.1-zenodo-release \
-  scripts/activation/create_v0_2_1_zenodo_release.sh --execute
-```
-
-Dry-run evidence:
+Execution evidence:
 
 ```text
 make zenodo-retrigger-dry-run -> pass
 --execute without confirmation guard -> blocked with exit code 78
 guarded --execute -> GitHub release edited event delivered to Zenodo with OK
 Zenodo API after edited event -> total: 0
-scientific activation observer -> prepared for read-only polling
-make scientific-activation-observe -> Zenodo total 0, HF dataset visible, Promptfoo runtime artifact passed
-observer diagnosis -> release predates Zenodo hook, no release/published delivery, new release-published event required
+v0.2.1 guarded --execute -> GitHub Release v0.2.1 created
+v0.2.1 hook deliveries -> created 202 OK, published 409, released 403
+make scientific-activation-observe -> Zenodo DOI verified, HF dataset visible, Promptfoo runtime artifact passed
 observer network behavior -> endpoint failures return JSON `ok: false` sections
-Zenodo browser sync -> completed twice; latest success alert at 2026-06-30T17:47:29Z check window,
-still no v0.2.0 and no DOI on repository page after reload
-v0.2.1 guarded release path -> prepared only, not executed
 ```
 
 ## Promptfoo Benchmark Gate
@@ -221,9 +200,11 @@ JOSS submission entry -> requires ORCID login before submission starts
 
 ## Closure Definition
 
-The scientific citation loop should only be marked complete after all are true:
+The software citation loop is complete for `v0.2.1`:
 
 1. Zenodo DOI is minted and recorded in `CITATION.cff`.
 2. Hugging Face dataset is live and URL is recorded in `README.md`.
-3. Promptfoo eval result is generated and attached or linked.
-4. JOSS submission is opened or explicitly deferred.
+3. Promptfoo eval result is generated and linked from this status file.
+
+The broader ecosystem loop remains open until Promptfoo share, JOSS submission,
+and upstream PRs are performed or explicitly deferred.

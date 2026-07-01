@@ -1,25 +1,28 @@
 {
   "schema_version": "1.0",
   "project": "ATU",
-  "release": "v0.2.0",
-  "status": "engineering_complete_scientific_partial_activation_hf_live_promptfoo_live_doi_pending",
+  "release": "v0.2.1",
+  "status": "engineering_complete_scientific_activation_hf_live_promptfoo_live_doi_verified",
   "generated_at": "2026-06-30",
-  "last_checked_at": "2026-06-30T18:26:55Z",
+  "last_checked_at": "2026-07-01T00:15:05Z",
   "truth_boundaries": {
-    "github_release": "complete",
+    "github_release": "v0.2.0_complete_v0.2.1_zenodo_activation_release_complete",
     "zenodo_github_integration": "enabled",
-    "zenodo_doi": "not_verified",
-    "zenodo_v0_2_1_activation_release": "prepared_not_created",
+    "zenodo_doi": "verified",
+    "zenodo_v0_2_1_activation_release": "published",
     "huggingface_dataset": "live",
     "promptfoo_runtime": "complete_local_promptfoo_eval_artifact",
     "joss_submission": "package_generated_not_submitted"
   },
   "github": {
     "repository": "https://github.com/joy7758/atu-compiler",
-    "release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.0",
-    "release_tag": "v0.2.0",
-    "release_build_commit": "dcf930a",
-    "manifest_commit_policy": "use_git_history_for_current_manifest_commit_no_self_referential_hash"
+    "release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1",
+    "release_tag": "v0.2.1",
+    "release_build_commit": "860a16f",
+    "manifest_commit_policy": "use_git_history_for_current_manifest_commit_no_self_referential_hash",
+    "base_release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.0",
+    "base_release_tag": "v0.2.0",
+    "zenodo_activation_release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1"
   },
   "huggingface": {
     "target_dataset_repo": "joy7759/atu-trace-1000",
@@ -68,13 +71,13 @@
   "zenodo": {
     "repository_binding": "enabled",
     "release_webhook": "active_for_github_release_events",
-    "github_hook_delivery_status": "release_edited_delivery_ok",
-    "api_search_status": "no_records_for_quoted_joy7758_atu_compiler_or_title_query_after_manual_zenodo_sync",
-    "doi_status": "not_verified_new_release_published_event_required",
-    "last_checked_at": "2026-06-30T18:26:55Z",
+    "github_hook_delivery_status": "release_created_202_published_409_released_403_doi_verified",
+    "api_search_status": "zenodo_record_21087765_doi_verified_title_query_total_1_repo_query_total_0",
+    "doi_status": "verified",
+    "last_checked_at": "2026-07-01T00:15:05Z",
     "settings_url": "https://zenodo.org/account/settings/github/",
     "repository_settings_url": "https://zenodo.org/account/settings/github/repository/joy7758/atu-compiler",
-    "next_gate": "explicit_maintainer_decision_for_new_release_published_event",
+    "next_gate": "zenodo_doi_complete_record_promptfoo_share_joss_upstream_prs_separately",
     "observer_script": "scripts/activation/observe_scientific_activation.py",
     "observer_command": "make scientific-activation-observe",
     "observer_github_workflow": ".github/workflows/scientific-activation-observer.yml",
@@ -115,13 +118,14 @@
       "dataset_episode_metadata_version": "0.2.0"
     },
     "prepared_v0_2_1_release_status": {
-      "local_tag": "not_created",
-      "remote_tag": "not_created",
-      "github_release": "not_created",
-      "tag_mutation": false,
-      "release_mutation": false,
+      "local_tag": "created",
+      "remote_tag": "pushed",
+      "github_release": "published",
+      "tag_mutation": true,
+      "release_mutation": true,
       "asset_mutation": false,
-      "doi_claimed": false
+      "doi_claimed": true,
+      "doi_verified": true
     },
     "prepared_retrigger_status": {
       "checked_at": "2026-06-30T14:34:37Z",
@@ -149,43 +153,46 @@
     "observer_policy": {
       "status": "active",
       "started_at": "2026-06-30T14:51:49Z",
-      "last_observed_at": "2026-06-30T18:26:55Z",
+      "last_observed_at": "2026-07-01T00:15:05Z",
       "last_observation_result": {
         "github_release_marker_present": true,
-        "github_release_delivery": "release_edited_ok",
+        "github_release_delivery": "release_created_202_published_409_released_403",
         "zenodo_repo_query_total": 0,
-        "zenodo_title_query_total": 0,
+        "zenodo_title_query_total": 1,
         "huggingface_dataset_status": "visible",
         "huggingface_dataset_sha": "fd0da1d41a63c2c7bf9fd629ac6174545f548f27",
         "huggingface_dataset_infos_homepage": "https://huggingface.co/datasets/joy7759/atu-trace-1000",
         "promptfoo_result_artifact_present": true,
         "promptfoo_eval_passed": true,
-        "promptfoo_eval_id": "eval-dYL-2026-06-30T17:02:05"
+        "promptfoo_eval_id": "eval-dYL-2026-06-30T17:02:05",
+        "github_release_tag": "v0.2.1",
+        "github_release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1",
+        "zenodo_doi_status": "verified",
+        "zenodo_doi": "10.5281/zenodo.21087765",
+        "zenodo_record_id": 21087765
       },
-      "github_release_mutation": "hold",
-      "tag_mutation": "forbidden_without_explicit_new_confirmation",
+      "github_release_mutation": "v0.2.1_activation_release_created",
+      "tag_mutation": "v0.2.1_tag_pushed_after_explicit_confirmation",
       "release_asset_mutation": "hold",
-      "doi_completion_requires": "zenodo_api_record_with_doi",
+      "doi_completion_requires": "complete_zenodo_record_with_doi_observed",
       "network_failure_behavior": "return_ok_false_json_without_failing_whole_observer",
       "remote_workflow_run_policy": "manual_only_not_auto_run"
     },
     "ingestion_diagnosis": {
-      "release_published_at": "2026-06-30T11:07:54Z",
+      "release_published_at": "2026-06-30T23:59:42Z",
       "hook_created_at": "2026-06-30T14:20:40Z",
-      "release_predates_zenodo_hook": true,
+      "release_predates_zenodo_hook": false,
       "release_delivery_actions_seen": [
+        "published",
+        "created",
+        "released",
         "edited"
       ],
-      "has_release_published_delivery": false,
+      "has_release_published_delivery": true,
       "has_release_edited_delivery": true,
-      "new_release_published_event_required": true,
-      "decision_doc": "docs/zenodo-release-ingestion-decision.md",
-      "dry_run_plan_command": "make zenodo-release-published-event-plan",
-      "guarded_safe_path_dry_run_command": "make zenodo-v0.2.1-release-dry-run",
-      "guarded_safe_path_script": "scripts/activation/create_v0_2_1_zenodo_release.sh",
-      "guarded_safe_path_release_notes": "RELEASE_NOTES_v0.2.1.md",
-      "safe_path": "create_v0_2_1_patch_release_after_explicit_confirmation",
-      "version_exact_path": "delete_and_recreate_v0_2_0_release_without_moving_tag_after_explicit_confirmation"
+      "new_release_published_event_required": false,
+      "doi_status": "verified",
+      "doi": "10.5281/zenodo.21087765"
     },
     "manual_browser_check": {
       "checked_at": "2026-06-30T17:47:29Z",
@@ -198,6 +205,61 @@
       "repository_list_sync_result": "success_alert_repositories_synced_some_items_may_still_be_updating",
       "after_sync_has_v0_2_0": false,
       "after_sync_has_doi": false
+    },
+    "doi": "10.5281/zenodo.21087765",
+    "doi_url": "https://doi.org/10.5281/zenodo.21087765",
+    "concept_doi": "10.5281/zenodo.21087764",
+    "concept_doi_url": "https://doi.org/10.5281/zenodo.21087764",
+    "record_id": 21087765,
+    "record_url": "https://zenodo.org/records/21087765",
+    "record_status": "published",
+    "record_state": "done",
+    "executed_v0_2_1_release": {
+      "executed_at": "2026-06-30T23:59:42Z",
+      "git_tag": "v0.2.1",
+      "tag_target_commit": "860a16f22e930c17595b503c4ec4f91b0d42c7bd",
+      "github_release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1",
+      "github_release_published_at": "2026-06-30T23:59:42Z",
+      "hook_deliveries": [
+        {
+          "event": "release",
+          "action": "created",
+          "status": "OK",
+          "status_code": 202,
+          "delivered_at": "2026-06-30T23:59:43.365Z"
+        },
+        {
+          "event": "release",
+          "action": "published",
+          "status": "Invalid HTTP Response: 409",
+          "status_code": 409,
+          "delivered_at": "2026-06-30T23:59:43.381Z"
+        },
+        {
+          "event": "release",
+          "action": "released",
+          "status": "Invalid HTTP Response: 403",
+          "status_code": 403,
+          "delivered_at": "2026-06-30T23:59:43.279Z"
+        }
+      ]
+    },
+    "zenodo_record": {
+      "record_id": 21087765,
+      "concept_record_id": "21087764",
+      "doi": "10.5281/zenodo.21087765",
+      "conceptdoi": "10.5281/zenodo.21087764",
+      "doi_url": "https://doi.org/10.5281/zenodo.21087765",
+      "title": "ATU v0.2.1: Agent Trace-to-Dataset Compiler",
+      "version": "0.2.1",
+      "status": "published",
+      "state": "done",
+      "submitted": true,
+      "file": {
+        "key": "joy7758/atu-compiler-v0.2.1.zip",
+        "size": 745012,
+        "checksum": "md5:01cc153a59416dfa43e7041a6cfd72ba"
+      }
     }
   },
   "promptfoo": {

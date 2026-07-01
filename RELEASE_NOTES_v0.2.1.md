@@ -20,14 +20,16 @@ compatible with v0.2.0. This release exists to generate a GitHub
 
 ## Publication Boundary
 
-This release is intended to trigger Zenodo archival. A Zenodo DOI exists only
-after Zenodo returns a DOI-bearing record and that DOI is recorded in the
-repository status files.
-
-Until that happens:
+This release triggered Zenodo archival. The verified Zenodo record is:
 
 ```text
-zenodo_doi: not_verified
+doi: 10.5281/zenodo.21087765
+concept_doi: 10.5281/zenodo.21087764
+record: https://zenodo.org/records/21087765
+```
+
+```text
+zenodo_doi: verified
 ```
 
 ## Validation Snapshot

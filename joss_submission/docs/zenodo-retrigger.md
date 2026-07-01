@@ -1,6 +1,6 @@
 # Zenodo Re-trigger Runbook
 
-Status date: 2026-06-30
+Status date: 2026-07-01
 
 ## Current State
 
@@ -10,22 +10,22 @@ Status date: 2026-06-30
   "release": "v0.2.0",
   "zenodo_github_integration": "enabled",
   "github_webhook": "active",
-  "github_webhook_deliveries": "release_edited_delivery_ok",
-  "zenodo_record_search": "total_0",
-  "doi_status": "not_verified"
+  "github_webhook_deliveries": "release_edited_delivery_ok_then_v0_2_1_release_created_ok",
+  "zenodo_record_search": "v0_2_1_record_verified",
+  "zenodo_record": "https://zenodo.org/records/21087765",
+  "doi_status": "verified"
 }
 ```
 
 ## Boundary
 
-This runbook records the lower-impact `release` / `edited` trigger attempt. It
-must not be interpreted as evidence that a DOI exists.
+This runbook records the lower-impact `release` / `edited` trigger attempt. The
+edited trigger itself must not be interpreted as evidence that a DOI exists.
 
-Do not move `v0.2.0`. Do not delete or recreate the release while Zenodo DOI
-materialization is still plausibly pending. Later observer evidence now points
-to a missing `release` / `published` event, so this runbook is historical
-evidence for the lower-impact edited-event attempt, not the current closure
-path.
+Do not move `v0.2.0`. Do not delete or recreate the release. Later observer
+evidence showed that the edited attempt did not produce a DOI, so the closure
+path moved to the guarded `v0.2.1` activation release documented in
+`docs/zenodo-release-ingestion-decision.md`.
 
 ## Prepared Command
 
@@ -48,11 +48,11 @@ The script performs a minimal GitHub Release notes edit by appending or
 refreshing an HTML comment marker. This should create a GitHub `release`
 webhook delivery without changing the tag or release assets.
 
-The action is intentionally lower impact than deleting and recreating the
-GitHub Release. It creates a GitHub `release` / `edited` delivery, not a
-`release` / `published` delivery. After the executed attempt failed to produce a
-Zenodo record, the current decision moved to the guarded new-release path in
-`docs/zenodo-release-ingestion-decision.md`.
+The action was intentionally lower impact than deleting and recreating the
+GitHub Release. It created a GitHub `release` / `edited` delivery, not a
+new release event. After the executed attempt failed to produce a Zenodo
+record, the decision moved to the guarded new-release path in
+`docs/zenodo-release-ingestion-decision.md`, which has now been executed.
 
 ## Executed Re-trigger
 
@@ -67,20 +67,20 @@ zenodo_api_after_retrigger: total 0 at 2026-06-30T14:45:55Z
 
 This proves Zenodo received a GitHub `release` webhook delivery for the edited
 release. It does not prove DOI creation. Later observer evidence showed that
-`v0.2.0` predates the Zenodo hook and that no `release` / `published` delivery
-exists. The current next action is not another edited re-trigger; use:
+`v0.2.0` predates the Zenodo hook and that no new-release archival event existed
+for that original release. The selected next action was:
 
 ```text
 docs/zenodo-release-ingestion-decision.md
 ```
 
-Prepared guarded safe-path dry run:
+Guarded safe-path dry run:
 
 ```bash
 make zenodo-v0.2.1-release-dry-run
 ```
 
-Execution still requires explicit maintainer confirmation:
+Execution was completed after explicit maintainer confirmation:
 
 ```bash
 ATU_CONFIRM_ZENODO_V0_2_1_RELEASE=v0.2.1-zenodo-release \
@@ -95,17 +95,20 @@ make scientific-activation-observe
 
 ## Completion Evidence
 
-The Zenodo gate is complete only when a Zenodo API response returns a DOI for
-the ATU release, for example:
+The Zenodo gate is complete because the Zenodo API response now returns a DOI
+for the ATU activation release:
 
 ```json
 {
-  "doi": "10.5281/zenodo.xxxxxxxx",
-  "title": "ATU v0.2: Agent Trace-to-Dataset Compiler"
+  "doi": "10.5281/zenodo.21087765",
+  "conceptdoi": "10.5281/zenodo.21087764",
+  "title": "ATU v0.2.1: Agent Trace-to-Dataset Compiler",
+  "version": "0.2.1",
+  "status": "published"
 }
 ```
 
-After DOI verification, update:
+DOI verification has been propagated into:
 
 - `CITATION.cff`
 - `README.md`

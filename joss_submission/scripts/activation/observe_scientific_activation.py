@@ -17,9 +17,12 @@ from pathlib import Path
 
 
 REPO = "joy7758/atu-compiler"
-TAG = "v0.2.0"
+TAG = "v0.2.1"
 HOOK_ID = "647976117"
 DATASET_ID = "joy7759/atu-trace-1000"
+ZENODO_RECORD_ID = "21087765"
+ZENODO_DOI = "10.5281/zenodo.21087765"
+ZENODO_CONCEPT_DOI = "10.5281/zenodo.21087764"
 
 
 def utc_now() -> str:
@@ -95,6 +98,48 @@ def zenodo_search(query: str) -> dict[str, object]:
         "query": query,
         "total": hits.get("total", 0),
         "records": records,
+    }
+
+
+def zenodo_record() -> dict[str, object]:
+    url = f"https://zenodo.org/api/records/{ZENODO_RECORD_ID}"
+    last_error = ""
+    for attempt in range(1, 4):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as response:
+                data = json.load(response)
+            break
+        except Exception as exc:  # noqa: BLE001 - observer must stay read-only.
+            last_error = f"{type(exc).__name__}: {exc}"
+            if attempt < 3:
+                time.sleep(2 * attempt)
+    else:
+        return {
+            "ok": False,
+            "record_id": ZENODO_RECORD_ID,
+            "doi": ZENODO_DOI,
+            "error": last_error,
+        }
+    return {
+        "ok": data.get("doi") == ZENODO_DOI and data.get("status") == "published",
+        "record_id": data.get("id"),
+        "concept_record_id": data.get("conceptrecid"),
+        "doi": data.get("doi"),
+        "conceptdoi": data.get("conceptdoi"),
+        "doi_url": data.get("doi_url"),
+        "title": data.get("metadata", {}).get("title"),
+        "version": data.get("metadata", {}).get("version"),
+        "status": data.get("status"),
+        "state": data.get("state"),
+        "submitted": data.get("submitted"),
+        "files": [
+            {
+                "key": item.get("key"),
+                "size": item.get("size"),
+                "checksum": item.get("checksum"),
+            }
+            for item in data.get("files", [])
+        ],
     }
 
 
@@ -223,7 +268,7 @@ def zenodo_ingestion_diagnosis(
     }
     if diagnosis["new_release_published_event_required"]:
         diagnosis["reason"] = (
-            "v0.2.0 was published before the Zenodo hook existed, and the hook "
+            "The observed release was published before the Zenodo hook existed, and the hook "
             "has only seen an edited release event. Zenodo UI and API still show "
             "no release ingestion."
         )
@@ -334,6 +379,7 @@ def main() -> int:
     release = github_release()
     hook = github_hook_info()
     deliveries = github_hook_deliveries()
+    record = zenodo_record()
     payload = {
         "schema_version": "1.0",
         "project": "ATU",
@@ -347,12 +393,17 @@ def main() -> int:
             release, hook, deliveries
         ),
         "zenodo": {
+            "doi_status": "verified" if record.get("ok") else "not_verified",
+            "expected_doi": ZENODO_DOI,
+            "expected_concept_doi": ZENODO_CONCEPT_DOI,
+            "record": record,
             "repo_query": zenodo_search('"joy7758/atu-compiler"'),
             "title_query": zenodo_search('"ATU v0.2" "Trace-to-Dataset"'),
+            "doi_query": zenodo_search(f'"{ZENODO_DOI}"'),
         },
         "huggingface": hf_dataset_status(),
         "promptfoo": promptfoo_status(),
-        "next_policy": "new_release_published_event_requires_explicit_confirmation",
+        "next_policy": "doi_verified_record_external_surfaces" if record.get("ok") else "doi_record_requires_follow_up",
     }
     json.dump(payload, sys.stdout, indent=2, sort_keys=True)
     sys.stdout.write("\n")

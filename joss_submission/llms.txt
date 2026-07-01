@@ -3,15 +3,10 @@
 Purpose: compile heterogeneous agent traces into deterministic ATU-IR episodes
 for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
 
-Status: published GitHub release `v0.2.0`; prepared software metadata `0.2.1`
-for a guarded Zenodo activation release. Hugging Face dataset is live at
-`joy7759/atu-trace-1000`. Zenodo GitHub integration and GitHub release webhook
-delivery are complete, and Zenodo repository-list sync was manually run. Zenodo
-DOI is not verified until Zenodo returns a DOI-bearing record. Current observer
-diagnosis: `v0.2.0` predates the Zenodo hook and no `release` / `published`
-delivery exists, so a new release-published event requires explicit maintainer
-confirmation. The guarded `v0.2.1` Zenodo activation release script is prepared
-but has not been executed. Promptfoo local runtime artifact is present
+Status: published GitHub release `v0.2.0`; Zenodo activation release `v0.2.1`;
+Zenodo DOI verified as `10.5281/zenodo.21087765`; Hugging Face dataset is live
+at `joy7759/atu-trace-1000`. The ATU-IR/profile remains `0.2.0`; software
+release metadata is `0.2.1`. Promptfoo local runtime artifact is present
 at `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json` with
 `3 passed`, `0 failed`, and `0 errors`. No JOSS submission or upstream PR is
 claimed until that external action is performed and recorded.
@@ -35,8 +30,7 @@ Canonical commands:
 - Build replay manifests: `atu replay-manifest --input out/atu.jsonl --output replay/manifests`
 - Release check: `make release-check`
 - Observe external activation: `make scientific-activation-observe`
-- Inspect Zenodo release-published event options: `make zenodo-release-published-event-plan`
-- Dry-run guarded v0.2.1 Zenodo activation release: `make zenodo-v0.2.1-release-dry-run`
+- Observe verified Zenodo DOI record: `make scientific-activation-observe`
 - Check HF canonical identity: `make hf-canonical-identity-check`
 - Manual GitHub observer: Actions -> `Scientific Activation Observer`
   (workflow skips repo hook-delivery inspection; local authenticated observer
@@ -70,7 +64,7 @@ Protocol boundaries:
   dataset publication, Promptfoo runtime evidence, and JOSS submission are
   separate truth surfaces.
 - A Zenodo webhook delivery is not a DOI. DOI completion requires a
-  DOI-bearing Zenodo API record.
+  DOI-bearing Zenodo API record; ATU now records `10.5281/zenodo.21087765`.
 - A Zenodo repository-list sync success alert is not a DOI. It only confirms
   Zenodo refreshed the GitHub repository list.
 - A GitHub `release` / `edited` webhook delivery is not equivalent to a

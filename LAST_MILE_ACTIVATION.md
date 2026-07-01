@@ -1,18 +1,18 @@
 # ATU v0.2.0 Last-Mile Activation Checklist
 
-Status date: 2026-06-30
+Status date: 2026-07-01
 
 ## Current State
 
-ATU v0.2.0 is engineering-complete and GitHub-visible, but the scientific
-identity/citation loop is still pending external activation.
+ATU v0.2.0 is engineering-complete and GitHub-visible. The software citation
+loop is now active through the `v0.2.1` Zenodo activation release.
 
 ```text
 Engineering system: complete
 GitHub software release: complete
 Hugging Face dataset identity: live
 Zenodo GitHub integration: enabled
-Zenodo DOI identity: pending
+Zenodo DOI identity: verified
 Promptfoo runtime artifact: complete locally
 JOSS submission: pending
 ```
@@ -39,18 +39,15 @@ Completion evidence:
 
 ## Gate 2: Zenodo DOI Identity
 
-Current state: repository is enabled in Zenodo and a guarded GitHub Release
-metadata edit delivered a `release` / `edited` webhook event to Zenodo with
-status `OK`. Zenodo API searches still returned `total: 0`. The observer now
-reports that the original `v0.2.0` release predates the Zenodo hook and that no
-`release` / `published` delivery has been seen.
+Current state: repository is enabled in Zenodo, the guarded `v0.2.1` activation
+release has been published, and Zenodo returned a DOI-bearing software record.
 
 Manual activation path:
 
 ```text
 1. Keep Zenodo repository binding enabled for joy7758/atu-compiler
-2. Choose a new `release` / `published` event path
-3. Verify the DOI on Zenodo
+2. Preserve `v0.2.1` as the citable Zenodo activation release
+3. Record the DOI in citation/status files
 ```
 
 The GitHub-side re-trigger has already been executed once. Further GitHub
@@ -95,11 +92,11 @@ Observer path:
 make scientific-activation-observe
 ```
 
-Do not rebuild the GitHub Release, create a follow-up release, move the tag, or
-change release assets while Zenodo DOI materialization is still plausibly
-pending.
+Do not rebuild either GitHub Release, move either tag, or change release assets
+to chase the DOI. The DOI is already verified through the `v0.2.1` Zenodo
+activation release.
 
-Latest observer run: `2026-06-30T18:26:55Z`; Zenodo query total remained `0`,
+Latest observer run: `2026-07-01T00:15:05Z`; Zenodo DOI status was `verified`,
 Hugging Face dataset status was `visible`, and Promptfoo runtime artifact
 passed.
 Manual GitHub workflow: `Scientific Activation Observer` is active and
@@ -129,12 +126,16 @@ Read-only command plan:
 make zenodo-release-published-event-plan
 ```
 
-Current executable conclusion:
+Executed activation conclusion:
 
 ```text
-new release / published event is required
-safe path: create v0.2.1 patch release after explicit confirmation
-version-exact path: delete and recreate GitHub Release v0.2.0 without moving tag after explicit confirmation
+v0.2.1_local_tag: created
+v0.2.1_remote_tag: pushed
+v0.2.1_github_release: published
+zenodo_doi: verified
+doi: 10.5281/zenodo.21087765
+concept_doi: 10.5281/zenodo.21087764
+record: https://zenodo.org/records/21087765
 ```
 
 Guarded safe-path dry run:
@@ -157,25 +158,25 @@ RELEASE_NOTES_v0.2.1.md
 scripts/activation/create_v0_2_1_zenodo_release.sh
 ```
 
-Prepared-only boundary:
+Verified boundary:
 
 ```text
 software_release_metadata: 0.2.1
 atu_ir_profile_metadata: 0.2.0
-v0.2.1_local_tag: not_created
-v0.2.1_remote_tag: not_created
-v0.2.1_github_release: not_created
-zenodo_doi: not_verified
+v0.2.1_local_tag: created
+v0.2.1_remote_tag: pushed
+v0.2.1_github_release: published
+zenodo_doi: verified
 ```
 
 Completion evidence:
 
 ```bash
-curl -fsSL 'https://zenodo.org/api/records?q=%22joy7758%2Fatu-compiler%22&sort=mostrecent&size=10'
+curl -fsSL 'https://zenodo.org/api/records/21087765'
 ```
 
-Record the DOI in `CITATION.cff`, `README.md`, `SCIENTIFIC_CLOSURE_STATUS.md`,
-and `ACTIVATION_MANIFEST.json`.
+DOI has been recorded in `CITATION.cff`, `README.md`,
+`SCIENTIFIC_CLOSURE_STATUS.md`, and `ACTIVATION_MANIFEST.json`.
 
 ## Gate 3: Promptfoo Runtime Artifact
 
@@ -246,16 +247,21 @@ Completion evidence:
 
 ## Do Not Confuse These States
 
-- GitHub release exists does not imply Zenodo DOI exists.
+- GitHub release existence alone does not imply Zenodo DOI existence; this
+  repository claims a DOI only because the direct Zenodo record API returned
+  `10.5281/zenodo.21087765`.
 - Local dataset files exist does not imply Hugging Face dataset exists.
 - Promptfoo config exists does not imply benchmark runtime evidence exists.
 - JOSS zip exists does not imply JOSS submission exists.
 
 ## Closure Criteria
 
-The scientific activation layer is complete only when all are true:
+The software citation activation layer is complete for `v0.2.1` because all are
+true:
 
 1. Hugging Face dataset URL is live.
 2. Zenodo DOI is live.
 3. Promptfoo eval runtime artifact exists.
-4. JOSS submission is opened or explicitly deferred with rationale.
+
+The broader ecosystem loop remains open until Promptfoo share, JOSS submission,
+and upstream PRs are performed or explicitly deferred.

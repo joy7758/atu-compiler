@@ -1,11 +1,12 @@
 # Zenodo Release Ingestion Decision
 
-Status date: 2026-06-30
+Status date: 2026-07-01
 
 ## Current Evidence
 
-ATU v0.2.0 is enabled in Zenodo, but Zenodo has not ingested the existing
-GitHub Release.
+ATU `v0.2.0` was enabled in Zenodo only after the original GitHub Release had
+already been published, so Zenodo did not ingest that existing release. The
+selected closure path was the non-destructive `v0.2.1` activation release.
 
 Observed state:
 
@@ -18,12 +19,23 @@ Hook deliveries not seen: release / published
 Zenodo repository-list sync: success alert returned
 Zenodo repository detail page: no v0.2.0 release, no DOI
 Zenodo API query for joy7758/atu-compiler: total 0
+GitHub Release v0.2.1 published_at: 2026-06-30T23:59:42Z
+Zenodo record for v0.2.1: https://zenodo.org/records/21087765
+Zenodo DOI for v0.2.1: 10.5281/zenodo.21087765
 ```
 
-Machine-readable observer field:
+Historical machine-readable observer field:
 
 ```text
 zenodo_ingestion_diagnosis.new_release_published_event_required: true
+```
+
+Current machine-readable observer field:
+
+```text
+zenodo.doi_status: verified
+zenodo.record.doi: 10.5281/zenodo.21087765
+zenodo.record.status: published
 ```
 
 ## Interpretation
@@ -127,19 +139,22 @@ Cons:
 
 ## Current Decision
 
-Do not mutate `v0.2.0` again automatically. The next external action requires
-an explicit maintainer decision between:
+The maintainer selected Option A. The guarded script was executed with explicit
+confirmation, creating and publishing `v0.2.1` without moving or rebuilding
+`v0.2.0`.
 
 ```text
-recommended_safe_path: create v0.2.1 patch release
-version_exact_path: delete and recreate GitHub Release v0.2.0 without moving tag
-manual_deposit_path: create Zenodo deposit directly
-prepared_safe_path: guarded v0.2.1 script and release notes exist, not executed
+selected_path: create v0.2.1 patch release
+execution_guard: ATU_CONFIRM_ZENODO_V0_2_1_RELEASE=v0.2.1-zenodo-release
+github_release: https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1
+zenodo_record: https://zenodo.org/records/21087765
+zenodo_doi: verified
 ```
 
-Until one of those actions succeeds and a DOI-bearing Zenodo record is
-verified, the DOI state remains:
+The DOI state is now:
 
 ```text
-zenodo_doi: not_verified
+zenodo_doi: verified
+software_doi: 10.5281/zenodo.21087765
+concept_doi: 10.5281/zenodo.21087764
 ```
