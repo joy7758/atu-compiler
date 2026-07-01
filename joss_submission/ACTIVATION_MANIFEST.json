@@ -22,7 +22,9 @@
     "manifest_commit_policy": "use_git_history_for_current_manifest_commit_no_self_referential_hash",
     "base_release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.0",
     "base_release_tag": "v0.2.0",
-    "zenodo_activation_release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1"
+    "zenodo_activation_release_url": "https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1",
+    "zenodo_activation_release_notes": "updated_with_verified_doi",
+    "zenodo_activation_release_notes_updated_at": "2026-07-01T00:21:41Z"
   },
   "huggingface": {
     "target_dataset_repo": "joy7759/atu-trace-1000",

@@ -26,6 +26,8 @@ JOSS submission: package generated, not submitted
 - Release tag: `v0.2.0`
 - Zenodo activation release:
   `https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1`
+- Zenodo activation release notes: updated with verified DOI at
+  `2026-07-01T00:21:41Z`
 - Zenodo DOI: `https://doi.org/10.5281/zenodo.21087765`
 - Zenodo concept DOI: `https://doi.org/10.5281/zenodo.21087764`
 - Zenodo record: `https://zenodo.org/records/21087765`

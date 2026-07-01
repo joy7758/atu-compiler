@@ -27,6 +27,8 @@ Status date: 2026-07-01
   `2026-06-30T14:43:30.23Z`.
 - Zenodo activation GitHub Release created:
   `https://github.com/joy7758/atu-compiler/releases/tag/v0.2.1`.
+- GitHub Release `v0.2.1` notes updated at `2026-07-01T00:21:41Z` with the
+  verified Zenodo DOI and concept DOI.
 - Tag pushed: `v0.2.1`
 - Zenodo activation release published at `2026-06-30T23:59:42Z`.
 - Zenodo hook deliveries after `v0.2.1`: `release` / `created` / `OK` with
