@@ -5,45 +5,24 @@ build-backend = "hatchling.build"
 [project]
 name = "atu-compiler"
 version = "0.2.1"
-description = "ATU v0.2 trace-to-dataset compiler profile"
+description = "Minimal ATU trace-to-episode JSONL tool"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 authors = [{ name = "Zhang Bin" }]
-keywords = [
-  "agent-traces",
-  "opentelemetry",
-  "openinference",
-  "langsmith",
-  "datasets",
-  "promptfoo",
-]
+keywords = ["agent-traces", "jsonl", "trace-processor"]
 classifiers = [
-  "Development Status :: 4 - Beta",
+  "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
-  "Intended Audience :: Science/Research",
   "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
-  "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-dependencies = [
-  "jsonschema>=4.22",
-]
-
-[project.optional-dependencies]
-test = [
-  "pytest>=8.0",
-]
+dependencies = []
 
 [project.scripts]
-atu = "atu.cli:main"
+atu = "cli.main:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/atu"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
-addopts = "-q"
+packages = ["core", "ingest", "normalize", "export", "cli"]

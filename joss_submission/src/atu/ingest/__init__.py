@@ -1,1 +1,0 @@
-"""Source trace ingest adapters."""

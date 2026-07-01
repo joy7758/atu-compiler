@@ -1,0 +1,7 @@
+{
+  "traceId": "demo-1",
+  "spans": [
+    {"step": 1, "tool": "search"},
+    {"step": 2, "tool": "llm"}
+  ]
+}

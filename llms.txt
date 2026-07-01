@@ -1,74 +1,36 @@
 # ATU Compiler
 
-Purpose: compile heterogeneous agent traces into deterministic ATU-IR episodes
-for replay-aware datasets, Promptfoo evals, and LangSmith-style diagnostics.
+ATU is a minimal trace-to-episode JSONL tool.
 
-Status: published GitHub release `v0.2.0`; Zenodo activation release `v0.2.1`;
-Zenodo DOI verified as `10.5281/zenodo.21087765`; Hugging Face dataset is live
-at `joy7759/atu-trace-1000`. The ATU-IR/profile remains `0.2.0`; software
-release metadata is `0.2.1`. Promptfoo local runtime artifact is present
-at `evals/promptfoo/results/promptfoo-atu-v0.2.0-20260630T170204Z.json` with
-`3 passed`, `0 failed`, and `0 errors`. No JOSS submission or upstream PR is
-claimed until that external action is performed and recorded.
+## Current Tool Path
 
-Hugging Face namespace boundary: live HF target is `joy7759/atu-trace-1000`.
-The user confirmed on 2026-06-30 that HF namespace `joy7759` and GitHub
-namespace `joy7758` are the same owner identity for ATU publication purposes.
-Remote HF metadata is synchronized: `dataset_infos.json` homepage points to
-`https://huggingface.co/datasets/joy7759/atu-trace-1000` as of commit
-`fd0da1d`.
+```text
+examples/sample.json
+  -> ingest.load_trace
+  -> normalize.normalize
+  -> core.ATUCompiler.compile
+  -> export.export_jsonl
+  -> out.jsonl
+```
 
-Canonical commands:
+## Agent-Readable Files
 
-- Install for development: `python -m pip install -e ".[test]"`
-- Compile OTLP: `atu compile --source otlp --input examples/autogen/trace.otlp.json --output out/atu.jsonl`
-- Compile OpenInference: `atu compile --source openinference --input examples/crewai/openinference_trace.json --output out/atu.jsonl`
-- Compile LangSmith: `atu compile --source langsmith --input examples/langsmith/run_export.json --output out/atu.jsonl`
-- Validate: `atu validate --input out/atu.jsonl --schema schemas/atu-ir.schema.json`
-- Export HF dataset: `atu export-hf --input out/atu.jsonl --output datasets/atu-trace-1000`
-- Export Promptfoo suite: `atu export-promptfoo --input out/atu.jsonl --output evals/promptfoo`
-- Build replay manifests: `atu replay-manifest --input out/atu.jsonl --output replay/manifests`
-- Release check: `make release-check`
-- Observe external activation: `make scientific-activation-observe`
-- Observe verified Zenodo DOI record: `make scientific-activation-observe`
-- Check HF canonical identity: `make hf-canonical-identity-check`
-- Manual GitHub observer: Actions -> `Scientific Activation Observer`
-  (workflow skips repo hook-delivery inspection; local authenticated observer
-  includes it; CI-side HF checks fall back to the public Hub API)
+- `cli/main.py`: executable entry point.
+- `core/compiler.py`: transformation logic.
+- `ingest/loader.py`: JSON input loader.
+- `normalize/normalize.py`: source field normalization.
+- `export/jsonl.py`: JSONL writer.
+- `tests/test_basic.py`: expected behavior.
 
-Important files:
+## Commands
 
-- `schemas/atu-ir.schema.json`: canonical output schema.
-- `rfcs/RFC-0001-atu-ir-v0.2.md`: design contract and non-goals.
-- `mapping/*.md`: source mapping rules.
-- `src/atu/compiler.py`: span-to-episode pipeline.
-- `src/atu/ingest/*.py`: source adapters.
-- `src/atu/export/*.py`: downstream exporters.
-- `tests/test_compiler.py`: deterministic compile and schema checks.
-- `ACTIVATION_MANIFEST.json`: machine-readable publication/activation state.
-- `docs/scientific-citation-observer.md`: read-only DOI/dataset/eval monitor.
-- `docs/zenodo-release-ingestion-decision.md`: decision record for the missing
-  Zenodo release-published event.
-- `scripts/activation/observe_scientific_activation.py`: JSON observer command.
-- `scripts/activation/create_v0_2_1_zenodo_release.sh`: guarded release creator;
-  defaults to dry-run and requires `ATU_CONFIRM_ZENODO_V0_2_1_RELEASE` for
-  execution.
+```bash
+python3 cli/main.py examples/sample.json out.jsonl
+python3 -m unittest discover -s tests
+```
 
-Protocol boundaries:
+## Non-claims
 
-- OpenTelemetry/OpenInference/LangSmith exports are inputs, not ATU truth.
-- ATU-IR JSONL is the normalized compiler output.
-- Replay manifests and receipts describe replay/audit, not external validation.
-- Dataset and Promptfoo exports are generated views, not separate source truth.
-- GitHub Release existence, Zenodo webhook delivery, DOI materialization, HF
-  dataset publication, Promptfoo runtime evidence, and JOSS submission are
-  separate truth surfaces.
-- A Zenodo webhook delivery is not a DOI. DOI completion requires a
-  DOI-bearing Zenodo API record; ATU now records `10.5281/zenodo.21087765`.
-- A Zenodo repository-list sync success alert is not a DOI. It only confirms
-  Zenodo refreshed the GitHub repository list.
-- A GitHub `release` / `edited` webhook delivery is not equivalent to a
-  `release` / `published` event for Zenodo archival.
-- A browser-authenticated Hugging Face session is not a dataset publication.
-  Dataset completion requires a live dataset URL; ATU v0.2 now uses
-  `joy7759/atu-trace-1000`.
+Current ATU does not claim JOSS submission, benchmark publication, dataset
+standardization, upstream adoption, replay verification, or receipt-level audit.
+Those prior surfaces were intentionally removed for a tool-first reset.

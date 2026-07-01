@@ -9,6 +9,7 @@ dist/
 build/
 *.egg-info/
 out/
+out.jsonl
 replay/manifests/
 .coverage
 htmlcov/

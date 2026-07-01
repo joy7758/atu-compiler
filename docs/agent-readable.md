@@ -1,17 +1,41 @@
-# Agent-Readable Design Notes
+# Agent-readable Tool Surface
 
-ATU Compiler is intentionally optimized for coding agents, retrieval agents, and
-citation agents.
+ATU's current working tree is optimized for coding agents that need a small,
+direct trace-processing tool.
 
-Agent-readable affordances:
+## Entry Points
 
-- stable command names and deterministic JSON output;
-- JSON Schemas for primary artifacts;
-- explicit source mapping docs;
-- `llms.txt` with canonical commands and status boundaries;
-- synthetic fixtures that compile without network access;
-- tests that check determinism and schema validity;
-- clear non-claims for DOI, publication, and submission status.
+- `README.md`: current scope and commands.
+- `llms.txt`: compact agent index.
+- `cli/main.py`: direct executable command.
+- `core/compiler.py`: core transformation.
+- `tests/test_basic.py`: behavioral smoke test.
 
-When adding features, update the closest schema, mapping doc, CLI help, fixture,
-and test in the same change.
+## Contract
+
+Input:
+
+```json
+{
+  "traceId": "demo-1",
+  "spans": []
+}
+```
+
+Output JSONL row:
+
+```json
+{
+  "episode_id": "demo-1",
+  "steps": [],
+  "labels": {
+    "success": true
+  }
+}
+```
+
+## Boundary
+
+Do not infer dataset publication, benchmark validity, JOSS submission, replay
+verification, or standardization status from this repository. The current
+working tree is a minimal tool-first compiler.
